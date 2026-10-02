@@ -15,12 +15,13 @@ import Products from "@/features/home/products/Products";
 import Production from "@/features/home/production/Production";
 import ProductionStatementSection from "@/features/home/section/ProductionStatementSection";
 import ProductDetail from "@/features/product-detail/ProductDetail";
-import { readManagedProducts } from "@/features/products/read";
+import { readFeaturedProductIds, readManagedProducts, readProductCategories } from "@/features/products/read";
 import { canonicalProductSlug } from "@/lib/site-routing";
 
 export async function HomeRoutePage() {
   await connection();
   const sections = await readHomeSections();
+  const [managedProducts, featuredProductIds] = await Promise.all([readManagedProducts(), readFeaturedProductIds()]);
 
   return (
     <HomeContentProvider sections={sections}>
@@ -29,7 +30,7 @@ export async function HomeRoutePage() {
         <AboutSection />
         <Production />
         <HomeActivities />
-        <Products />
+        <Products managedProducts={managedProducts} featuredProductIds={featuredProductIds} />
         <ContactCTA />
         <ProductionStatementSection />
       </main>
@@ -47,10 +48,11 @@ export async function AboutRoutePage() {
 }
 
 export async function ActivitiesRoutePage() {
-  const [sections, managedProducts] = await Promise.all([readHomeSections(), readManagedProducts()]);
+  const sections = await readHomeSections();
+  const [managedProducts, categories] = await Promise.all([readManagedProducts(), readProductCategories(sections)]);
   return (
     <HomeContentProvider sections={sections}>
-      <ActivitiesPage managedProducts={managedProducts} />
+      <ActivitiesPage managedProducts={managedProducts} categories={categories} />
     </HomeContentProvider>
   );
 }
@@ -62,16 +64,17 @@ export async function ContactRoutePage() {
 
 export async function ProductRoutePage({ slug }: { slug: string }) {
   const canonicalSlug = canonicalProductSlug(slug);
-  const managedProducts = await readManagedProducts();
+  const sections = await readHomeSections();
+  const [managedProducts, categories] = await Promise.all([readManagedProducts(), readProductCategories(sections)]);
   const product = productsWithManaged(managedProducts).find(item => item.managed
     ? item.managed.slug.tr === slug || item.managed.slug.en === slug
-    : item.id === canonicalSlug);
+    : item.slug === canonicalSlug);
   if (!product) notFound();
 
-  const sections = await readHomeSections();
+  const category = categories.find(item => item.id === product.category);
   return (
     <HomeContentProvider sections={sections}>
-      <ProductDetail product={product} />
+      <ProductDetail product={product} categoryName={category?.name ?? { tr: "Ürün", en: "Product" }} />
     </HomeContentProvider>
   );
 }

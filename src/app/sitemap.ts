@@ -1,59 +1,76 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://topraktarim.com.tr";
+import { products } from "@/data/products";
+import { readManagedProducts } from "@/features/products/read";
+import { absoluteUrl } from "@/lib/seo";
+import { localizedProductHref } from "@/lib/site-routing";
+
+export const dynamic = "force-dynamic";
+
+type SitemapEntry = MetadataRoute.Sitemap[number];
+
+function localizedPair(
+  trPath: string,
+  enPath: string,
+  changeFrequency: SitemapEntry["changeFrequency"],
+  trPriority: number,
+  enPriority: number,
+  lastModified?: Date,
+): MetadataRoute.Sitemap {
+  const languages = {
+    "tr-TR": absoluteUrl(trPath),
+    en: absoluteUrl(enPath),
+    "x-default": absoluteUrl(trPath),
+  };
 
   return [
-    // Türkçe Sayfalar
     {
-      url: `${baseUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
+      url: absoluteUrl(trPath),
+      changeFrequency,
+      priority: trPriority,
+      alternates: { languages },
+      ...(lastModified ? { lastModified } : {}),
     },
     {
-      url: `${baseUrl}/hakkimizda`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      url: absoluteUrl(enPath),
+      changeFrequency,
+      priority: enPriority,
+      alternates: { languages },
+      ...(lastModified ? { lastModified } : {}),
     },
-    {
-      url: `${baseUrl}/faaliyetler`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/iletisim`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
+  ];
+}
 
-    // İngilizce Sayfalar
-    {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/en/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/en/activities`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/en/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const managedProducts = await readManagedProducts();
+  const staticProductPages = products.flatMap(product => localizedPair(
+    localizedProductHref(product.slug, "tr"),
+    localizedProductHref(product.slug, "en"),
+    "weekly",
+    0.7,
+    0.6,
+  ));
+  const managedProductPages = managedProducts.flatMap(product => {
+    const updatedAt = new Date(product.updatedAt);
+    return localizedPair(
+      `/faaliyetler/${product.slug.tr}`,
+      `/en/activities/${product.slug.en}`,
+      "weekly",
+      0.7,
+      0.6,
+      Number.isNaN(updatedAt.valueOf()) ? undefined : updatedAt,
+    );
+  });
+
+  return [
+    ...localizedPair("/", "/en", "weekly", 1, 0.9),
+    ...localizedPair("/hakkimizda", "/en/about", "monthly", 0.8, 0.7),
+    ...localizedPair("/faaliyetler", "/en/activities", "weekly", 0.8, 0.7),
+    ...localizedPair("/iletisim", "/en/contact", "monthly", 0.6, 0.5),
+    ...staticProductPages,
+    ...managedProductPages,
+    { url: absoluteUrl("/cookies"), changeFrequency: "yearly", priority: 0.2 },
+    { url: absoluteUrl("/kvkk"), changeFrequency: "yearly", priority: 0.2 },
+    { url: absoluteUrl("/iss"), changeFrequency: "yearly", priority: 0.2 },
   ];
 }

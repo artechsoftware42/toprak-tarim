@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 
 import { HomeRoutePage } from "@/features/site-pages/RoutePages";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Toprak Tarım | Topraktan Geleceğe Güvenli Üretim ve Kurumsal Tarım",
+export const metadata: Metadata = createPageMetadata({
+  locale: "tr",
+  title: "Toprak Tarım | Tarımsal Üretim ve Güvenilir Tedarik",
   description:
     "Toprak Tarım; sürdürülebilir tarımsal üretim, saha takibi, güvenilir tedarik ve modern kurumsal tarım çözümleri sunar.",
-  alternates: {
-    canonical: "/",
-    languages: { "tr-TR": "/", en: "/en", "x-default": "/" },
-  },
-};
+  canonical: "/",
+  trPath: "/",
+  enPath: "/en",
+  absoluteTitle: true,
+});
 
 export default HomeRoutePage;

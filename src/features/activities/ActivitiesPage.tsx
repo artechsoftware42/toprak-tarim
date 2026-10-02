@@ -13,12 +13,12 @@ import {
 
 import type { MotionValue } from "framer-motion";
 
-import { useEffect, useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
-import { productFilters, productsWithManaged } from "@/data/products";
+import { productsWithManaged } from "@/data/products";
 import type { ProductFilter } from "@/data/products";
-import type { ManagedProduct } from "@/features/products/model";
+import type { ManagedProduct, ProductCategory } from "@/features/products/model";
 import { ContentImage, ContentText, useSectionContent } from "@/features/home/content/HomeContent";
 import { localizedHref, localizedProductHref, localizedSectionId } from "@/lib/site-routing";
 
@@ -322,7 +322,7 @@ function getServerCompactLayout() {
   return true;
 }
 
-export default function ActivitiesPage({ managedProducts = [] }: { managedProducts?: ManagedProduct[] }) {
+export default function ActivitiesPage({ managedProducts = [], categories = [] }: { managedProducts?: ManagedProduct[]; categories?: ProductCategory[] }) {
   const { locale } = useSectionContent("activityPage");
   const reduceMotion = Boolean(useReducedMotion());
 
@@ -344,7 +344,7 @@ export default function ActivitiesPage({ managedProducts = [] }: { managedProduc
 
       <ActivitiesJourney staticLayout={staticLayout} />
 
-      <ProductsSection managedProducts={managedProducts} />
+      <ProductsSection managedProducts={managedProducts} categories={categories} />
     </main>
   );
 }
@@ -1632,23 +1632,14 @@ function MobileJourneyStep({
   );
 }
 
-function ProductsSection({ managedProducts }: { managedProducts: ManagedProduct[] }) {
+function ProductsSection({ managedProducts, categories }: { managedProducts: ManagedProduct[]; categories: ProductCategory[] }) {
   const { text, locale } = useSectionContent("activityPage");
-  const [activeFilter, setActiveFilter] = useState<ProductFilter>("Tümü");
+  const [activeFilter, setActiveFilter] = useState<ProductFilter>("all");
   const products = productsWithManaged(managedProducts);
-  const filters = [...productFilters, ...managedProducts.map(product => product.copy[locale].name)];
-  const filterLabelFields = [
-    "products_filter_1",
-    "product_1_name",
-    "product_2_name",
-    "product_3_name",
-    "product_4_name",
-  ];
-
-  useEffect(() => { setActiveFilter("Tümü"); }, [locale]);
+  const filters = [{ id: "all", label: text("products_filter_1") }, ...categories.map(category => ({ id: category.id, label: category.name[locale] }))];
 
   const visibleProducts =
-    activeFilter === "Tümü"
+    activeFilter === "all"
       ? products
       : products.filter(product => (product.managed ? product.managed.copy[locale].name : product.category) === activeFilter);
 
@@ -1700,15 +1691,15 @@ function ProductsSection({ managedProducts }: { managedProducts: ManagedProduct[
             aria-label={text("products_filters_aria")}
           >
             {filters.map((filter, index) => {
-              const isActive = activeFilter === filter;
+              const isActive = activeFilter === filter.id;
 
               return (
                 <button
-                  key={filter}
+                  key={filter.id}
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActiveFilter(filter)}
+                  onClick={() => setActiveFilter(filter.id)}
                   className={`group relative flex cursor-pointer items-baseline gap-2 py-2 text-left transition-colors duration-300 ${
                     isActive
                       ? "text-[#171915]"
@@ -1726,7 +1717,7 @@ function ProductsSection({ managedProducts }: { managedProducts: ManagedProduct[
                   </span>
 
                   <span className="text-sm font-medium tracking-[-0.02em] sm:text-[15px]">
-                    {index < filterLabelFields.length ? text(filterLabelFields[index]) : filter}
+                    {filter.label}
                   </span>
 
                   <span

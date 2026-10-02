@@ -14,7 +14,13 @@ export async function PUT(request: Request, context: { params: Promise<{ id: str
   product.updatedAt = new Date().toISOString();
   try {
     const client = await getMongoClient();
-    const collection = client.db(process.env.MONGODB_DB || "toprak-tarim").collection("products");
+    const db = client.db(process.env.MONGODB_DB || "toprak-tarim");
+    const collection = db.collection("products");
+    if (!["barley", "wheat", "corn", "sunflower"].includes(product.categoryId) && !(await db.collection("product_categories").findOne({ id: product.categoryId }, { projection: { _id: 1 } }))) {
+      return Response.json({ message: "Seçilen kategori bulunamadı." }, { status: 400 });
+    }
+    const reservedSlugs = new Set(["arpa", "bugday", "misir", "aycicegi", "barley", "wheat", "corn", "sunflower"]);
+    if (reservedSlugs.has(product.slug.tr) || reservedSlugs.has(product.slug.en)) return Response.json({ message: "Bu ürün adı varsayılan bir ürün bağlantısıyla çakışıyor." }, { status: 409 });
     const slugOwner = await collection.findOne({ id: { $ne: id }, $or: [{ "slug.tr": product.slug.tr }, { "slug.en": product.slug.en }] }, { projection: { _id: 1 } });
     if (slugOwner) return Response.json({ message: "Bu ürün bağlantısı başka bir üründe kullanılıyor." }, { status: 409 });
     const result = await collection.replaceOne({ id }, product);
@@ -31,8 +37,11 @@ export async function DELETE(request: Request, context: { params: Promise<{ id: 
   const { id } = await context.params;
   try {
     const client = await getMongoClient();
-    const result = await client.db(process.env.MONGODB_DB || "toprak-tarim").collection("products").deleteOne({ id });
+    const db = client.db(process.env.MONGODB_DB || "toprak-tarim");
+    const result = await db.collection("products").deleteOne({ id });
     if (!result.deletedCount) return Response.json({ message: "Ürün bulunamadı." }, { status: 404 });
+    const settings = await db.collection("product_settings").findOne({ key: "home-selection" }, { projection: { productIds: 1 } });
+    if (Array.isArray(settings?.productIds)) await db.collection("product_settings").updateOne({ key: "home-selection" }, { $set: { productIds: settings.productIds.filter(value => value !== id), updatedAt: new Date() } });
     return Response.json({ message: "Ürün kaldırıldı." });
   } catch {
     console.error("[admin-products] Product deletion failed.");

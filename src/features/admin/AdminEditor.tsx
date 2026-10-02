@@ -16,6 +16,8 @@ import hero4 from "@/assets/hero4.png";
 import icon from "@/assets/icon.png";
 import policy from "@/features/home/content/field-policy.json";
 import { defaults, plainText, type HomeSection, type Locale, type MediaReference, type PageKey, type RichText, type TextRun } from "@/features/home/content/model";
+import type { ManagedProduct, ProductCategory } from "@/features/products/model";
+import ManagedProductsEditor from "./ManagedProductsEditor";
 
 const pageTints: Record<PageKey, string> = {
   hero: "#fff4ea",
@@ -71,18 +73,12 @@ const contactOfficeFields = new Set(["office_label", "office_address", "office_p
 const contactFactoryFields = new Set(["factory_label", "factory_address", "factory_phone", "factory_email"]);
 const productListFields = new Set([
   "products_background", "products_label", "products_title_1", "products_title_2", "products_description",
-  "products_filters_aria", "products_filter_1", "products_filter_2", "products_filter_3", "products_filter_hint",
+  "products_filter_1", "products_filter_hint",
   "products_brand", "product_cta", "inspect_label", "product_aria_suffix",
   "detail_products_button", "detail_products_button_hover", "detail_story_label", "detail_story_intro",
   "detail_back_label", "detail_brand", "detail_scroll_label", "detail_general_overview", "detail_production_approach",
   "detail_fact_usage_label", "detail_fact_sowing_label", "detail_fact_harvest_label", "detail_fact_character_label",
 ]);
-
-function isProductField(field: string, productIndex: number) {
-  return field === `product_${productIndex}_name`
-    || field === `product_${productIndex}_description`
-    || field.startsWith(`detail_product_${productIndex}_`);
-}
 
 const adminAreas: AdminArea[] = [
   {
@@ -96,7 +92,7 @@ const adminAreas: AdminArea[] = [
       { id: "home-about", label: "Hakkımızda Tanıtımı", description: "Ana sayfadaki kısa kurumsal tanıtım alanı", pageKey: "about", preview: "/", matchesField: () => true, mediaSlots: ["primary", "secondary", "seal"] },
       { id: "home-production", label: "Üretim Bölümü", description: "Ana sayfadaki etkileşimli üretim anlatımı", pageKey: "activityPage", preview: "/", matchesField: field => field.startsWith("home_production_") || /^product_\d+_name$/.test(field), mediaSlots: [] },
       { id: "home-activities", label: "Faaliyetler Bölümü", description: "Ana sayfadaki faaliyet kartları ve açıklamaları", pageKey: "activityPage", preview: "/", matchesField: field => field.startsWith("home_activities_") || field.startsWith("activity_step_") || ["activities_label", "intro_label", "inspect_label"].includes(field), mediaSlots: ["activityCard1", "activityCard2", "activityCard3", "activityCard4"] },
-      { id: "home-products", label: "Ürünler Bölümü", description: "Ana sayfadaki ürün kartları ve yönlendirme metinleri", pageKey: "activityPage", preview: "/", matchesField: field => field.startsWith("home_products_") || /^product_\d+_(?:name|description)$/.test(field) || ["products_label", "detail_products_button", "detail_products_button_hover"].includes(field), mediaSlots: ["product1", "product2", "product3", "product4"] },
+      { id: "home-products", label: "Ürün Kategorileri Bölümü", description: "Ana sayfadaki kategori alanının başlıkları ve yönlendirme metinleri", pageKey: "activityPage", preview: "/", matchesField: field => field.startsWith("home_products_") || ["products_label", "detail_products_button", "detail_products_button_hover"].includes(field), mediaSlots: [] },
       { id: "home-contact", label: "İletişim Çağrısı", description: "Ana sayfanın iletişime yönlendiren kapanış alanı", pageKey: "contactCTA", preview: "/", matchesField: () => true, mediaSlots: ["background"] },
     ],
   },
@@ -123,10 +119,8 @@ const adminAreas: AdminArea[] = [
       { id: "activities-welcome", label: "Sayfa Girişi", description: "Faaliyetler sayfasının karşılama ve giriş alanı", pageKey: "activityPage", preview: "/faaliyetler", matchesField: field => field.startsWith("hero_") || field.startsWith("intro_") || activityHeroFields.has(field), mediaSlots: ["hero"] },
       { id: "activities-production", label: "Üretim", description: "Üretim adımları ve üretim yolculuğu", pageKey: "activityPage", preview: "/faaliyetler#uretim", matchesField: field => field.startsWith("activity_step_") || field.startsWith("journey_"), mediaSlots: ["activityCard1", "activityCard2", "activityCard3", "activityCard4"] },
       { id: "activities-products", group: "Ürünler", label: "Ürün Listesi ve Ortak Metinler", description: "Ürünler bölümünün başlıkları, filtreleri ve tüm ürünlerde kullanılan ortak detay metinleri", pageKey: "activityPage", preview: "/faaliyetler#urunler", matchesField: field => productListFields.has(field) || /^detail_story_\d+_/.test(field), mediaSlots: [] },
-      { id: "activities-product-barley", group: "Ürünler", label: "Arpa", description: "Arpa kartı, ürün detay sayfası ve görselleri", pageKey: "activityPage", preview: "/faaliyetler/arpa", matchesField: field => isProductField(field, 1), mediaSlots: ["product1", "detailProduct1"] },
-      { id: "activities-product-wheat", group: "Ürünler", label: "Buğday", description: "Buğday kartı, ürün detay sayfası ve görselleri", pageKey: "activityPage", preview: "/faaliyetler/bugday", matchesField: field => isProductField(field, 2), mediaSlots: ["product2", "detailProduct2"] },
-      { id: "activities-product-corn", group: "Ürünler", label: "Mısır", description: "Mısır kartı, ürün detay sayfası ve görselleri", pageKey: "activityPage", preview: "/faaliyetler/misir", matchesField: field => isProductField(field, 3), mediaSlots: ["product3", "detailProduct3"] },
-      { id: "activities-product-sunflower", group: "Ürünler", label: "Ayçiçeği", description: "Ayçiçeği kartı, ürün detay sayfası ve görselleri", pageKey: "activityPage", preview: "/faaliyetler/aycicegi", matchesField: field => isProductField(field, 4), mediaSlots: ["product4", "detailProduct4"] },
+      { id: "activities-managed-categories", group: "Ürünler", label: "Kategoriler", description: "Ürün filtrelerinde kullanılan kategorileri yönetin", pageKey: "activityPage", preview: "/faaliyetler#urunler", matchesField: () => false, mediaSlots: [] },
+      { id: "activities-managed-products", group: "Ürünler", label: "Ürün Ekle ve Düzenle", description: "Yeni ürün ekleyin, kategorisini seçin ve ana sayfa ürünlerini belirleyin", pageKey: "activityPage", preview: "/faaliyetler#urunler", matchesField: () => false, mediaSlots: [] },
     ],
   },
   {
@@ -384,7 +378,7 @@ function MediaEditor({ pageKey, slot, media, onChange }: { pageKey: PageKey; slo
   );
 }
 
-export default function AdminEditor({ initialSections }: { initialSections: HomeSection[] }) {
+export default function AdminEditor({ initialSections, initialManagedProducts, initialCategories, initialFeaturedProductIds }: { initialSections: HomeSection[]; initialManagedProducts: ManagedProduct[]; initialCategories: ProductCategory[]; initialFeaturedProductIds: string[] }) {
   const router = useRouter();
   const [saved, setSaved] = useState(() => cloneSections(initialSections));
   const [drafts, setDrafts] = useState(() => cloneSections(initialSections));
@@ -401,6 +395,7 @@ export default function AdminEditor({ initialSections }: { initialSections: Home
   const section = drafts.find(item => item.pageKey === activeKey)!;
   const savedSection = saved.find(item => item.pageKey === activeKey)!;
   const activePanelSection = panelSections.find(item => item.id === activePanelSectionId)!;
+  const isManagedProductsPanel = activePanelSection.id === "activities-managed-products" || activePanelSection.id === "activities-managed-categories";
   const dirty = JSON.stringify(panelSectionSnapshot(section, activePanelSection)) !== JSON.stringify(panelSectionSnapshot(savedSection, activePanelSection));
   const anyDirty = drafts.some(item => JSON.stringify(item) !== JSON.stringify(saved.find(savedItem => savedItem.pageKey === item.pageKey)));
   const dirtyCount = drafts.filter(item => JSON.stringify(item) !== JSON.stringify(saved.find(savedItem => savedItem.pageKey === item.pageKey))).length;
@@ -573,8 +568,8 @@ export default function AdminEditor({ initialSections }: { initialSections: Home
             <div className="mr-auto min-w-0"><p className="truncate text-[12px] text-black/35">{activeArea.label} / {activePanelSection.group ? `${activePanelSection.group} / ` : ""}{activePanelSection.label}</p><p className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.14em]" style={{ color: dirty ? "#e86f12" : activeArea.color }}>{dirty ? "Bu bölümde kaydedilmemiş değişiklik var" : dirtyCount ? `${dirtyCount} içerik kaydında kaydedilmemiş değişiklik var` : "Tüm değişiklikler kayıtlı"}</p></div>
             {notice && <div className={`order-last flex w-full items-center gap-2 rounded-xl px-3 py-2 text-[11px] md:order-none md:w-auto ${notice.type === "success" ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-700"}`}>{notice.type === "success" ? <Check size={14} /> : <CircleAlert size={14} />}{notice.text}</div>}
             <Link href={activePanelSection.preview} target="_blank" className="hidden h-10 items-center gap-2 rounded-xl border border-black/10 bg-white px-3 text-[11px] font-semibold text-black/50 transition hover:border-black/20 hover:text-black sm:flex"><ExternalLink size={14} />Önizle</Link>
-            <button onClick={cancel} disabled={!dirty || saving} className="flex h-10 items-center gap-2 rounded-xl border border-black/10 bg-white px-4 text-[12px] font-semibold text-black/55 transition hover:border-black/20 hover:text-black disabled:cursor-not-allowed disabled:opacity-35"><RotateCcw size={14} />İptal</button>
-            <button onClick={save} disabled={!dirty || saving} className="flex h-10 items-center gap-2 rounded-xl px-4 text-[12px] font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-40" style={{ background: activeArea.color }} title="Kaydet (Ctrl/⌘ + S)"><Save size={14} />{saving ? "Kaydediliyor" : "Kaydet"}</button>
+            {!isManagedProductsPanel && <><button onClick={cancel} disabled={!dirty || saving} className="flex h-10 items-center gap-2 rounded-xl border border-black/10 bg-white px-4 text-[12px] font-semibold text-black/55 transition hover:border-black/20 hover:text-black disabled:cursor-not-allowed disabled:opacity-35"><RotateCcw size={14} />İptal</button>
+            <button onClick={save} disabled={!dirty || saving} className="flex h-10 items-center gap-2 rounded-xl px-4 text-[12px] font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-40" style={{ background: activeArea.color }} title="Kaydet (Ctrl/⌘ + S)"><Save size={14} />{saving ? "Kaydediliyor" : "Kaydet"}</button></>}
           </div>
         </header>
 
@@ -586,7 +581,7 @@ export default function AdminEditor({ initialSections }: { initialSections: Home
             </div>
           </div>
 
-          <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
+          {isManagedProductsPanel ? <div className="mt-6"><ManagedProductsEditor key={activePanelSection.id} initialMode={activePanelSection.id === "activities-managed-categories" ? "categories" : "products"} initialProducts={initialManagedProducts} initialCategories={initialCategories} initialFeaturedProductIds={initialFeaturedProductIds} initialActivitySection={initialSections.find(item => item.pageKey === "activityPage")!} /></div> : <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
             <div className="min-w-0 space-y-6">
               <section className="overflow-hidden rounded-[24px] border border-black/[0.07] bg-white">
                 <div className="sticky top-[65px] z-20 border-b border-black/[0.07] bg-white/95 p-5 backdrop-blur-lg sm:p-6">
@@ -609,7 +604,7 @@ export default function AdminEditor({ initialSections }: { initialSections: Home
               <section className="rounded-[24px] border border-black/[0.07] bg-white p-5"><h2 className="text-[13px] font-semibold">{activePanelSection.label} medyaları</h2><p className="mt-1 text-[10px] leading-4 text-black/35">Bu alt bölüme ait dosyalar burada gösterilir.</p>{mediaEntries.length ? <div className="mt-4 space-y-4">{mediaEntries.map(([slot, media]) => <MediaEditor key={`${activeKey}-${slot}`} pageKey={activeKey} slot={slot} media={media} onChange={url => changeSection(copy => { if (copy.media) copy.media[slot].externalUrl = url; })} />)}</div> : <div className="mt-4 rounded-xl bg-[#faf4e7] p-4 text-[11px] leading-5 text-[#76551e]">{activeAreaKey === "contact" ? "Google haritası, merkez ofis ve fabrika konumları sabittir; panelden değiştirilemez." : "Bu alt bölümde değiştirilebilir fotoğraf veya video bulunmuyor."}</div>}</section>
               <section className="rounded-[24px] border border-black/[0.07] bg-[#19211b] p-5 text-white"><h2 className="text-[13px] font-semibold">Güvenli düzenleme</h2><ul className="mt-4 space-y-3 text-[11px] leading-5 text-white/50"><li>• URL ve teknik anahtarlar kilitlidir.</li><li>• Harita adresleri ve koordinatları sabittir.</li><li>• Sabit başlıklarda yalnızca biçim değişir.</li><li>• İptal, son kayıtlı sürüme döner.</li></ul></section>
             </aside>
-          </div>
+          </div>}
         </div>
       </section>
     </main>

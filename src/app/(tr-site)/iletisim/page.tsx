@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 
 import { ContactRoutePage } from "@/features/site-pages/RoutePages";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "İletişim | Toprak Tarım",
+export const metadata: Metadata = createPageMetadata({
+  locale: "tr",
+  title: "İletişim",
   description:
     "Birlikte çalışmak için konuşmaya başlayalım. Projeleriniz, iş birlikleriniz ve sorularınız için Toprak Tarım ekibiyle iletişime geçin.",
-  alternates: {
-    canonical: "/iletisim",
-    languages: { "tr-TR": "/iletisim", en: "/en/contact", "x-default": "/iletisim" },
-  },
-};
+  canonical: "/iletisim",
+  trPath: "/iletisim",
+  enPath: "/en/contact",
+});
 
 export default ContactRoutePage;

@@ -4,9 +4,10 @@ import { useRef, useState } from "react";
 import type { StaticImageData } from "next/image";
 import Link from "next/link";
 
-import productField from "@/assets/img2.png";
 import { ContentImage, ContentText, useSectionContent } from "@/features/home/content/HomeContent";
 import { localizedHref, localizedProductHref } from "@/lib/site-routing";
+import { productsWithManaged } from "@/data/products";
+import type { ManagedProduct } from "@/features/products/model";
 
 /* ==========================================================================
    TYPES
@@ -14,51 +15,13 @@ import { localizedHref, localizedProductHref } from "@/lib/site-routing";
 
 type Product = {
   number: string;
-  titleField: string;
-  descriptionField: string;
-  image: StaticImageData;
+  title: string;
+  description: string;
+  image: StaticImageData | string;
   imagePosition: string;
-  slug: string;
+  slot: string;
+  href: string;
 };
-
-/* ==========================================================================
-   DATA
-   ========================================================================== */
-
-const products: Product[] = [
-  {
-    number: "01",
-    titleField: "product_1_name",
-    descriptionField: "product_1_description",
-    image: productField,
-    imagePosition: "8% center",
-    slug: "arpa",
-  },
-  {
-    number: "02",
-    titleField: "product_2_name",
-    descriptionField: "product_2_description",
-    image: productField,
-    imagePosition: "65% center",
-    slug: "bugday",
-  },
-  {
-    number: "03",
-    titleField: "product_3_name",
-    descriptionField: "product_3_description",
-    image: productField,
-    imagePosition: "40% center",
-    slug: "misir",
-  },
-  {
-    number: "04",
-    titleField: "product_4_name",
-    descriptionField: "product_4_description",
-    image: productField,
-    imagePosition: "94% center",
-    slug: "aycicegi",
-  },
-];
 
 /* ==========================================================================
    ALL PRODUCTS BUTTON
@@ -114,14 +77,12 @@ function ProductCard({
   onActivate: () => void;
 }) {
   const isActive = activeIndex === index;
-  const { text, locale } = useSectionContent("activityPage");
-
   return (
     <Link
-      href={localizedProductHref(product.slug, locale)}
+      href={product.href}
       onMouseEnter={onActivate}
       onFocus={onActivate}
-      aria-label={text(product.titleField)}
+      aria-label={product.title}
       className={`
         group
         relative
@@ -168,9 +129,9 @@ function ProductCard({
         >
           <ContentImage
             section="activityPage"
-            slot={`product${index + 1}`}
+            slot={product.slot}
             src={product.image}
-            alt={text(product.titleField)}
+            alt={product.title}
             fill
             priority={index === 0}
             draggable={false}
@@ -308,7 +269,7 @@ function ProductCard({
         }
       `}
     >
-      <ContentText section="activityPage" field={product.titleField} />
+      {product.title}
     </h3>
 
     {/* UNDERLINE */}
@@ -383,7 +344,7 @@ function ProductCard({
           }
         `}
       >
-        <ContentText section="activityPage" field={product.descriptionField} />
+        {product.description}
       </p>
 
       {/* ================================================================== */}
@@ -437,9 +398,17 @@ function MobileSliderArrow({ direction }: { direction: "left" | "right" }) {
    PRODUCTS
    ========================================================================== */
 
-export default function Products() {
+export default function Products({ managedProducts, featuredProductIds }: { managedProducts: ManagedProduct[]; featuredProductIds: string[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { text, locale } = useSectionContent("activityPage");
+  const allProducts = productsWithManaged(managedProducts);
+  const products: Product[] = featuredProductIds.flatMap(id => {
+    const product = allProducts.find(item => item.id === id);
+    if (!product) return [];
+    const legacyIndex = allProducts.findIndex(item => item.id === id) + 1;
+    const copy = product.managed?.copy[locale];
+    return [{ number: String(legacyIndex).padStart(2, "0"), title: copy?.name ?? text(`product_${legacyIndex}_name`), description: copy?.description ?? text(`product_${legacyIndex}_description`), image: product.image, imagePosition: "center", slot: product.managed ? `home-product-${product.id}` : `product${legacyIndex}`, href: product.managed ? `${locale === "tr" ? "/faaliyetler" : "/en/activities"}/${product.managed.slug[locale]}` : localizedProductHref(product.slug, locale) }];
+  }).slice(0, 4);
   const mobileSliderRef = useRef<HTMLDivElement>(null);
 
   const scrollMobileProducts = (direction: "left" | "right") => {
@@ -732,8 +701,8 @@ export default function Products() {
               <Link
                 key={product.number}
                 data-mobile-product-card
-                href={localizedProductHref(product.slug, locale)}
-                aria-label={text(product.titleField)}
+                href={product.href}
+                aria-label={product.title}
                 className="
                   relative
 
@@ -751,9 +720,9 @@ export default function Products() {
               >
                 <ContentImage
                   section="activityPage"
-                  slot={`product${Number(product.number)}`}
+                  slot={product.slot}
                   src={product.image}
-                  alt={text(product.titleField)}
+                  alt={product.title}
                   fill
                   draggable={false}
                   sizes="88vw"
@@ -821,7 +790,7 @@ export default function Products() {
                         text-white/85
                       "
                     >
-                      <ContentText section="activityPage" field={product.titleField} />
+                      {product.title}
                     </h3>
 
                     <span
@@ -846,7 +815,7 @@ export default function Products() {
                       text-white/90
                     "
                   >
-                    <ContentText section="activityPage" field={product.descriptionField} />
+                    {product.description}
                   </p>
                 </div>
               </Link>

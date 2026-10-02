@@ -481,9 +481,10 @@ function WhiteProductStory({
 
 type ProductDetailProps = {
   product: Product;
+  categoryName: { tr: string; en: string };
 };
 
-export default function ProductDetail({ product }: ProductDetailProps) {
+export default function ProductDetail({ product, categoryName }: ProductDetailProps) {
   const cinematicRef = useRef<HTMLElement>(null);
   const { text, locale } = useSectionContent("activityPage");
   const reduceMotion = Boolean(useReducedMotion());
@@ -492,7 +493,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const managedCopy = product.managed?.copy[locale];
   const productName = managedCopy?.name ?? text(`product_${contentIndex}_name`);
   const productDescription = managedCopy?.description ?? text(`product_${contentIndex}_description`);
-  const productCategory = managedCopy?.category ?? text(contentIndex === 4 ? "products_filter_3" : "products_filter_2");
+  const productCategory = categoryName[locale];
   const detailText = (field: keyof NonNullable<typeof managedCopy> | string) => managedCopy
     ? String(managedCopy[field as keyof typeof managedCopy] ?? "")
     : text(`${prefix}_${field}`);
