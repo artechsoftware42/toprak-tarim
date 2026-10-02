@@ -1,0 +1,1426 @@
+[
+  {
+    "pageKey": "about",
+    "displayName": {
+      "tr": "Hakkımızda",
+      "en": "About us"
+    },
+    "schemaVersion": 1,
+    "content": {
+      "tr": {
+        "toprak_tarim_2001_konya_toprak_tarim": [
+          {
+            "text": "TOPRAK TARIM · 2001 · KONYA · TOPRAK TARIM · KONYA ·"
+          }
+        ],
+        "hakkimizda": [
+          {
+            "text": "Hakkımızda"
+          }
+        ],
+        "bizi_daha_yakindan_taniyin": [
+          {
+            "text": "Bizi daha yakından tanıyın"
+          }
+        ],
+        "toprak_tarim": [
+          {
+            "text": "Toprak Tarım"
+          }
+        ],
+        "topragin": [
+          {
+            "text": "Toprağın"
+          }
+        ],
+        "icinden": [
+          {
+            "text": "içinden"
+          }
+        ],
+        "gelecege": [
+          {
+            "text": "geleceğe."
+          }
+        ],
+        "toprak_tarim_2001_yilinda_konya_ovasinda": [
+          {
+            "text": "Toprak Tarım, 2001 yılında Konya Ovası'nda kurulmuş; hububat ve yağlı tohumların alım-satımı, ithalatı, depolanması ve işlenmesi alanlarında faaliyet göstermektedir."
+          }
+        ],
+        "birikim": [
+          {
+            "text": "Birikim"
+          }
+        ],
+        "yillik": [
+          {
+            "text": "Yıllık"
+          }
+        ],
+        "tecrube": [
+          {
+            "text": "Tecrübe"
+          }
+        ],
+        "deneyimi": [
+          {
+            "text": "Deneyimi"
+          }
+        ],
+        "gelecege_2": [
+          {
+            "text": "geleceğe"
+          }
+        ],
+        "tasiyoruz": [
+          {
+            "text": "taşıyoruz."
+          }
+        ],
+        "gecmisten_gelen_bilgi_birikimini_gelecegin_uretim": [
+          {
+            "text": "Geçmişten gelen bilgi birikimini geleceğin üretim anlayışıyla bir araya getiriyoruz."
+          }
+        ],
+        "daha_fazlasi": [
+          {
+            "text": "Daha Fazlası"
+          }
+        ],
+        "hikyemizi": [
+          {
+            "text": "Hikâyemizi"
+          }
+        ],
+        "daha_yakindan": [
+          {
+            "text": "daha yakından"
+          }
+        ],
+        "kesfedin": [
+          {
+            "text": "keşfedin."
+          }
+        ],
+        "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin": [
+          {
+            "text": "Üretim anlayışımızı, değerlerimizi ve Toprak Tarım'ın geçmişten geleceğe uzanan yolculuğunu keşfedin."
+          }
+        ],
+        "est_2001": [
+          {
+            "text": "Est. 2001"
+          }
+        ],
+        "konya_turkiye": [
+          {
+            "text": "Konya / Türkiye"
+          }
+        ],
+        "toprak_tarim_2001_yilinda_konya_ovasinda_2": [
+          {
+            "text": "Toprak Tarım, 2001 yılında Konya Ovası'nda kurulmuş; arpa, buğday, mısır ve yağlık ayçiçeği başta olmak üzere hububat ve yağlı tohumların alım-satımı, ithalatı, depolanması ve işlenmesi alanlarında faaliyet göstermektedir."
+          }
+        ],
+        "yillarin_birikimi": [
+          {
+            "text": "Yılların birikimi"
+          }
+        ],
+        "yillik_tecrube": [
+          {
+            "text": "Yıllık tecrübe"
+          }
+        ],
+        "deneyimi_gecmise_ait_bir_sayi_olarak": [
+          {
+            "text": "Deneyimi geçmişe ait bir sayı olarak değil, daha doğru kararlar almak ve geleceği daha sağlam kurmak için sürekli gelişen bir birikim olarak görüyoruz."
+          }
+        ],
+        "dun": [
+          {
+            "text": "Dün"
+          }
+        ],
+        "bugun": [
+          {
+            "text": "Bugün"
+          }
+        ],
+        "yarin": [
+          {
+            "text": "Yarın"
+          }
+        ],
+        "birikimi": [
+          {
+            "text": "Birikimi"
+          }
+        ],
+        "ileriye": [
+          {
+            "text": "ileriye"
+          }
+        ],
+        "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin_2": [
+          {
+            "text": "Üretim anlayışımızı, değerlerimizi ve Toprak Tarım'ın geçmişten geleceğe uzanan yolculuğunu daha yakından keşfedin."
+          }
+        ],
+        "kurulus": [
+          {
+            "text": "Kuruluş"
+          }
+        ],
+        "merkez": [
+          {
+            "text": "Merkez"
+          }
+        ],
+        "konya_turkiye_2": [
+          {
+            "text": "Konya, Türkiye"
+          }
+        ],
+        "topraktan": [
+          {
+            "text": "Topraktan"
+          }
+        ],
+        "scroll": [
+          {
+            "text": "Scroll"
+          }
+        ],
+        "about_03": [
+          {
+            "text": "About / 03"
+          }
+        ],
+        "experience_mobile": [
+          {
+            "text": "25+"
+          }
+        ],
+        "experience_desktop": [
+          {
+            "text": "25 +"
+          }
+        ],
+        "experience_period": [
+          {
+            "text": "2001 — 2026"
+          }
+        ],
+        "founded_year": [
+          {
+            "text": "2001"
+          }
+        ],
+        "image_primary_alt": [
+          {
+            "text": "Toprak Tarım üretim alanı"
+          }
+        ],
+        "image_secondary_alt": [
+          {
+            "text": "Toprak Tarım tarımsal üretim"
+          }
+        ],
+        "image_brand_alt": [
+          {
+            "text": "Toprak Tarım"
+          }
+        ]
+      },
+      "en": {
+        "toprak_tarim_2001_konya_toprak_tarim": [
+          {
+            "text": "TOPRAK TARIM · 2001 · KONYA · TOPRAK TARIM · KONYA ·"
+          }
+        ],
+        "hakkimizda": [
+          {
+            "text": "About us"
+          }
+        ],
+        "bizi_daha_yakindan_taniyin": [
+          {
+            "text": "Get to know us"
+          }
+        ],
+        "toprak_tarim": [
+          {
+            "text": "Toprak Tarım"
+          }
+        ],
+        "topragin": [
+          {
+            "text": "From the soil"
+          }
+        ],
+        "icinden": [
+          {
+            "text": "towards"
+          }
+        ],
+        "gelecege": [
+          {
+            "text": "the future."
+          }
+        ],
+        "toprak_tarim_2001_yilinda_konya_ovasinda": [
+          {
+            "text": "Founded in the Konya Plain in 2001, Toprak Tarım trades, imports, stores and processes grains and oilseeds."
+          }
+        ],
+        "birikim": [
+          {
+            "text": "Experience"
+          }
+        ],
+        "yillik": [
+          {
+            "text": "Years of"
+          }
+        ],
+        "tecrube": [
+          {
+            "text": "Experience"
+          }
+        ],
+        "deneyimi": [
+          {
+            "text": "Carrying experience"
+          }
+        ],
+        "gelecege_2": [
+          {
+            "text": "into the future"
+          }
+        ],
+        "tasiyoruz": [
+          {
+            "text": "together."
+          }
+        ],
+        "gecmisten_gelen_bilgi_birikimini_gelecegin_uretim": [
+          {
+            "text": "We bring accumulated knowledge together with the production methods of the future."
+          }
+        ],
+        "daha_fazlasi": [
+          {
+            "text": "Discover more"
+          }
+        ],
+        "hikyemizi": [
+          {
+            "text": "Discover"
+          }
+        ],
+        "daha_yakindan": [
+          {
+            "text": "our story"
+          }
+        ],
+        "kesfedin": [
+          {
+            "text": "in depth."
+          }
+        ],
+        "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin": [
+          {
+            "text": "Discover our approach to production, our values and Toprak Tarım’s journey from past to future."
+          }
+        ],
+        "est_2001": [
+          {
+            "text": "Est. 2001"
+          }
+        ],
+        "konya_turkiye": [
+          {
+            "text": "Konya / Türkiye"
+          }
+        ],
+        "toprak_tarim_2001_yilinda_konya_ovasinda_2": [
+          {
+            "text": "Founded in the Konya Plain in 2001, Toprak Tarım trades, imports, stores and processes grains and oilseeds, particularly barley, wheat, corn and oilseed sunflower."
+          }
+        ],
+        "yillarin_birikimi": [
+          {
+            "text": "Years of experience"
+          }
+        ],
+        "yillik_tecrube": [
+          {
+            "text": "Years of experience"
+          }
+        ],
+        "deneyimi_gecmise_ait_bir_sayi_olarak": [
+          {
+            "text": "We see experience as continually growing knowledge that helps us make better decisions and build a stronger future."
+          }
+        ],
+        "dun": [
+          {
+            "text": "Yesterday"
+          }
+        ],
+        "bugun": [
+          {
+            "text": "Today"
+          }
+        ],
+        "yarin": [
+          {
+            "text": "Tomorrow"
+          }
+        ],
+        "birikimi": [
+          {
+            "text": "Taking experience"
+          }
+        ],
+        "ileriye": [
+          {
+            "text": "forward"
+          }
+        ],
+        "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin_2": [
+          {
+            "text": "Discover more about our approach to production, our values and Toprak Tarım’s journey from past to future."
+          }
+        ],
+        "kurulus": [
+          {
+            "text": "Established"
+          }
+        ],
+        "merkez": [
+          {
+            "text": "Headquarters"
+          }
+        ],
+        "konya_turkiye_2": [
+          {
+            "text": "Konya, Türkiye"
+          }
+        ],
+        "topraktan": [
+          {
+            "text": "From the soil"
+          }
+        ],
+        "scroll": [
+          {
+            "text": "Scroll"
+          }
+        ],
+        "about_03": [
+          {
+            "text": "About / 03"
+          }
+        ],
+        "experience_mobile": [
+          {
+            "text": "25+"
+          }
+        ],
+        "experience_desktop": [
+          {
+            "text": "25 +"
+          }
+        ],
+        "experience_period": [
+          {
+            "text": "2001 — 2026"
+          }
+        ],
+        "founded_year": [
+          {
+            "text": "2001"
+          }
+        ],
+        "image_primary_alt": [
+          {
+            "text": "Toprak Tarım production area"
+          }
+        ],
+        "image_secondary_alt": [
+          {
+            "text": "Toprak Tarım agricultural production"
+          }
+        ],
+        "image_brand_alt": [
+          {
+            "text": "Toprak Tarım"
+          }
+        ]
+      }
+    },
+    "media": {
+      "primary": {
+        "localDefault": "asset:hero3",
+        "externalUrl": null
+      },
+      "secondary": {
+        "localDefault": "asset:hero4",
+        "externalUrl": null
+      },
+      "seal": {
+        "localDefault": "asset:icon",
+        "externalUrl": null
+      }
+    }
+  },
+  {
+    "pageKey": "production",
+    "displayName": {
+      "tr": "Üretim",
+      "en": "Production"
+    },
+    "schemaVersion": 1,
+    "content": {
+      "tr": {
+        "background_label": [
+          {
+            "text": "ÜRETİM"
+          }
+        ],
+        "section_label": [
+          {
+            "text": "Üretim"
+          }
+        ],
+        "title_line_1": [
+          {
+            "text": "Toprağın"
+          }
+        ],
+        "title_line_2": [
+          {
+            "text": "potansiyelini"
+          }
+        ],
+        "title_line_3": [
+          {
+            "text": "değere dönüştürüyoruz."
+          }
+        ],
+        "description": [
+          {
+            "text": "Üretimi yalnızca ekim ve hasat arasındaki bir süreç olarak görmüyoruz. Toprağın yapısını, ürünün ihtiyacını ve doğru zamanı birlikte değerlendirerek her arazinin gerçek potansiyelini ortaya çıkarmayı amaçlıyoruz."
+          }
+        ],
+        "crop_barley": [
+          {
+            "text": "Arpa"
+          }
+        ],
+        "crop_corn": [
+          {
+            "text": "Mısır"
+          }
+        ],
+        "crop_wheat": [
+          {
+            "text": "Buğday"
+          }
+        ],
+        "crop_sunflower": [
+          {
+            "text": "Ayçiçeği"
+          }
+        ],
+        "transition_label": [
+          {
+            "text": "Topraktan ürüne"
+          }
+        ],
+        "explore_label": [
+          {
+            "text": "Toprağın potansiyelini keşfet"
+          }
+        ],
+        "interactive_label": [
+          {
+            "text": "Etkileşimli üretim"
+          }
+        ],
+        "interaction_hint": [
+          {
+            "text": "Mouse ile hareket edin"
+          }
+        ],
+        "cursor_label": [
+          {
+            "text": "Keşfet"
+          }
+        ],
+        "image_description": [
+          {
+            "text": "Aynı toprak, doğru üretim yaklaşımıyla bambaşka bir değere dönüşebilir."
+          }
+        ],
+        "image_state_label": [
+          {
+            "text": "Boş toprak → üretim"
+          }
+        ],
+        "location_label": [
+          {
+            "text": "37°52' / Üretim alanı"
+          }
+        ],
+        "caption": [
+          {
+            "text": "Toprağın sahip olduğu potansiyeli doğru ürün ve doğru üretim disipliniyle görünür hâle getiriyoruz."
+          }
+        ]
+      },
+      "en": {
+        "background_label": [
+          {
+            "text": "PRODUCTION"
+          }
+        ],
+        "section_label": [
+          {
+            "text": "Production"
+          }
+        ],
+        "title_line_1": [
+          {
+            "text": "We turn the soil's"
+          }
+        ],
+        "title_line_2": [
+          {
+            "text": "potential"
+          }
+        ],
+        "title_line_3": [
+          {
+            "text": "into value."
+          }
+        ],
+        "description": [
+          {
+            "text": "We see production as more than the process between sowing and harvest. By considering soil structure, crop needs and the right timing together, we aim to unlock the true potential of every field."
+          }
+        ],
+        "crop_barley": [
+          {
+            "text": "Barley"
+          }
+        ],
+        "crop_corn": [
+          {
+            "text": "Corn"
+          }
+        ],
+        "crop_wheat": [
+          {
+            "text": "Wheat"
+          }
+        ],
+        "crop_sunflower": [
+          {
+            "text": "Sunflower"
+          }
+        ],
+        "transition_label": [
+          {
+            "text": "From soil to crop"
+          }
+        ],
+        "explore_label": [
+          {
+            "text": "Discover the soil's potential"
+          }
+        ],
+        "interactive_label": [
+          {
+            "text": "Interactive production"
+          }
+        ],
+        "interaction_hint": [
+          {
+            "text": "Move your mouse"
+          }
+        ],
+        "cursor_label": [
+          {
+            "text": "Explore"
+          }
+        ],
+        "image_description": [
+          {
+            "text": "The same soil can yield entirely new value with the right approach to production."
+          }
+        ],
+        "image_state_label": [
+          {
+            "text": "Bare soil → production"
+          }
+        ],
+        "location_label": [
+          {
+            "text": "37°52' / Production area"
+          }
+        ],
+        "caption": [
+          {
+            "text": "We reveal the potential of the soil through the right crops and disciplined production."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "pageKey": "contactCTA",
+    "displayName": {
+      "tr": "İletişim çağrısı",
+      "en": "Contact call to action"
+    },
+    "schemaVersion": 1,
+    "content": {
+      "tr": {
+        "iletisime_gecin": [
+          {
+            "text": "İletişime Geçin"
+          }
+        ],
+        "bizimle_iletisime_gecin": [
+          {
+            "text": "Bizimle iletişime geçin"
+          }
+        ],
+        "iletisim": [
+          {
+            "text": "İletişim"
+          }
+        ],
+        "toprak_tarim": [
+          {
+            "text": "Toprak Tarım"
+          }
+        ],
+        "iletisime_gecin_2": [
+          {
+            "text": "İletişime geçin"
+          }
+        ],
+        "birlikte": [
+          {
+            "text": "Birlikte"
+          }
+        ],
+        "calismaya": [
+          {
+            "text": "çalışmaya"
+          }
+        ],
+        "baslayalim": [
+          {
+            "text": "başlayalım."
+          }
+        ],
+        "urunlerimiz_uretim_sureclerimiz_veya_olasi_is": [
+          {
+            "text": "Ürünlerimiz, üretim süreçlerimiz veya olası iş birlikleri hakkında bilgi almak için bizimle doğrudan iletişime geçebilirsiniz."
+          }
+        ],
+        "telefon": [
+          {
+            "text": "Telefon"
+          }
+        ],
+        "eposta": [
+          {
+            "text": "E-posta"
+          }
+        ],
+        "adres": [
+          {
+            "text": "Adres"
+          }
+        ],
+        "phone": [
+          {
+            "text": "0 (332) 355 80 80"
+          }
+        ],
+        "email": [
+          {
+            "text": "toprak@topraktarim.com.tr"
+          }
+        ],
+        "address": [
+          {
+            "text": "Fetih Mah. Şeyhülema Yahşi Cad. No:204 Karatay / KONYA"
+          }
+        ]
+      },
+      "en": {
+        "iletisime_gecin": [
+          {
+            "text": "Get in touch"
+          }
+        ],
+        "bizimle_iletisime_gecin": [
+          {
+            "text": "Contact our team"
+          }
+        ],
+        "iletisim": [
+          {
+            "text": "Contact"
+          }
+        ],
+        "toprak_tarim": [
+          {
+            "text": "Toprak Tarım"
+          }
+        ],
+        "iletisime_gecin_2": [
+          {
+            "text": "Get in touch"
+          }
+        ],
+        "birlikte": [
+          {
+            "text": "Let’s start"
+          }
+        ],
+        "calismaya": [
+          {
+            "text": "working"
+          }
+        ],
+        "baslayalim": [
+          {
+            "text": "together."
+          }
+        ],
+        "urunlerimiz_uretim_sureclerimiz_veya_olasi_is": [
+          {
+            "text": "Contact us directly to learn more about our products, production processes or potential partnerships."
+          }
+        ],
+        "telefon": [
+          {
+            "text": "Phone"
+          }
+        ],
+        "eposta": [
+          {
+            "text": "Email"
+          }
+        ],
+        "adres": [
+          {
+            "text": "Address"
+          }
+        ],
+        "phone": [
+          {
+            "text": "0 (332) 355 80 80"
+          }
+        ],
+        "email": [
+          {
+            "text": "toprak@topraktarim.com.tr"
+          }
+        ],
+        "address": [
+          {
+            "text": "Fetih Mah. Şeyhülema Yahşi Cad. No:204 Karatay / KONYA"
+          }
+        ]
+      }
+    },
+    "media": {
+      "background": {
+        "localDefault": "asset:hero4",
+        "externalUrl": null
+      }
+    }
+  },
+  {
+    "pageKey": "hero",
+    "displayName": {
+      "tr": "Ana sayfa karşılama",
+      "en": "Home hero"
+    },
+    "schemaVersion": 1,
+    "content": {
+      "tr": {
+        "slide1_eyebrow": [
+          {
+            "text": "DOĞADAN GELECEĞE"
+          }
+        ],
+        "slide1_title": [
+          {
+            "text": "Üretimin doğal gücü."
+          }
+        ],
+        "slide1_description": [
+          {
+            "text": "Topraktan başlayan değeri güçlü üretim anlayışıyla geleceğe taşıyoruz."
+          }
+        ],
+        "slide2_eyebrow": [
+          {
+            "text": "SÜRDÜRÜLEBİLİR ÜRETİM"
+          }
+        ],
+        "slide2_title": [
+          {
+            "text": "Değer, kaynağında başlar."
+          }
+        ],
+        "slide2_description": [
+          {
+            "text": "Doğal kaynakları doğru yöntemlerle işliyor, sürdürülebilir üretimin gücünü büyütüyoruz."
+          }
+        ],
+        "slide3_eyebrow": [
+          {
+            "text": "GELECEĞİ ÜRETİYORUZ"
+          }
+        ],
+        "slide3_title": [
+          {
+            "text": "Bugünden yarına."
+          }
+        ],
+        "slide3_description": [
+          {
+            "text": "Tecrübeyi modern üretim anlayışıyla buluşturuyor, geleceğe kalıcı değerler bırakıyoruz."
+          }
+        ],
+        "previous": [
+          {
+            "text": "Önceki slayt"
+          }
+        ],
+        "next": [
+          {
+            "text": "Sonraki slayt"
+          }
+        ],
+        "pause": [
+          {
+            "text": "Slaytı duraklat"
+          }
+        ],
+        "play": [
+          {
+            "text": "Slaytı devam ettir"
+          }
+        ],
+        "slideLabel": [
+          {
+            "text": "slayta git"
+          }
+        ]
+      },
+      "en": {
+        "slide1_eyebrow": [
+          {
+            "text": "FROM NATURE TO THE FUTURE"
+          }
+        ],
+        "slide1_title": [
+          {
+            "text": "The natural power of production."
+          }
+        ],
+        "slide1_description": [
+          {
+            "text": "We carry the value born from the soil into the future through a strong approach to production."
+          }
+        ],
+        "slide2_eyebrow": [
+          {
+            "text": "SUSTAINABLE PRODUCTION"
+          }
+        ],
+        "slide2_title": [
+          {
+            "text": "Value begins at its source."
+          }
+        ],
+        "slide2_description": [
+          {
+            "text": "We process natural resources with the right methods, strengthening sustainable production."
+          }
+        ],
+        "slide3_eyebrow": [
+          {
+            "text": "PRODUCING THE FUTURE"
+          }
+        ],
+        "slide3_title": [
+          {
+            "text": "From today to tomorrow."
+          }
+        ],
+        "slide3_description": [
+          {
+            "text": "We combine experience with modern production to create lasting value for the future."
+          }
+        ],
+        "previous": [
+          {
+            "text": "Previous slide"
+          }
+        ],
+        "next": [
+          {
+            "text": "Next slide"
+          }
+        ],
+        "pause": [
+          {
+            "text": "Pause slideshow"
+          }
+        ],
+        "play": [
+          {
+            "text": "Resume slideshow"
+          }
+        ],
+        "slideLabel": [
+          {
+            "text": "go to slide"
+          }
+        ]
+      }
+    },
+    "media": {
+      "slide1": {
+        "localDefault": "/hero-vid3-web.webm",
+        "externalUrl": null
+      },
+      "slide2": {
+        "localDefault": "/hero-1.png",
+        "externalUrl": null
+      },
+      "slide3": {
+        "localDefault": "/hero-2.png",
+        "externalUrl": null
+      }
+    }
+  },
+  {
+    "pageKey": "contact",
+    "displayName": {
+      "tr": "İletişim sayfası",
+      "en": "Contact page"
+    },
+    "schemaVersion": 1,
+    "content": {
+      "tr": {
+        "hero_eyebrow": [
+          {
+            "text": "Bizimle iletişime geçin"
+          }
+        ],
+        "hero_title": [
+          {
+            "text": "İletişim"
+          }
+        ],
+        "office_label": [
+          {
+            "text": "Merkez Ofis"
+          }
+        ],
+        "office_address": [
+          {
+            "text": "Fetih Mah. Şeyhülema Yahşi Cad. No:204 Karatay / KONYA"
+          }
+        ],
+        "office_phone": [
+          {
+            "text": "0 (332) 355 80 80"
+          }
+        ],
+        "office_email": [
+          {
+            "text": "toprak@topraktarim.com.tr"
+          }
+        ],
+        "factory_label": [
+          {
+            "text": "Fabrika"
+          }
+        ],
+        "factory_address": [
+          {
+            "text": "Tatlıcak, Erdemir Sk. 56a, 42030 Karatay/Konya"
+          }
+        ],
+        "factory_phone": [
+          {
+            "text": "0 (332) 355 32 42"
+          }
+        ],
+        "factory_email": [
+          {
+            "text": "toprak@topraktarim.com.tr"
+          }
+        ],
+        "address_label": [
+          {
+            "text": "Adres"
+          }
+        ],
+        "phone_label": [
+          {
+            "text": "Telefon"
+          }
+        ],
+        "email_label": [
+          {
+            "text": "E-posta"
+          }
+        ],
+        "form_cta": [
+          {
+            "text": "İletişim Formuna Geç"
+          }
+        ],
+        "facebook_label": [
+          {
+            "text": "Facebook"
+          }
+        ],
+        "instagram_label": [
+          {
+            "text": "Instagram"
+          }
+        ],
+        "form_eyebrow": [
+          {
+            "text": "Bize ulaşın"
+          }
+        ],
+        "form_title_line_1": [
+          {
+            "text": "Birlikte çalışmak için"
+          }
+        ],
+        "form_title_line_2": [
+          {
+            "text": "konuşmaya başlayalım."
+          }
+        ],
+        "form_description": [
+          {
+            "text": "Sorularınız, talepleriniz veya iş birliği önerileriniz için formu doldurabilirsiniz. Ekibimiz en kısa sürede sizinle iletişime geçecektir."
+          }
+        ],
+        "name_label": [
+          {
+            "text": "Ad"
+          }
+        ],
+        "name_placeholder": [
+          {
+            "text": "Adınız"
+          }
+        ],
+        "surname_label": [
+          {
+            "text": "Soyad"
+          }
+        ],
+        "surname_placeholder": [
+          {
+            "text": "Soyadınız"
+          }
+        ],
+        "form_email_label": [
+          {
+            "text": "E-posta"
+          }
+        ],
+        "email_placeholder": [
+          {
+            "text": "ornek@firma.com"
+          }
+        ],
+        "subject_label": [
+          {
+            "text": "Konu"
+          }
+        ],
+        "subject_placeholder": [
+          {
+            "text": "Mesajınızın konusu"
+          }
+        ],
+        "message_label": [
+          {
+            "text": "Mesaj"
+          }
+        ],
+        "message_placeholder": [
+          {
+            "text": "Mesajınızı yazınız..."
+          }
+        ],
+        "kvkk_consent": [
+          {
+            "text": "Kişisel verilerimin KVKK kapsamında işlenmesini ve iletişim amacıyla kullanılmasını kabul ediyorum."
+          }
+        ],
+        "submit_label": [
+          {
+            "text": "Gönder"
+          }
+        ],
+        "submitting_label": [
+          {
+            "text": "Gönderiliyor"
+          }
+        ],
+        "sending_message": [
+          {
+            "text": "Mesajınız gönderiliyor..."
+          }
+        ],
+        "success_message": [
+          {
+            "text": "Mesajınız başarıyla gönderildi."
+          }
+        ],
+        "send_error": [
+          {
+            "text": "Mesajınız gönderilemedi. Lütfen tekrar deneyin."
+          }
+        ],
+        "map_reset_label": [
+          {
+            "text": "Konuma dön"
+          }
+        ],
+        "directions_label": [
+          {
+            "text": "Yol Tarifi Al"
+          }
+        ],
+        "kvkk_link_label": [
+          {
+            "text": "KVKK metnini incele"
+          }
+        ]
+      },
+      "en": {
+        "hero_eyebrow": [
+          {
+            "text": "Get in touch with us"
+          }
+        ],
+        "hero_title": [
+          {
+            "text": "Contact"
+          }
+        ],
+        "office_label": [
+          {
+            "text": "Head Office"
+          }
+        ],
+        "office_address": [
+          {
+            "text": "Fetih District, Şeyhülema Yahşi Avenue, No:204 Karatay / KONYA"
+          }
+        ],
+        "office_phone": [
+          {
+            "text": "0 (332) 355 80 80"
+          }
+        ],
+        "office_email": [
+          {
+            "text": "toprak@topraktarim.com.tr"
+          }
+        ],
+        "factory_label": [
+          {
+            "text": "Factory"
+          }
+        ],
+        "factory_address": [
+          {
+            "text": "Tatlıcak, Erdemir Street 56a, 42030 Karatay / Konya"
+          }
+        ],
+        "factory_phone": [
+          {
+            "text": "0 (332) 355 32 42"
+          }
+        ],
+        "factory_email": [
+          {
+            "text": "toprak@topraktarim.com.tr"
+          }
+        ],
+        "address_label": [
+          {
+            "text": "Address"
+          }
+        ],
+        "phone_label": [
+          {
+            "text": "Phone"
+          }
+        ],
+        "email_label": [
+          {
+            "text": "Email"
+          }
+        ],
+        "form_cta": [
+          {
+            "text": "Go to Contact Form"
+          }
+        ],
+        "facebook_label": [
+          {
+            "text": "Facebook"
+          }
+        ],
+        "instagram_label": [
+          {
+            "text": "Instagram"
+          }
+        ],
+        "form_eyebrow": [
+          {
+            "text": "Contact us"
+          }
+        ],
+        "form_title_line_1": [
+          {
+            "text": "Let’s start a conversation"
+          }
+        ],
+        "form_title_line_2": [
+          {
+            "text": "and work together."
+          }
+        ],
+        "form_description": [
+          {
+            "text": "Complete the form with your questions, requests or partnership proposals. Our team will contact you as soon as possible."
+          }
+        ],
+        "name_label": [
+          {
+            "text": "Name"
+          }
+        ],
+        "name_placeholder": [
+          {
+            "text": "Your name"
+          }
+        ],
+        "surname_label": [
+          {
+            "text": "Surname"
+          }
+        ],
+        "surname_placeholder": [
+          {
+            "text": "Your surname"
+          }
+        ],
+        "form_email_label": [
+          {
+            "text": "Email"
+          }
+        ],
+        "email_placeholder": [
+          {
+            "text": "name@company.com"
+          }
+        ],
+        "subject_label": [
+          {
+            "text": "Subject"
+          }
+        ],
+        "subject_placeholder": [
+          {
+            "text": "Message subject"
+          }
+        ],
+        "message_label": [
+          {
+            "text": "Message"
+          }
+        ],
+        "message_placeholder": [
+          {
+            "text": "Write your message..."
+          }
+        ],
+        "kvkk_consent": [
+          {
+            "text": "I consent to the processing of my personal data and its use for communication purposes under the applicable data protection rules."
+          }
+        ],
+        "submit_label": [
+          {
+            "text": "Send"
+          }
+        ],
+        "submitting_label": [
+          {
+            "text": "Sending"
+          }
+        ],
+        "sending_message": [
+          {
+            "text": "Your message is being sent..."
+          }
+        ],
+        "success_message": [
+          {
+            "text": "Your message has been sent successfully."
+          }
+        ],
+        "send_error": [
+          {
+            "text": "Your message could not be sent. Please try again."
+          }
+        ],
+        "map_reset_label": [
+          {
+            "text": "Return to location"
+          }
+        ],
+        "directions_label": [
+          {
+            "text": "Get Directions"
+          }
+        ],
+        "kvkk_link_label": [
+          {
+            "text": "Review the privacy notice"
+          }
+        ]
+      }
+    }
+  }
+]

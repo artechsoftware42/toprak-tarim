@@ -1,0 +1,1318 @@
+{
+  "about": {
+    "toprak_tarim_2001_konya_toprak_tarim": {
+      "textEditable": true
+    },
+    "hakkimizda": {
+      "textEditable": true
+    },
+    "bizi_daha_yakindan_taniyin": {
+      "textEditable": true
+    },
+    "toprak_tarim": {
+      "textEditable": true
+    },
+    "topragin": {
+      "textEditable": true
+    },
+    "icinden": {
+      "textEditable": true
+    },
+    "gelecege": {
+      "textEditable": true
+    },
+    "toprak_tarim_2001_yilinda_konya_ovasinda": {
+      "textEditable": true
+    },
+    "birikim": {
+      "textEditable": false
+    },
+    "yillik": {
+      "textEditable": true
+    },
+    "tecrube": {
+      "textEditable": true
+    },
+    "deneyimi": {
+      "textEditable": false
+    },
+    "gelecege_2": {
+      "textEditable": false
+    },
+    "tasiyoruz": {
+      "textEditable": false
+    },
+    "gecmisten_gelen_bilgi_birikimini_gelecegin_uretim": {
+      "textEditable": true
+    },
+    "daha_fazlasi": {
+      "textEditable": false
+    },
+    "hikyemizi": {
+      "textEditable": false
+    },
+    "daha_yakindan": {
+      "textEditable": false
+    },
+    "kesfedin": {
+      "textEditable": false
+    },
+    "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin": {
+      "textEditable": true
+    },
+    "est_2001": {
+      "textEditable": true
+    },
+    "konya_turkiye": {
+      "textEditable": true
+    },
+    "toprak_tarim_2001_yilinda_konya_ovasinda_2": {
+      "textEditable": true
+    },
+    "yillarin_birikimi": {
+      "textEditable": false
+    },
+    "yillik_tecrube": {
+      "textEditable": true
+    },
+    "deneyimi_gecmise_ait_bir_sayi_olarak": {
+      "textEditable": true
+    },
+    "dun": {
+      "textEditable": true
+    },
+    "bugun": {
+      "textEditable": true
+    },
+    "yarin": {
+      "textEditable": true
+    },
+    "birikimi": {
+      "textEditable": false
+    },
+    "ileriye": {
+      "textEditable": false
+    },
+    "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin_2": {
+      "textEditable": true
+    },
+    "kurulus": {
+      "textEditable": true
+    },
+    "merkez": {
+      "textEditable": true
+    },
+    "konya_turkiye_2": {
+      "textEditable": true
+    },
+    "topraktan": {
+      "textEditable": true
+    },
+    "scroll": {
+      "textEditable": true
+    },
+    "about_03": {
+      "textEditable": true
+    },
+    "experience_mobile": {
+      "textEditable": true
+    },
+    "experience_desktop": {
+      "textEditable": true
+    },
+    "experience_period": {
+      "textEditable": true
+    },
+    "founded_year": {
+      "textEditable": true
+    },
+    "image_primary_alt": {
+      "textEditable": true
+    },
+    "image_secondary_alt": {
+      "textEditable": true
+    },
+    "image_brand_alt": {
+      "textEditable": true
+    }
+  },
+  "contactCTA": {
+    "iletisime_gecin": {
+      "textEditable": true
+    },
+    "bizimle_iletisime_gecin": {
+      "textEditable": true
+    },
+    "iletisim": {
+      "textEditable": true
+    },
+    "toprak_tarim": {
+      "textEditable": true
+    },
+    "iletisime_gecin_2": {
+      "textEditable": true
+    },
+    "birlikte": {
+      "textEditable": true
+    },
+    "calismaya": {
+      "textEditable": true
+    },
+    "baslayalim": {
+      "textEditable": true
+    },
+    "urunlerimiz_uretim_sureclerimiz_veya_olasi_is": {
+      "textEditable": true
+    },
+    "telefon": {
+      "textEditable": true
+    },
+    "eposta": {
+      "textEditable": true
+    },
+    "adres": {
+      "textEditable": true
+    },
+    "phone": {
+      "textEditable": true
+    },
+    "email": {
+      "textEditable": true
+    },
+    "address": {
+      "textEditable": true
+    }
+  },
+  "production": {
+    "background_label": {
+      "textEditable": false
+    },
+    "section_label": {
+      "textEditable": false
+    },
+    "title_line_1": {
+      "textEditable": true
+    },
+    "title_line_2": {
+      "textEditable": true
+    },
+    "title_line_3": {
+      "textEditable": true
+    },
+    "description": {
+      "textEditable": true
+    },
+    "crop_barley": {
+      "textEditable": true
+    },
+    "crop_corn": {
+      "textEditable": true
+    },
+    "crop_wheat": {
+      "textEditable": true
+    },
+    "crop_sunflower": {
+      "textEditable": true
+    },
+    "transition_label": {
+      "textEditable": true
+    },
+    "explore_label": {
+      "textEditable": true
+    },
+    "interactive_label": {
+      "textEditable": true
+    },
+    "interaction_hint": {
+      "textEditable": true
+    },
+    "cursor_label": {
+      "textEditable": true
+    },
+    "image_description": {
+      "textEditable": true
+    },
+    "image_state_label": {
+      "textEditable": true
+    },
+    "location_label": {
+      "textEditable": true
+    },
+    "caption": {
+      "textEditable": true
+    }
+  },
+  "aboutPage": {
+    "hero_aria": {
+      "textEditable": true
+    },
+    "breadcrumb_aria": {
+      "textEditable": true
+    },
+    "home_label": {
+      "textEditable": true
+    },
+    "about_label": {
+      "textEditable": true
+    },
+    "since_label": {
+      "textEditable": true
+    },
+    "hero_word": {
+      "textEditable": true
+    },
+    "hero_tagline": {
+      "textEditable": true
+    },
+    "hero_section_label": {
+      "textEditable": true
+    },
+    "intro_title_1": {
+      "textEditable": true
+    },
+    "intro_title_2": {
+      "textEditable": true
+    },
+    "start_year": {
+      "textEditable": true
+    },
+    "start_year_description": {
+      "textEditable": true
+    },
+    "intro_description": {
+      "textEditable": true
+    },
+    "intro_tag_1": {
+      "textEditable": true
+    },
+    "intro_tag_2": {
+      "textEditable": true
+    },
+    "story_section_label": {
+      "textEditable": true
+    },
+    "story_title_1": {
+      "textEditable": true
+    },
+    "story_title_accent": {
+      "textEditable": true
+    },
+    "story_title_3": {
+      "textEditable": true
+    },
+    "story_description": {
+      "textEditable": true
+    },
+    "statement_1_label": {
+      "textEditable": true
+    },
+    "statement_1_text": {
+      "textEditable": true
+    },
+    "statement_2_label": {
+      "textEditable": true
+    },
+    "statement_2_text": {
+      "textEditable": true
+    },
+    "statement_3_label": {
+      "textEditable": true
+    },
+    "statement_3_text": {
+      "textEditable": true
+    },
+    "general_label": {
+      "textEditable": true
+    },
+    "general_period": {
+      "textEditable": true
+    },
+    "scroll_label": {
+      "textEditable": true
+    },
+    "history_1_title_1": {
+      "textEditable": true
+    },
+    "history_1_title_2": {
+      "textEditable": true
+    },
+    "history_1_body_1": {
+      "textEditable": true
+    },
+    "history_1_body_2": {
+      "textEditable": true
+    },
+    "history_1_body_3": {
+      "textEditable": true
+    },
+    "history_2_title_1": {
+      "textEditable": true
+    },
+    "history_2_title_2": {
+      "textEditable": true
+    },
+    "history_2_body_1": {
+      "textEditable": true
+    },
+    "history_2_body_2": {
+      "textEditable": true
+    },
+    "history_2_body_3": {
+      "textEditable": true
+    },
+    "history_3_title_1": {
+      "textEditable": true
+    },
+    "history_3_title_2": {
+      "textEditable": true
+    },
+    "history_3_body_1": {
+      "textEditable": true
+    },
+    "history_3_body_2": {
+      "textEditable": true
+    },
+    "history_3_body_3": {
+      "textEditable": true
+    },
+    "history_4_title_1": {
+      "textEditable": true
+    },
+    "history_4_title_2": {
+      "textEditable": true
+    },
+    "history_4_body_1": {
+      "textEditable": true
+    },
+    "history_4_body_2": {
+      "textEditable": true
+    },
+    "history_4_body_3": {
+      "textEditable": true
+    },
+    "vision_mission_label": {
+      "textEditable": true
+    },
+    "vision_index": {
+      "textEditable": true
+    },
+    "vision_title_1": {
+      "textEditable": true
+    },
+    "vision_title_2": {
+      "textEditable": true
+    },
+    "vision_title_accent": {
+      "textEditable": true
+    },
+    "vision_caption": {
+      "textEditable": true
+    },
+    "vision_description": {
+      "textEditable": true
+    },
+    "mission_index": {
+      "textEditable": true
+    },
+    "mission_title_1": {
+      "textEditable": true
+    },
+    "mission_title_2": {
+      "textEditable": true
+    },
+    "mission_title_accent": {
+      "textEditable": true
+    },
+    "mission_caption": {
+      "textEditable": true
+    },
+    "mission_description": {
+      "textEditable": true
+    },
+    "closing_brand": {
+      "textEditable": true
+    },
+    "motto_label": {
+      "textEditable": true
+    },
+    "slogan_word_1": {
+      "textEditable": true
+    },
+    "slogan_word_2": {
+      "textEditable": true
+    },
+    "slogan_word_3": {
+      "textEditable": true
+    },
+    "slogan_description": {
+      "textEditable": true
+    },
+    "closing_bottom_1": {
+      "textEditable": true
+    },
+    "closing_bottom_2": {
+      "textEditable": true
+    },
+    "contact_button": {
+      "textEditable": true
+    },
+    "contact_button_hover": {
+      "textEditable": true
+    },
+    "contact_button_aria": {
+      "textEditable": true
+    }
+  },
+  "activityPage": {
+    "hero_aria": {
+      "textEditable": true
+    },
+    "breadcrumb_aria": {
+      "textEditable": true
+    },
+    "home_label": {
+      "textEditable": true
+    },
+    "activities_label": {
+      "textEditable": true
+    },
+    "hero_meta": {
+      "textEditable": true
+    },
+    "hero_eyebrow": {
+      "textEditable": true
+    },
+    "hero_title_1": {
+      "textEditable": true
+    },
+    "hero_title_2": {
+      "textEditable": true
+    },
+    "hero_summary": {
+      "textEditable": true
+    },
+    "hero_description": {
+      "textEditable": true
+    },
+    "intro_label": {
+      "textEditable": true
+    },
+    "intro_title_1": {
+      "textEditable": true
+    },
+    "intro_title_accent": {
+      "textEditable": true
+    },
+    "intro_title_3": {
+      "textEditable": true
+    },
+    "intro_description": {
+      "textEditable": true
+    },
+    "activity_step_1_title": {
+      "textEditable": true
+    },
+    "activity_step_1_emphasis": {
+      "textEditable": true
+    },
+    "activity_step_1_description": {
+      "textEditable": true
+    },
+    "activity_step_2_title": {
+      "textEditable": true
+    },
+    "activity_step_2_emphasis": {
+      "textEditable": true
+    },
+    "activity_step_2_description": {
+      "textEditable": true
+    },
+    "activity_step_3_title": {
+      "textEditable": true
+    },
+    "activity_step_3_emphasis": {
+      "textEditable": true
+    },
+    "activity_step_3_description": {
+      "textEditable": true
+    },
+    "activity_step_4_title": {
+      "textEditable": true
+    },
+    "activity_step_4_emphasis": {
+      "textEditable": true
+    },
+    "activity_step_4_description": {
+      "textEditable": true
+    },
+    "journey_aria": {
+      "textEditable": true
+    },
+    "journey_label": {
+      "textEditable": true
+    },
+    "journey_title_1": {
+      "textEditable": true
+    },
+    "journey_title_2": {
+      "textEditable": true
+    },
+    "journey_title_3": {
+      "textEditable": true
+    },
+    "journey_description": {
+      "textEditable": true
+    },
+    "journey_scroll_hint": {
+      "textEditable": true
+    },
+    "journey_progress_label": {
+      "textEditable": true
+    },
+    "journey_final_label": {
+      "textEditable": true
+    },
+    "journey_final_title_1": {
+      "textEditable": true
+    },
+    "journey_final_title_2": {
+      "textEditable": true
+    },
+    "journey_final_description": {
+      "textEditable": true
+    },
+    "journey_step_1_eyebrow": {
+      "textEditable": true
+    },
+    "journey_step_1_title": {
+      "textEditable": true
+    },
+    "journey_step_1_emphasis": {
+      "textEditable": true
+    },
+    "journey_step_1_description": {
+      "textEditable": true
+    },
+    "journey_step_2_eyebrow": {
+      "textEditable": true
+    },
+    "journey_step_2_title": {
+      "textEditable": true
+    },
+    "journey_step_2_emphasis": {
+      "textEditable": true
+    },
+    "journey_step_2_description": {
+      "textEditable": true
+    },
+    "journey_step_3_eyebrow": {
+      "textEditable": true
+    },
+    "journey_step_3_title": {
+      "textEditable": true
+    },
+    "journey_step_3_emphasis": {
+      "textEditable": true
+    },
+    "journey_step_3_description": {
+      "textEditable": true
+    },
+    "journey_step_4_eyebrow": {
+      "textEditable": true
+    },
+    "journey_step_4_title": {
+      "textEditable": true
+    },
+    "journey_step_4_emphasis": {
+      "textEditable": true
+    },
+    "journey_step_4_description": {
+      "textEditable": true
+    },
+    "journey_step_5_eyebrow": {
+      "textEditable": true
+    },
+    "journey_step_5_title": {
+      "textEditable": true
+    },
+    "journey_step_5_emphasis": {
+      "textEditable": true
+    },
+    "journey_step_5_description": {
+      "textEditable": true
+    },
+    "journey_step_6_eyebrow": {
+      "textEditable": true
+    },
+    "journey_step_6_title": {
+      "textEditable": true
+    },
+    "journey_step_6_emphasis": {
+      "textEditable": true
+    },
+    "journey_step_6_description": {
+      "textEditable": true
+    },
+    "products_background": {
+      "textEditable": true
+    },
+    "products_label": {
+      "textEditable": true
+    },
+    "products_title_1": {
+      "textEditable": true
+    },
+    "products_title_2": {
+      "textEditable": true
+    },
+    "products_description": {
+      "textEditable": true
+    },
+    "products_filters_aria": {
+      "textEditable": true
+    },
+    "products_filter_1": {
+      "textEditable": true
+    },
+    "products_filter_2": {
+      "textEditable": true
+    },
+    "products_filter_3": {
+      "textEditable": true
+    },
+    "products_filter_hint": {
+      "textEditable": true
+    },
+    "products_brand": {
+      "textEditable": true
+    },
+    "product_cta": {
+      "textEditable": true
+    },
+    "inspect_label": {
+      "textEditable": true
+    },
+    "product_aria_suffix": {
+      "textEditable": true
+    },
+    "product_1_name": {
+      "textEditable": true
+    },
+    "product_1_description": {
+      "textEditable": true
+    },
+    "product_2_name": {
+      "textEditable": true
+    },
+    "product_2_description": {
+      "textEditable": true
+    },
+    "product_3_name": {
+      "textEditable": true
+    },
+    "product_3_description": {
+      "textEditable": true
+    },
+    "product_4_name": {
+      "textEditable": true
+    },
+    "product_4_description": {
+      "textEditable": true
+    },
+    "home_production_background_label": {
+      "textEditable": false
+    },
+    "home_production_section_label": {
+      "textEditable": false
+    },
+    "home_production_title_line_1": {
+      "textEditable": true
+    },
+    "home_production_title_line_2": {
+      "textEditable": true
+    },
+    "home_production_title_line_3": {
+      "textEditable": true
+    },
+    "home_production_description": {
+      "textEditable": true
+    },
+    "home_production_transition_label": {
+      "textEditable": true
+    },
+    "home_production_explore_label": {
+      "textEditable": true
+    },
+    "home_production_interactive_label": {
+      "textEditable": true
+    },
+    "home_production_interaction_hint": {
+      "textEditable": true
+    },
+    "home_production_cursor_label": {
+      "textEditable": true
+    },
+    "home_production_image_description": {
+      "textEditable": true
+    },
+    "home_production_image_state_label": {
+      "textEditable": true
+    },
+    "home_production_location_label": {
+      "textEditable": true
+    },
+    "home_production_caption": {
+      "textEditable": true
+    },
+    "home_activities_title_1": {
+      "textEditable": true
+    },
+    "home_activities_title_2": {
+      "textEditable": true
+    },
+    "home_activities_description": {
+      "textEditable": true
+    },
+    "home_activities_cta_hover": {
+      "textEditable": true
+    },
+    "home_products_eyebrow": {
+      "textEditable": true
+    },
+    "home_products_title_1": {
+      "textEditable": true
+    },
+    "home_products_title_accent": {
+      "textEditable": true
+    },
+    "home_products_title_3": {
+      "textEditable": true
+    },
+    "home_products_description": {
+      "textEditable": true
+    },
+    "home_products_values": {
+      "textEditable": true
+    },
+    "home_products_selection_label": {
+      "textEditable": true
+    },
+    "home_products_count_label": {
+      "textEditable": true
+    },
+    "home_products_hover_hint": {
+      "textEditable": true
+    },
+    "detail_products_button": {
+      "textEditable": true
+    },
+    "detail_products_button_hover": {
+      "textEditable": true
+    },
+    "detail_story_label": {
+      "textEditable": true
+    },
+    "detail_story_intro": {
+      "textEditable": true
+    },
+    "detail_back_label": {
+      "textEditable": true
+    },
+    "detail_brand": {
+      "textEditable": true
+    },
+    "detail_scroll_label": {
+      "textEditable": true
+    },
+    "detail_general_overview": {
+      "textEditable": true
+    },
+    "detail_production_approach": {
+      "textEditable": true
+    },
+    "detail_fact_usage_label": {
+      "textEditable": true
+    },
+    "detail_fact_sowing_label": {
+      "textEditable": true
+    },
+    "detail_fact_harvest_label": {
+      "textEditable": true
+    },
+    "detail_fact_character_label": {
+      "textEditable": true
+    },
+    "detail_story_1_eyebrow": {
+      "textEditable": true
+    },
+    "detail_story_1_title": {
+      "textEditable": true
+    },
+    "detail_story_1_accent": {
+      "textEditable": true
+    },
+    "detail_story_1_body": {
+      "textEditable": true
+    },
+    "detail_story_1_note": {
+      "textEditable": true
+    },
+    "detail_story_2_eyebrow": {
+      "textEditable": true
+    },
+    "detail_story_2_title": {
+      "textEditable": true
+    },
+    "detail_story_2_accent": {
+      "textEditable": true
+    },
+    "detail_story_2_body": {
+      "textEditable": true
+    },
+    "detail_story_2_note": {
+      "textEditable": true
+    },
+    "detail_story_3_eyebrow": {
+      "textEditable": true
+    },
+    "detail_story_3_title": {
+      "textEditable": true
+    },
+    "detail_story_3_accent": {
+      "textEditable": true
+    },
+    "detail_story_3_body": {
+      "textEditable": true
+    },
+    "detail_story_3_note": {
+      "textEditable": true
+    },
+    "detail_story_4_eyebrow": {
+      "textEditable": true
+    },
+    "detail_story_4_title": {
+      "textEditable": true
+    },
+    "detail_story_4_accent": {
+      "textEditable": true
+    },
+    "detail_story_4_body": {
+      "textEditable": true
+    },
+    "detail_story_4_note": {
+      "textEditable": true
+    },
+    "detail_product_1_kicker": {
+      "textEditable": true
+    },
+    "detail_product_1_eyebrow": {
+      "textEditable": true
+    },
+    "detail_product_1_section_label": {
+      "textEditable": true
+    },
+    "detail_product_1_section_title": {
+      "textEditable": true
+    },
+    "detail_product_1_section_text": {
+      "textEditable": true
+    },
+    "detail_product_1_white_title": {
+      "textEditable": true
+    },
+    "detail_product_1_white_text": {
+      "textEditable": true
+    },
+    "detail_product_1_usage_value": {
+      "textEditable": true
+    },
+    "detail_product_1_usage_description": {
+      "textEditable": true
+    },
+    "detail_product_1_sowing_value": {
+      "textEditable": true
+    },
+    "detail_product_1_sowing_description": {
+      "textEditable": true
+    },
+    "detail_product_1_harvest_value": {
+      "textEditable": true
+    },
+    "detail_product_1_harvest_description": {
+      "textEditable": true
+    },
+    "detail_product_1_character_value": {
+      "textEditable": true
+    },
+    "detail_product_1_character_description": {
+      "textEditable": true
+    },
+    "detail_product_1_highlight_1": {
+      "textEditable": true
+    },
+    "detail_product_1_highlight_2": {
+      "textEditable": true
+    },
+    "detail_product_1_highlight_3": {
+      "textEditable": true
+    },
+    "detail_product_1_highlight_4": {
+      "textEditable": true
+    },
+    "detail_product_2_kicker": {
+      "textEditable": true
+    },
+    "detail_product_2_eyebrow": {
+      "textEditable": true
+    },
+    "detail_product_2_section_label": {
+      "textEditable": true
+    },
+    "detail_product_2_section_title": {
+      "textEditable": true
+    },
+    "detail_product_2_section_text": {
+      "textEditable": true
+    },
+    "detail_product_2_white_title": {
+      "textEditable": true
+    },
+    "detail_product_2_white_text": {
+      "textEditable": true
+    },
+    "detail_product_2_usage_value": {
+      "textEditable": true
+    },
+    "detail_product_2_usage_description": {
+      "textEditable": true
+    },
+    "detail_product_2_sowing_value": {
+      "textEditable": true
+    },
+    "detail_product_2_sowing_description": {
+      "textEditable": true
+    },
+    "detail_product_2_harvest_value": {
+      "textEditable": true
+    },
+    "detail_product_2_harvest_description": {
+      "textEditable": true
+    },
+    "detail_product_2_character_value": {
+      "textEditable": true
+    },
+    "detail_product_2_character_description": {
+      "textEditable": true
+    },
+    "detail_product_2_highlight_1": {
+      "textEditable": true
+    },
+    "detail_product_2_highlight_2": {
+      "textEditable": true
+    },
+    "detail_product_2_highlight_3": {
+      "textEditable": true
+    },
+    "detail_product_2_highlight_4": {
+      "textEditable": true
+    },
+    "detail_product_3_kicker": {
+      "textEditable": true
+    },
+    "detail_product_3_eyebrow": {
+      "textEditable": true
+    },
+    "detail_product_3_section_label": {
+      "textEditable": true
+    },
+    "detail_product_3_section_title": {
+      "textEditable": true
+    },
+    "detail_product_3_section_text": {
+      "textEditable": true
+    },
+    "detail_product_3_white_title": {
+      "textEditable": true
+    },
+    "detail_product_3_white_text": {
+      "textEditable": true
+    },
+    "detail_product_3_usage_value": {
+      "textEditable": true
+    },
+    "detail_product_3_usage_description": {
+      "textEditable": true
+    },
+    "detail_product_3_sowing_value": {
+      "textEditable": true
+    },
+    "detail_product_3_sowing_description": {
+      "textEditable": true
+    },
+    "detail_product_3_harvest_value": {
+      "textEditable": true
+    },
+    "detail_product_3_harvest_description": {
+      "textEditable": true
+    },
+    "detail_product_3_character_value": {
+      "textEditable": true
+    },
+    "detail_product_3_character_description": {
+      "textEditable": true
+    },
+    "detail_product_3_highlight_1": {
+      "textEditable": true
+    },
+    "detail_product_3_highlight_2": {
+      "textEditable": true
+    },
+    "detail_product_3_highlight_3": {
+      "textEditable": true
+    },
+    "detail_product_3_highlight_4": {
+      "textEditable": true
+    },
+    "detail_product_4_kicker": {
+      "textEditable": true
+    },
+    "detail_product_4_eyebrow": {
+      "textEditable": true
+    },
+    "detail_product_4_section_label": {
+      "textEditable": true
+    },
+    "detail_product_4_section_title": {
+      "textEditable": true
+    },
+    "detail_product_4_section_text": {
+      "textEditable": true
+    },
+    "detail_product_4_white_title": {
+      "textEditable": true
+    },
+    "detail_product_4_white_text": {
+      "textEditable": true
+    },
+    "detail_product_4_usage_value": {
+      "textEditable": true
+    },
+    "detail_product_4_usage_description": {
+      "textEditable": true
+    },
+    "detail_product_4_sowing_value": {
+      "textEditable": true
+    },
+    "detail_product_4_sowing_description": {
+      "textEditable": true
+    },
+    "detail_product_4_harvest_value": {
+      "textEditable": true
+    },
+    "detail_product_4_harvest_description": {
+      "textEditable": true
+    },
+    "detail_product_4_character_value": {
+      "textEditable": true
+    },
+    "detail_product_4_character_description": {
+      "textEditable": true
+    },
+    "detail_product_4_highlight_1": {
+      "textEditable": true
+    },
+    "detail_product_4_highlight_2": {
+      "textEditable": true
+    },
+    "detail_product_4_highlight_3": {
+      "textEditable": true
+    },
+    "detail_product_4_highlight_4": {
+      "textEditable": true
+    },
+    "journey_skip_label": {
+      "textEditable": true
+    },
+    "intro_system_label": {
+      "textEditable": true
+    },
+    "intro_system_count": {
+      "textEditable": true
+    },
+    "activity_step_1_label": {
+      "textEditable": true
+    },
+    "activity_step_2_label": {
+      "textEditable": true
+    },
+    "activity_step_3_label": {
+      "textEditable": true
+    },
+    "activity_step_4_label": {
+      "textEditable": true
+    }
+  },
+  "contact": {
+    "hero_eyebrow": {
+      "textEditable": true
+    },
+    "hero_title": {
+      "textEditable": true
+    },
+    "office_label": {
+      "textEditable": true
+    },
+    "office_address": {
+      "textEditable": true
+    },
+    "office_phone": {
+      "textEditable": true
+    },
+    "office_email": {
+      "textEditable": true
+    },
+    "factory_label": {
+      "textEditable": true
+    },
+    "factory_address": {
+      "textEditable": true
+    },
+    "factory_phone": {
+      "textEditable": true
+    },
+    "factory_email": {
+      "textEditable": true
+    },
+    "address_label": {
+      "textEditable": true
+    },
+    "phone_label": {
+      "textEditable": true
+    },
+    "email_label": {
+      "textEditable": true
+    },
+    "form_cta": {
+      "textEditable": true
+    },
+    "facebook_label": {
+      "textEditable": true
+    },
+    "instagram_label": {
+      "textEditable": true
+    },
+    "form_eyebrow": {
+      "textEditable": true
+    },
+    "form_title_line_1": {
+      "textEditable": true
+    },
+    "form_title_line_2": {
+      "textEditable": true
+    },
+    "form_description": {
+      "textEditable": true
+    },
+    "name_label": {
+      "textEditable": true
+    },
+    "name_placeholder": {
+      "textEditable": true
+    },
+    "surname_label": {
+      "textEditable": true
+    },
+    "surname_placeholder": {
+      "textEditable": true
+    },
+    "form_email_label": {
+      "textEditable": true
+    },
+    "email_placeholder": {
+      "textEditable": true
+    },
+    "subject_label": {
+      "textEditable": true
+    },
+    "subject_placeholder": {
+      "textEditable": true
+    },
+    "message_label": {
+      "textEditable": true
+    },
+    "message_placeholder": {
+      "textEditable": true
+    },
+    "kvkk_consent": {
+      "textEditable": true
+    },
+    "submit_label": {
+      "textEditable": true
+    },
+    "submitting_label": {
+      "textEditable": true
+    },
+    "sending_message": {
+      "textEditable": true
+    },
+    "success_message": {
+      "textEditable": true
+    },
+    "send_error": {
+      "textEditable": true
+    },
+    "map_reset_label": {
+      "textEditable": true
+    },
+    "directions_label": {
+      "textEditable": true
+    },
+    "kvkk_link_label": {
+      "textEditable": true
+    }
+  },
+  "hero": {
+    "slide1_eyebrow": {
+      "textEditable": false
+    },
+    "slide1_title": {
+      "textEditable": true
+    },
+    "slide1_description": {
+      "textEditable": true
+    },
+    "slide2_eyebrow": {
+      "textEditable": false
+    },
+    "slide2_title": {
+      "textEditable": true
+    },
+    "slide2_description": {
+      "textEditable": true
+    },
+    "slide3_eyebrow": {
+      "textEditable": false
+    },
+    "slide3_title": {
+      "textEditable": true
+    },
+    "slide3_description": {
+      "textEditable": true
+    },
+    "previous": {
+      "textEditable": true
+    },
+    "next": {
+      "textEditable": true
+    },
+    "pause": {
+      "textEditable": true
+    },
+    "play": {
+      "textEditable": true
+    },
+    "slideLabel": {
+      "textEditable": true
+    }
+  }
+}

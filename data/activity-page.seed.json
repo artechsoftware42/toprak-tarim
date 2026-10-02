@@ -1,0 +1,2358 @@
+{
+  "pageKey": "activityPage",
+  "displayName": {
+    "tr": "Faaliyetler sayfası",
+    "en": "Activities page"
+  },
+  "schemaVersion": 1,
+  "content": {
+    "tr": {
+      "hero_aria": [
+        {
+          "text": "Toprak Tarım faaliyetleri"
+        }
+      ],
+      "breadcrumb_aria": [
+        {
+          "text": "Sayfa yolu"
+        }
+      ],
+      "home_label": [
+        {
+          "text": "Anasayfa"
+        }
+      ],
+      "activities_label": [
+        {
+          "text": "Faaliyetlerimiz"
+        }
+      ],
+      "hero_meta": [
+        {
+          "text": "Sahadan üretime"
+        }
+      ],
+      "hero_eyebrow": [
+        {
+          "text": "Faaliyetlerimiz"
+        }
+      ],
+      "hero_title_1": [
+        {
+          "text": "Topraktan"
+        }
+      ],
+      "hero_title_2": [
+        {
+          "text": "üretime."
+        }
+      ],
+      "hero_summary": [
+        {
+          "text": "Üretimin her aşamasında planlı, kontrollü ve sürdürülebilir bir yaklaşım."
+        }
+      ],
+      "hero_description": [
+        {
+          "text": "Toprağın hazırlanmasından hasada kadar uzanan süreci sahadaki deneyim, doğru planlama ve üretim disiplininin bir bütünü olarak ele alıyoruz."
+        }
+      ],
+      "intro_label": [
+        {
+          "text": "Faaliyetlerimiz"
+        }
+      ],
+      "intro_title_1": [
+        {
+          "text": "Üretimi yalnızca"
+        }
+      ],
+      "intro_title_accent": [
+        {
+          "text": "sonuçla"
+        }
+      ],
+      "intro_title_3": [
+        {
+          "text": "değerlendirmiyoruz."
+        }
+      ],
+      "intro_description": [
+        {
+          "text": "Doğru üretimin toprağı okumakla başladığına inanıyoruz. Planlama, saha takibi, zamanlama ve hasat tek bir üretim zinciri oluşturuyor."
+        }
+      ],
+      "activity_step_1_title": [
+        {
+          "text": "Toprağı"
+        }
+      ],
+      "activity_step_1_emphasis": [
+        {
+          "text": "okuyoruz."
+        }
+      ],
+      "activity_step_1_description": [
+        {
+          "text": "Üretime başlamadan önce toprağın yapısını, bölgenin koşullarını ve sezonun ihtiyaçlarını birlikte değerlendiriyoruz."
+        }
+      ],
+      "activity_step_2_title": [
+        {
+          "text": "Üretimi"
+        }
+      ],
+      "activity_step_2_emphasis": [
+        {
+          "text": "planlıyoruz."
+        }
+      ],
+      "activity_step_2_description": [
+        {
+          "text": "Sahadaki deneyimi doğru zamanlama ve üretim planlamasıyla birleştirerek sürecin bütününü yönetiyoruz."
+        }
+      ],
+      "activity_step_3_title": [
+        {
+          "text": "Süreci"
+        }
+      ],
+      "activity_step_3_emphasis": [
+        {
+          "text": "izliyoruz."
+        }
+      ],
+      "activity_step_3_description": [
+        {
+          "text": "Ekimden hasada kadar gelişimi takip ediyor, değişen saha koşullarına göre üretim kararlarını güncelliyoruz."
+        }
+      ],
+      "activity_step_4_title": [
+        {
+          "text": "Değeri"
+        }
+      ],
+      "activity_step_4_emphasis": [
+        {
+          "text": "büyütüyoruz."
+        }
+      ],
+      "activity_step_4_description": [
+        {
+          "text": "Ürünün yalnızca yetişmesini değil; kalitesini, devamlılığını ve üretici için oluşturduğu değeri önemsiyoruz."
+        }
+      ],
+      "journey_aria": [
+        {
+          "text": "Üretim yolculuğu"
+        }
+      ],
+      "journey_label": [
+        {
+          "text": "Üretim Yolculuğumuz"
+        }
+      ],
+      "journey_title_1": [
+        {
+          "text": "Her adım"
+        }
+      ],
+      "journey_title_2": [
+        {
+          "text": "bir sonrakini"
+        }
+      ],
+      "journey_title_3": [
+        {
+          "text": "hazırlar."
+        }
+      ],
+      "journey_description": [
+        {
+          "text": "Toprağın hazırlanmasından ürünün değere dönüşmesine kadar her aşamayı birbiriyle bağlantılı tek bir üretim sürecinin parçası olarak ele alıyoruz."
+        }
+      ],
+      "journey_scroll_hint": [
+        {
+          "text": "Kaydırarak keşfet"
+        }
+      ],
+      "journey_progress_label": [
+        {
+          "text": "Üretim yolculuğu"
+        }
+      ],
+      "journey_final_label": [
+        {
+          "text": "Yolculuğun sonunda"
+        }
+      ],
+      "journey_final_title_1": [
+        {
+          "text": "Üretim,"
+        }
+      ],
+      "journey_final_title_2": [
+        {
+          "text": "değere dönüşür."
+        }
+      ],
+      "journey_final_description": [
+        {
+          "text": "Her aşamada aynı özeni koruyarak toprağın sunduğu potansiyeli kaliteli, sürdürülebilir ve devamlı bir üretim anlayışıyla geleceğe taşıyoruz."
+        }
+      ],
+      "journey_step_1_eyebrow": [
+        {
+          "text": "Başlangıç"
+        }
+      ],
+      "journey_step_1_title": [
+        {
+          "text": "Toprağın"
+        }
+      ],
+      "journey_step_1_emphasis": [
+        {
+          "text": "hazırlanması"
+        }
+      ],
+      "journey_step_1_description": [
+        {
+          "text": "Üretimin temelini oluşturan toprağın yapısını, ihtiyaçlarını ve sezon koşullarını birlikte değerlendiriyoruz."
+        }
+      ],
+      "journey_step_2_eyebrow": [
+        {
+          "text": "Planlama"
+        }
+      ],
+      "journey_step_2_title": [
+        {
+          "text": "Doğru ürünün"
+        }
+      ],
+      "journey_step_2_emphasis": [
+        {
+          "text": "belirlenmesi"
+        }
+      ],
+      "journey_step_2_description": [
+        {
+          "text": "Bölgenin yapısına, üretim hedeflerine ve sezonun şartlarına uygun ürün planını oluşturuyoruz."
+        }
+      ],
+      "journey_step_3_eyebrow": [
+        {
+          "text": "Uygulama"
+        }
+      ],
+      "journey_step_3_title": [
+        {
+          "text": "Ekim"
+        }
+      ],
+      "journey_step_3_emphasis": [
+        {
+          "text": "süreci"
+        }
+      ],
+      "journey_step_3_description": [
+        {
+          "text": "Doğru zamanlama, saha bilgisi ve kontrollü uygulamalarla üretimin ilk adımını atıyoruz."
+        }
+      ],
+      "journey_step_4_eyebrow": [
+        {
+          "text": "Kontrol"
+        }
+      ],
+      "journey_step_4_title": [
+        {
+          "text": "Saha"
+        }
+      ],
+      "journey_step_4_emphasis": [
+        {
+          "text": "takibi"
+        }
+      ],
+      "journey_step_4_description": [
+        {
+          "text": "Gelişimi düzenli takip ediyor, değişen koşullara göre üretim kararlarını sürekli güncelliyoruz."
+        }
+      ],
+      "journey_step_5_eyebrow": [
+        {
+          "text": "Zamanlama"
+        }
+      ],
+      "journey_step_5_title": [
+        {
+          "text": "Hasat"
+        }
+      ],
+      "journey_step_5_emphasis": [
+        {
+          "text": "dönemi"
+        }
+      ],
+      "journey_step_5_description": [
+        {
+          "text": "Ürünün gelişimini doğru okuyarak verim ve kalite açısından en doğru hasat zamanını belirliyoruz."
+        }
+      ],
+      "journey_step_6_eyebrow": [
+        {
+          "text": "Sonuç"
+        }
+      ],
+      "journey_step_6_title": [
+        {
+          "text": "Ürünün"
+        }
+      ],
+      "journey_step_6_emphasis": [
+        {
+          "text": "değere dönüşmesi"
+        }
+      ],
+      "journey_step_6_description": [
+        {
+          "text": "Tarlada başlayan yolculuğu kalite, süreklilik ve sürdürülebilir üretim anlayışıyla tamamlıyoruz."
+        }
+      ],
+      "products_background": [
+        {
+          "text": "ÜRÜNLER"
+        }
+      ],
+      "products_label": [
+        {
+          "text": "Ürünlerimiz"
+        }
+      ],
+      "products_title_1": [
+        {
+          "text": "Toprağın karakteri,"
+        }
+      ],
+      "products_title_2": [
+        {
+          "text": "ürünün kimliği."
+        }
+      ],
+      "products_description": [
+        {
+          "text": "Sahadaki deneyimi, doğru zamanlamayı ve üretim disiplinini her üründe aynı özenle bir araya getiriyoruz."
+        }
+      ],
+      "products_filters_aria": [
+        {
+          "text": "Ürün filtreleri"
+        }
+      ],
+      "products_filter_1": [
+        {
+          "text": "Tümü"
+        }
+      ],
+      "products_filter_2": [
+        {
+          "text": "Hububat"
+        }
+      ],
+      "products_filter_3": [
+        {
+          "text": "Yağlı Tohumlar"
+        }
+      ],
+      "products_filter_hint": [
+        {
+          "text": "Ürün grubunu seç"
+        }
+      ],
+      "products_brand": [
+        {
+          "text": "Toprak Tarım"
+        }
+      ],
+      "product_cta": [
+        {
+          "text": "Ürünü incele"
+        }
+      ],
+      "inspect_label": [
+        {
+          "text": "İncele"
+        }
+      ],
+      "product_aria_suffix": [
+        {
+          "text": "ürününü incele"
+        }
+      ],
+      "product_1_name": [
+        {
+          "text": "Arpa"
+        }
+      ],
+      "product_1_description": [
+        {
+          "text": "Hayvancılık ve yem sanayisi için besleyici değeri yüksek, özenle seçilmiş arpa ürünleri."
+        }
+      ],
+      "product_2_name": [
+        {
+          "text": "Buğday"
+        }
+      ],
+      "product_2_description": [
+        {
+          "text": "Kalite standartları gözetilerek seçilen, farklı kullanım alanlarına uygun buğday ürünleri."
+        }
+      ],
+      "product_3_name": [
+        {
+          "text": "Mısır"
+        }
+      ],
+      "product_3_description": [
+        {
+          "text": "Gıda ve yem sektörünün ihtiyaçlarına yönelik yüksek kaliteli mısır ürünleri."
+        }
+      ],
+      "product_4_name": [
+        {
+          "text": "Ayçiçeği"
+        }
+      ],
+      "product_4_description": [
+        {
+          "text": "Yağ ve gıda sanayisinin ihtiyaçlarına uygun, özenle seçilmiş ayçiçeği ürünleri."
+        }
+      ],
+      "home_production_background_label": [
+        {
+          "text": "ÜRETİM"
+        }
+      ],
+      "home_production_section_label": [
+        {
+          "text": "Üretim"
+        }
+      ],
+      "home_production_title_line_1": [
+        {
+          "text": "Toprağın"
+        }
+      ],
+      "home_production_title_line_2": [
+        {
+          "text": "potansiyelini"
+        }
+      ],
+      "home_production_title_line_3": [
+        {
+          "text": "değere dönüştürüyoruz."
+        }
+      ],
+      "home_production_description": [
+        {
+          "text": "Üretimi yalnızca ekim ve hasat arasındaki bir süreç olarak görmüyoruz. Toprağın yapısını, ürünün ihtiyacını ve doğru zamanı birlikte değerlendirerek her arazinin gerçek potansiyelini ortaya çıkarmayı amaçlıyoruz."
+        }
+      ],
+      "home_production_transition_label": [
+        {
+          "text": "Topraktan ürüne"
+        }
+      ],
+      "home_production_explore_label": [
+        {
+          "text": "Toprağın potansiyelini keşfet"
+        }
+      ],
+      "home_production_interactive_label": [
+        {
+          "text": "Etkileşimli üretim"
+        }
+      ],
+      "home_production_interaction_hint": [
+        {
+          "text": "Mouse ile hareket edin"
+        }
+      ],
+      "home_production_cursor_label": [
+        {
+          "text": "Keşfet"
+        }
+      ],
+      "home_production_image_description": [
+        {
+          "text": "Aynı toprak, doğru üretim yaklaşımıyla bambaşka bir değere dönüşebilir."
+        }
+      ],
+      "home_production_image_state_label": [
+        {
+          "text": "Boş toprak → üretim"
+        }
+      ],
+      "home_production_location_label": [
+        {
+          "text": "37°52' / Üretim alanı"
+        }
+      ],
+      "home_production_caption": [
+        {
+          "text": "Toprağın sahip olduğu potansiyeli doğru ürün ve doğru üretim disipliniyle görünür hâle getiriyoruz."
+        }
+      ],
+      "home_activities_title_1": [
+        {
+          "text": "Tarımsal değerin"
+        }
+      ],
+      "home_activities_title_2": [
+        {
+          "text": "her aşamasında."
+        }
+      ],
+      "home_activities_description": [
+        {
+          "text": "Tedarikten ticarete, depolamadan işlemeye kadar ürünün değer yolculuğunu bütüncül bir yaklaşımla yönetiyoruz."
+        }
+      ],
+      "home_activities_cta_hover": [
+        {
+          "text": "Tüm faaliyetleri inceleyin"
+        }
+      ],
+      "home_products_eyebrow": [
+        {
+          "text": "Topraktan sofraya uzanan değer"
+        }
+      ],
+      "home_products_title_1": [
+        {
+          "text": "Topraktan doğan"
+        }
+      ],
+      "home_products_title_accent": [
+        {
+          "text": "değeri"
+        }
+      ],
+      "home_products_title_3": [
+        {
+          "text": "büyütüyoruz."
+        }
+      ],
+      "home_products_description": [
+        {
+          "text": "Ürünün değerini yalnızca hasatla ölçmüyoruz. Kaynağından itibaren kaliteyi gözetiyor, doğru ürünü doğru koşullarda değerlendirerek doğal değerini koruyoruz."
+        }
+      ],
+      "home_products_values": [
+        {
+          "text": "Seçim · Kalite · Süreklilik"
+        }
+      ],
+      "home_products_selection_label": [
+        {
+          "text": "Ürün seçkisi"
+        }
+      ],
+      "home_products_count_label": [
+        {
+          "text": "04 ürün grubu"
+        }
+      ],
+      "home_products_hover_hint": [
+        {
+          "text": "Ürünleri keşfetmek için üzerine gelin"
+        }
+      ],
+      "detail_products_button": [
+        {
+          "text": "Tüm Ürünleri Gör"
+        }
+      ],
+      "detail_products_button_hover": [
+        {
+          "text": "Ürünlerimizi keşfedin"
+        }
+      ],
+      "detail_story_label": [
+        {
+          "text": "Sahadan ürüne"
+        }
+      ],
+      "detail_story_intro": [
+        {
+          "text": "Üretim sürecini tek bir aşama olarak değil, birbirini tamamlayan kararların bütünü olarak ele alıyoruz."
+        }
+      ],
+      "detail_back_label": [
+        {
+          "text": "Faaliyetlerimiz"
+        }
+      ],
+      "detail_brand": [
+        {
+          "text": "Toprak Tarım"
+        }
+      ],
+      "detail_scroll_label": [
+        {
+          "text": "Aşağı kaydır"
+        }
+      ],
+      "detail_general_overview": [
+        {
+          "text": "Genel bakış"
+        }
+      ],
+      "detail_production_approach": [
+        {
+          "text": "Üretim yaklaşımı"
+        }
+      ],
+      "detail_fact_usage_label": [
+        {
+          "text": "Kullanım alanları"
+        }
+      ],
+      "detail_fact_sowing_label": [
+        {
+          "text": "Ekim dönemi"
+        }
+      ],
+      "detail_fact_harvest_label": [
+        {
+          "text": "Hasat dönemi"
+        }
+      ],
+      "detail_fact_character_label": [
+        {
+          "text": "Ürün karakteri"
+        }
+      ],
+      "detail_story_1_eyebrow": [
+        {
+          "text": "Sahayı okumak"
+        }
+      ],
+      "detail_story_1_title": [
+        {
+          "text": "Her sezon aynı başlamaz."
+        }
+      ],
+      "detail_story_1_accent": [
+        {
+          "text": "Önce koşulları anlamak gerekir."
+        }
+      ],
+      "detail_story_1_body": [
+        {
+          "text": "Üretime başlamadan önce sahanın mevcut durumunu, sezonun karakterini ve önceki dönemlerden kalan gözlemleri birlikte ele alıyoruz. Böylece ilk karar masa başında değil, doğrudan tarlanın gerçek koşullarından çıkıyor."
+        }
+      ],
+      "detail_story_1_note": [
+        {
+          "text": "İyi bir üretim planı, sahayı olduğu haliyle okuyarak başlar."
+        }
+      ],
+      "detail_story_2_eyebrow": [
+        {
+          "text": "Kararları geliştirmek"
+        }
+      ],
+      "detail_story_2_title": [
+        {
+          "text": "Plan sabit kalmaz."
+        }
+      ],
+      "detail_story_2_accent": [
+        {
+          "text": "Saha değiştikçe karar da gelişir."
+        }
+      ],
+      "detail_story_2_body": [
+        {
+          "text": "Üretim boyunca yapılan gözlemler planın yeniden değerlendirilmesini sağlar. Hava, gelişim ritmi ve saha koşulları değiştikçe uygulamalar da aynı disiplin içinde güncellenir."
+        }
+      ],
+      "detail_story_2_note": [
+        {
+          "text": "Planlama bizim için tek seferlik bir başlangıç değil, yaşayan bir süreçtir."
+        }
+      ],
+      "detail_story_3_eyebrow": [
+        {
+          "text": "Dengeyi korumak"
+        }
+      ],
+      "detail_story_3_title": [
+        {
+          "text": "Sonuç kadar süreç de önemlidir."
+        }
+      ],
+      "detail_story_3_accent": [
+        {
+          "text": "Tutarlılığı üretimin tamamına yayıyoruz."
+        }
+      ],
+      "detail_story_3_body": [
+        {
+          "text": "Ürünün gelişimini yalnızca sonuca bakarak değerlendirmiyoruz. Saha genelindeki dengeyi, üretim standardını ve süreç boyunca oluşan farklılıkları birlikte takip ediyoruz."
+        }
+      ],
+      "detail_story_3_note": [
+        {
+          "text": "Amaç yalnızca üretmek değil, aynı özeni sezonun tamamında korumaktır."
+        }
+      ],
+      "detail_story_4_eyebrow": [
+        {
+          "text": "Deneyimi taşımak"
+        }
+      ],
+      "detail_story_4_title": [
+        {
+          "text": "Her sezon bir sonrakini hazırlar."
+        }
+      ],
+      "detail_story_4_accent": [
+        {
+          "text": "Sahadan gelen bilgiyi geleceğe taşıyoruz."
+        }
+      ],
+      "detail_story_4_body": [
+        {
+          "text": "Bir üretim dönemi tamamlandığında süreç bizim için bitmez. Sahada edinilen deneyim, gözlemler ve sonuçlar bir sonraki sezonun daha güçlü kararlarla başlamasına katkı sağlar."
+        }
+      ],
+      "detail_story_4_note": [
+        {
+          "text": "Üretim deneyimi birikir; her sezon bir sonraki döneme yeni bir başlangıç bırakır."
+        }
+      ],
+      "detail_product_1_kicker": [
+        {
+          "text": "Topraktan gelen"
+        }
+      ],
+      "detail_product_1_eyebrow": [
+        {
+          "text": "Serin iklim tahılı"
+        }
+      ],
+      "detail_product_1_section_label": [
+        {
+          "text": "Arpa üretimi"
+        }
+      ],
+      "detail_product_1_section_title": [
+        {
+          "text": "Serin iklim tahıllarının güçlü ve çok yönlü ürünü."
+        }
+      ],
+      "detail_product_1_section_text": [
+        {
+          "text": "Arpa; yetiştiricilik koşullarına uyum gücü, farklı kullanım alanları ve üretim zincirindeki önemli yeriyle temel tarla bitkilerinden biridir."
+        }
+      ],
+      "detail_product_1_white_title": [
+        {
+          "text": "Toprağın koşullarını okuyarak üretimin her aşamasını birlikte yönetiyoruz."
+        }
+      ],
+      "detail_product_1_white_text": [
+        {
+          "text": "Ekimden hasada kadar ürünün gelişim dönemi, toprak yapısı ve kullanım amacı üretim kararlarının temelini oluşturur."
+        }
+      ],
+      "detail_product_1_usage_value": [
+        {
+          "text": "Yem, malt ve gıda"
+        }
+      ],
+      "detail_product_1_usage_description": [
+        {
+          "text": "Hayvan beslemede yaygın olarak kullanılır. Malt üretiminin temel hammaddelerinden biridir ve bazı çeşitleri gıda ürünlerinde değerlendirilir."
+        }
+      ],
+      "detail_product_1_sowing_value": [
+        {
+          "text": "Sonbahar / İlkbahar"
+        }
+      ],
+      "detail_product_1_sowing_description": [
+        {
+          "text": "Bölge ve çeşide göre kışlık veya yazlık ekim yapılabilir. İç Anadolu’da kışlık ekim yaygındır."
+        }
+      ],
+      "detail_product_1_harvest_value": [
+        {
+          "text": "Haziran – Temmuz"
+        }
+      ],
+      "detail_product_1_harvest_description": [
+        {
+          "text": "Hasat zamanı bölgeye, ekim dönemine ve çeşide göre değişir. İç Anadolu’da çoğunlukla yaz başında olgunlaşır."
+        }
+      ],
+      "detail_product_1_character_value": [
+        {
+          "text": "Serin iklim tahılı"
+        }
+      ],
+      "detail_product_1_character_description": [
+        {
+          "text": "Farklı çevre koşullarına uyum gösterebilen, tek yıllık ve kullanım amacına göre farklı çeşitleri bulunan bir tahıldır."
+        }
+      ],
+      "detail_product_1_highlight_1": [
+        {
+          "text": "Uyum gücü"
+        }
+      ],
+      "detail_product_1_highlight_2": [
+        {
+          "text": "Çok yönlü kullanım"
+        }
+      ],
+      "detail_product_1_highlight_3": [
+        {
+          "text": "Planlı ekim"
+        }
+      ],
+      "detail_product_1_highlight_4": [
+        {
+          "text": "Kontrollü hasat"
+        }
+      ],
+      "detail_product_2_kicker": [
+        {
+          "text": "Bereketin kaynağı"
+        }
+      ],
+      "detail_product_2_eyebrow": [
+        {
+          "text": "Temel tahıl"
+        }
+      ],
+      "detail_product_2_section_label": [
+        {
+          "text": "Buğday üretimi"
+        }
+      ],
+      "detail_product_2_section_title": [
+        {
+          "text": "Toprağın karakterini doğru okuyarak dengeli üretim."
+        }
+      ],
+      "detail_product_2_section_text": [
+        {
+          "text": "Buğday üretiminde ekim zamanı, çeşit seçimi, toprak koşulları ve hasat dönemi aynı üretim planının birbirini tamamlayan parçalarıdır."
+        }
+      ],
+      "detail_product_2_white_title": [
+        {
+          "text": "Üretim sürecini yalnızca hasatla değil, tüm gelişim dönemiyle ele alıyoruz."
+        }
+      ],
+      "detail_product_2_white_text": [
+        {
+          "text": "Saha koşullarını düzenli takip ederek ürünün ihtiyaçlarını üretim döneminin her aşamasında yeniden değerlendiriyoruz."
+        }
+      ],
+      "detail_product_2_usage_value": [
+        {
+          "text": "Un, yem ve gıda"
+        }
+      ],
+      "detail_product_2_usage_description": [
+        {
+          "text": "Başta un ve unlu mamuller olmak üzere geniş bir gıda zincirinde kullanılır. Bazı çeşitleri yem amacıyla da değerlendirilir."
+        }
+      ],
+      "detail_product_2_sowing_value": [
+        {
+          "text": "Sonbahar ağırlıklı"
+        }
+      ],
+      "detail_product_2_sowing_description": [
+        {
+          "text": "Türkiye’de yaygın olarak kışlık ekim yapılır. Bölge ve iklim koşullarına göre ilkbahar ekimleri de mümkündür."
+        }
+      ],
+      "detail_product_2_harvest_value": [
+        {
+          "text": "Haziran – Ağustos"
+        }
+      ],
+      "detail_product_2_harvest_description": [
+        {
+          "text": "Hasat dönemi bölgenin iklim koşullarına ve rakımına göre değişir. İç Anadolu’da çoğunlukla yaz aylarında gerçekleştirilir."
+        }
+      ],
+      "detail_product_2_character_value": [
+        {
+          "text": "Serin iklim tahılı"
+        }
+      ],
+      "detail_product_2_character_description": [
+        {
+          "text": "Dünyanın temel tahıllarından biridir. Çeşit, iklim ve yetiştirme amacına göre farklı üretim özellikleri gösterir."
+        }
+      ],
+      "detail_product_2_highlight_1": [
+        {
+          "text": "Çeşit seçimi"
+        }
+      ],
+      "detail_product_2_highlight_2": [
+        {
+          "text": "Toprak dengesi"
+        }
+      ],
+      "detail_product_2_highlight_3": [
+        {
+          "text": "Saha takibi"
+        }
+      ],
+      "detail_product_2_highlight_4": [
+        {
+          "text": "Doğru hasat"
+        }
+      ],
+      "detail_product_3_kicker": [
+        {
+          "text": "Üretimin ritmi"
+        }
+      ],
+      "detail_product_3_eyebrow": [
+        {
+          "text": "Sıcak iklim tahılı"
+        }
+      ],
+      "detail_product_3_section_label": [
+        {
+          "text": "Mısır üretimi"
+        }
+      ],
+      "detail_product_3_section_title": [
+        {
+          "text": "Yüksek verim potansiyelini doğru zamanlama ile buluşturuyoruz."
+        }
+      ],
+      "detail_product_3_section_text": [
+        {
+          "text": "Mısır üretiminde sıcaklık, su yönetimi, gelişim dönemi ve hasat zamanı ürün performansını doğrudan etkileyen temel unsurlardır."
+        }
+      ],
+      "detail_product_3_white_title": [
+        {
+          "text": "Ürünün gelişim ritmini takip eden planlı bir üretim yaklaşımı."
+        }
+      ],
+      "detail_product_3_white_text": [
+        {
+          "text": "Mısırın farklı gelişim evrelerini saha koşullarıyla birlikte değerlendirerek üretim sürecini kontrollü biçimde yönetiyoruz."
+        }
+      ],
+      "detail_product_3_usage_value": [
+        {
+          "text": "Yem, gıda ve sanayi"
+        }
+      ],
+      "detail_product_3_usage_description": [
+        {
+          "text": "Hayvan besleme, nişasta ve yağ sanayisi ile farklı gıda ürünlerinde geniş kullanım alanına sahiptir."
+        }
+      ],
+      "detail_product_3_sowing_value": [
+        {
+          "text": "İlkbahar"
+        }
+      ],
+      "detail_product_3_sowing_description": [
+        {
+          "text": "Toprak sıcaklığının uygun seviyeye ulaşmasıyla ekim yapılır. Bölgeye göre ekim tarihi değişiklik gösterir."
+        }
+      ],
+      "detail_product_3_harvest_value": [
+        {
+          "text": "Ağustos – Ekim"
+        }
+      ],
+      "detail_product_3_harvest_description": [
+        {
+          "text": "Ürünün kullanım amacına, ekim tarihine ve bölgesel iklim koşullarına göre hasat zamanı değişebilir."
+        }
+      ],
+      "detail_product_3_character_value": [
+        {
+          "text": "Sıcak iklim tahılı"
+        }
+      ],
+      "detail_product_3_character_description": [
+        {
+          "text": "Yüksek verim potansiyeline sahip, sıcaklık ve su yönetimine duyarlı, hızlı gelişen bir tarla bitkisidir."
+        }
+      ],
+      "detail_product_3_highlight_1": [
+        {
+          "text": "Su yönetimi"
+        }
+      ],
+      "detail_product_3_highlight_2": [
+        {
+          "text": "Gelişim takibi"
+        }
+      ],
+      "detail_product_3_highlight_3": [
+        {
+          "text": "Doğru zamanlama"
+        }
+      ],
+      "detail_product_3_highlight_4": [
+        {
+          "text": "Yüksek potansiyel"
+        }
+      ],
+      "detail_product_4_kicker": [
+        {
+          "text": "Güneşe uzanan"
+        }
+      ],
+      "detail_product_4_eyebrow": [
+        {
+          "text": "Yağ bitkisi"
+        }
+      ],
+      "detail_product_4_section_label": [
+        {
+          "text": "Ayçiçeği üretimi"
+        }
+      ],
+      "detail_product_4_section_title": [
+        {
+          "text": "Toprak, sıcaklık ve gelişim dönemini birlikte değerlendiriyoruz."
+        }
+      ],
+      "detail_product_4_section_text": [
+        {
+          "text": "Ayçiçeği üretiminde ekim zamanı, toprak koşulları, gelişim süreci ve hasat olgunluğu birlikte değerlendirilir."
+        }
+      ],
+      "detail_product_4_white_title": [
+        {
+          "text": "Her gelişim dönemini kendi koşulları içinde takip ediyoruz."
+        }
+      ],
+      "detail_product_4_white_text": [
+        {
+          "text": "Üretim boyunca alınan kararları ürünün gelişim süreci ve değişen saha koşullarıyla birlikte ele alıyoruz."
+        }
+      ],
+      "detail_product_4_usage_value": [
+        {
+          "text": "Yağ, yem ve gıda"
+        }
+      ],
+      "detail_product_4_usage_description": [
+        {
+          "text": "Bitkisel yağ üretiminde temel hammaddelerden biridir. Küspesi yem sanayisinde, bazı çeşitleri ise çerezlik olarak kullanılır."
+        }
+      ],
+      "detail_product_4_sowing_value": [
+        {
+          "text": "İlkbahar"
+        }
+      ],
+      "detail_product_4_sowing_description": [
+        {
+          "text": "Toprak sıcaklığının yükselmesiyle ekim yapılır. Bölge ve iklim koşullarına göre ekim zamanı farklılaşır."
+        }
+      ],
+      "detail_product_4_harvest_value": [
+        {
+          "text": "Ağustos – Eylül"
+        }
+      ],
+      "detail_product_4_harvest_description": [
+        {
+          "text": "Tabla ve danelerin olgunlaşması takip edilir. Hasat tarihi bölge, çeşit ve ekim zamanına göre değişiklik gösterir."
+        }
+      ],
+      "detail_product_4_character_value": [
+        {
+          "text": "Yağ bitkisi"
+        }
+      ],
+      "detail_product_4_character_description": [
+        {
+          "text": "Güçlü kök sistemi ve farklı toprak koşullarına uyum yeteneğiyle önemli bir endüstri bitkisidir."
+        }
+      ],
+      "detail_product_4_highlight_1": [
+        {
+          "text": "Güçlü kök"
+        }
+      ],
+      "detail_product_4_highlight_2": [
+        {
+          "text": "Toprak uyumu"
+        }
+      ],
+      "detail_product_4_highlight_3": [
+        {
+          "text": "Olgunluk takibi"
+        }
+      ],
+      "detail_product_4_highlight_4": [
+        {
+          "text": "Kaliteli ürün"
+        }
+      ],
+      "journey_skip_label": [
+        {
+          "text": "Yolculuğun sonuna git"
+        }
+      ],
+      "intro_system_label": [
+        {
+          "text": "Üretim sistemi"
+        }
+      ],
+      "intro_system_count": [
+        {
+          "text": "01 — 04"
+        }
+      ],
+      "activity_step_1_label": [
+        {
+          "text": "Analiz"
+        }
+      ],
+      "activity_step_2_label": [
+        {
+          "text": "Planlama"
+        }
+      ],
+      "activity_step_3_label": [
+        {
+          "text": "Kontrol"
+        }
+      ],
+      "activity_step_4_label": [
+        {
+          "text": "Değer"
+        }
+      ]
+    },
+    "en": {
+      "hero_aria": [
+        {
+          "text": "Toprak Tarım activities"
+        }
+      ],
+      "breadcrumb_aria": [
+        {
+          "text": "Breadcrumb"
+        }
+      ],
+      "home_label": [
+        {
+          "text": "Home"
+        }
+      ],
+      "activities_label": [
+        {
+          "text": "Our Activities"
+        }
+      ],
+      "hero_meta": [
+        {
+          "text": "From field to production"
+        }
+      ],
+      "hero_eyebrow": [
+        {
+          "text": "Our Activities"
+        }
+      ],
+      "hero_title_1": [
+        {
+          "text": "From soil"
+        }
+      ],
+      "hero_title_2": [
+        {
+          "text": "to production."
+        }
+      ],
+      "hero_summary": [
+        {
+          "text": "A planned, controlled and sustainable approach at every stage of production."
+        }
+      ],
+      "hero_description": [
+        {
+          "text": "We approach the journey from soil preparation to harvest as a whole shaped by field experience, careful planning and production discipline."
+        }
+      ],
+      "intro_label": [
+        {
+          "text": "Our Activities"
+        }
+      ],
+      "intro_title_1": [
+        {
+          "text": "We measure production by"
+        }
+      ],
+      "intro_title_accent": [
+        {
+          "text": "more than"
+        }
+      ],
+      "intro_title_3": [
+        {
+          "text": "the result."
+        }
+      ],
+      "intro_description": [
+        {
+          "text": "We believe sound production begins with understanding the soil. Planning, field monitoring, timing and harvest form one production chain."
+        }
+      ],
+      "activity_step_1_title": [
+        {
+          "text": "We read"
+        }
+      ],
+      "activity_step_1_emphasis": [
+        {
+          "text": "the soil."
+        }
+      ],
+      "activity_step_1_description": [
+        {
+          "text": "Before production begins, we assess the soil structure, regional conditions and seasonal needs together."
+        }
+      ],
+      "activity_step_2_title": [
+        {
+          "text": "We plan"
+        }
+      ],
+      "activity_step_2_emphasis": [
+        {
+          "text": "production."
+        }
+      ],
+      "activity_step_2_description": [
+        {
+          "text": "We combine field experience with accurate timing and production planning to manage the entire process."
+        }
+      ],
+      "activity_step_3_title": [
+        {
+          "text": "We monitor"
+        }
+      ],
+      "activity_step_3_emphasis": [
+        {
+          "text": "the process."
+        }
+      ],
+      "activity_step_3_description": [
+        {
+          "text": "We follow development from sowing to harvest and update production decisions as field conditions change."
+        }
+      ],
+      "activity_step_4_title": [
+        {
+          "text": "We grow"
+        }
+      ],
+      "activity_step_4_emphasis": [
+        {
+          "text": "value."
+        }
+      ],
+      "activity_step_4_description": [
+        {
+          "text": "We care about more than growth; we value quality, continuity and the value created for producers."
+        }
+      ],
+      "journey_aria": [
+        {
+          "text": "Production journey"
+        }
+      ],
+      "journey_label": [
+        {
+          "text": "Our Production Journey"
+        }
+      ],
+      "journey_title_1": [
+        {
+          "text": "Every step"
+        }
+      ],
+      "journey_title_2": [
+        {
+          "text": "prepares"
+        }
+      ],
+      "journey_title_3": [
+        {
+          "text": "the next."
+        }
+      ],
+      "journey_description": [
+        {
+          "text": "From preparing the soil to turning the crop into value, we treat every stage as part of one connected production process."
+        }
+      ],
+      "journey_scroll_hint": [
+        {
+          "text": "Scroll to explore"
+        }
+      ],
+      "journey_progress_label": [
+        {
+          "text": "Production journey"
+        }
+      ],
+      "journey_final_label": [
+        {
+          "text": "At the end of the journey"
+        }
+      ],
+      "journey_final_title_1": [
+        {
+          "text": "Production"
+        }
+      ],
+      "journey_final_title_2": [
+        {
+          "text": "becomes value."
+        }
+      ],
+      "journey_final_description": [
+        {
+          "text": "With the same care at every stage, we carry the soil’s potential into the future through quality, sustainable and continuous production."
+        }
+      ],
+      "journey_step_1_eyebrow": [
+        {
+          "text": "Beginning"
+        }
+      ],
+      "journey_step_1_title": [
+        {
+          "text": "Preparing"
+        }
+      ],
+      "journey_step_1_emphasis": [
+        {
+          "text": "the soil"
+        }
+      ],
+      "journey_step_1_description": [
+        {
+          "text": "We assess the structure, needs and seasonal conditions of the soil that forms the foundation of production."
+        }
+      ],
+      "journey_step_2_eyebrow": [
+        {
+          "text": "Planning"
+        }
+      ],
+      "journey_step_2_title": [
+        {
+          "text": "Selecting"
+        }
+      ],
+      "journey_step_2_emphasis": [
+        {
+          "text": "the right crop"
+        }
+      ],
+      "journey_step_2_description": [
+        {
+          "text": "We create a crop plan suited to the region, production goals and seasonal conditions."
+        }
+      ],
+      "journey_step_3_eyebrow": [
+        {
+          "text": "Application"
+        }
+      ],
+      "journey_step_3_title": [
+        {
+          "text": "The sowing"
+        }
+      ],
+      "journey_step_3_emphasis": [
+        {
+          "text": "process"
+        }
+      ],
+      "journey_step_3_description": [
+        {
+          "text": "We take the first production step with accurate timing, field knowledge and controlled practices."
+        }
+      ],
+      "journey_step_4_eyebrow": [
+        {
+          "text": "Control"
+        }
+      ],
+      "journey_step_4_title": [
+        {
+          "text": "Field"
+        }
+      ],
+      "journey_step_4_emphasis": [
+        {
+          "text": "monitoring"
+        }
+      ],
+      "journey_step_4_description": [
+        {
+          "text": "We monitor development regularly and update production decisions as conditions change."
+        }
+      ],
+      "journey_step_5_eyebrow": [
+        {
+          "text": "Timing"
+        }
+      ],
+      "journey_step_5_title": [
+        {
+          "text": "The harvest"
+        }
+      ],
+      "journey_step_5_emphasis": [
+        {
+          "text": "period"
+        }
+      ],
+      "journey_step_5_description": [
+        {
+          "text": "By reading crop development accurately, we determine the right harvest time for yield and quality."
+        }
+      ],
+      "journey_step_6_eyebrow": [
+        {
+          "text": "Outcome"
+        }
+      ],
+      "journey_step_6_title": [
+        {
+          "text": "Turning crops"
+        }
+      ],
+      "journey_step_6_emphasis": [
+        {
+          "text": "into value"
+        }
+      ],
+      "journey_step_6_description": [
+        {
+          "text": "We complete the field journey with quality, continuity and sustainable production."
+        }
+      ],
+      "products_background": [
+        {
+          "text": "PRODUCTS"
+        }
+      ],
+      "products_label": [
+        {
+          "text": "Our Products"
+        }
+      ],
+      "products_title_1": [
+        {
+          "text": "The character of the soil,"
+        }
+      ],
+      "products_title_2": [
+        {
+          "text": "the identity of the crop."
+        }
+      ],
+      "products_description": [
+        {
+          "text": "We bring field experience, accurate timing and production discipline together with the same care in every crop."
+        }
+      ],
+      "products_filters_aria": [
+        {
+          "text": "Product filters"
+        }
+      ],
+      "products_filter_1": [
+        {
+          "text": "All"
+        }
+      ],
+      "products_filter_2": [
+        {
+          "text": "Grains"
+        }
+      ],
+      "products_filter_3": [
+        {
+          "text": "Oilseeds"
+        }
+      ],
+      "products_filter_hint": [
+        {
+          "text": "Choose a product group"
+        }
+      ],
+      "products_brand": [
+        {
+          "text": "Toprak Tarım"
+        }
+      ],
+      "product_cta": [
+        {
+          "text": "View product"
+        }
+      ],
+      "inspect_label": [
+        {
+          "text": "Explore"
+        }
+      ],
+      "product_aria_suffix": [
+        {
+          "text": "view product"
+        }
+      ],
+      "product_1_name": [
+        {
+          "text": "Barley"
+        }
+      ],
+      "product_1_description": [
+        {
+          "text": "Carefully selected barley with high nutritional value for livestock and the feed industry."
+        }
+      ],
+      "product_2_name": [
+        {
+          "text": "Wheat"
+        }
+      ],
+      "product_2_description": [
+        {
+          "text": "Wheat selected to quality standards for a variety of uses."
+        }
+      ],
+      "product_3_name": [
+        {
+          "text": "Corn"
+        }
+      ],
+      "product_3_description": [
+        {
+          "text": "High-quality corn for the needs of the food and feed industries."
+        }
+      ],
+      "product_4_name": [
+        {
+          "text": "Sunflower"
+        }
+      ],
+      "product_4_description": [
+        {
+          "text": "Carefully selected sunflower products for the oil and food industries."
+        }
+      ],
+      "home_production_background_label": [
+        {
+          "text": "PRODUCTION"
+        }
+      ],
+      "home_production_section_label": [
+        {
+          "text": "Production"
+        }
+      ],
+      "home_production_title_line_1": [
+        {
+          "text": "We turn the soil's"
+        }
+      ],
+      "home_production_title_line_2": [
+        {
+          "text": "potential"
+        }
+      ],
+      "home_production_title_line_3": [
+        {
+          "text": "into value."
+        }
+      ],
+      "home_production_description": [
+        {
+          "text": "We see production as more than the process between sowing and harvest. By considering soil structure, crop needs and the right timing together, we aim to unlock the true potential of every field."
+        }
+      ],
+      "home_production_transition_label": [
+        {
+          "text": "From soil to crop"
+        }
+      ],
+      "home_production_explore_label": [
+        {
+          "text": "Discover the soil's potential"
+        }
+      ],
+      "home_production_interactive_label": [
+        {
+          "text": "Interactive production"
+        }
+      ],
+      "home_production_interaction_hint": [
+        {
+          "text": "Move your mouse"
+        }
+      ],
+      "home_production_cursor_label": [
+        {
+          "text": "Explore"
+        }
+      ],
+      "home_production_image_description": [
+        {
+          "text": "The same soil can yield entirely new value with the right approach to production."
+        }
+      ],
+      "home_production_image_state_label": [
+        {
+          "text": "Bare soil → production"
+        }
+      ],
+      "home_production_location_label": [
+        {
+          "text": "37°52' / Production area"
+        }
+      ],
+      "home_production_caption": [
+        {
+          "text": "We reveal the potential of the soil through the right crops and disciplined production."
+        }
+      ],
+      "home_activities_title_1": [
+        {
+          "text": "At every stage"
+        }
+      ],
+      "home_activities_title_2": [
+        {
+          "text": "of agricultural value."
+        }
+      ],
+      "home_activities_description": [
+        {
+          "text": "From sourcing and trade to storage and processing, we manage the product’s value journey as a whole."
+        }
+      ],
+      "home_activities_cta_hover": [
+        {
+          "text": "Explore all activities"
+        }
+      ],
+      "home_products_eyebrow": [
+        {
+          "text": "Value from soil to table"
+        }
+      ],
+      "home_products_title_1": [
+        {
+          "text": "We grow the"
+        }
+      ],
+      "home_products_title_accent": [
+        {
+          "text": "value"
+        }
+      ],
+      "home_products_title_3": [
+        {
+          "text": "born from the soil."
+        }
+      ],
+      "home_products_description": [
+        {
+          "text": "We measure a product by more than its harvest. We protect its natural value by maintaining quality from the source and handling the right crop under the right conditions."
+        }
+      ],
+      "home_products_values": [
+        {
+          "text": "Selection · Quality · Continuity"
+        }
+      ],
+      "home_products_selection_label": [
+        {
+          "text": "Product selection"
+        }
+      ],
+      "home_products_count_label": [
+        {
+          "text": "04 product groups"
+        }
+      ],
+      "home_products_hover_hint": [
+        {
+          "text": "Hover to explore products"
+        }
+      ],
+      "detail_products_button": [
+        {
+          "text": "View All Products"
+        }
+      ],
+      "detail_products_button_hover": [
+        {
+          "text": "Explore our products"
+        }
+      ],
+      "detail_story_label": [
+        {
+          "text": "From field to crop"
+        }
+      ],
+      "detail_story_intro": [
+        {
+          "text": "We approach production as a whole made up of complementary decisions rather than a single stage."
+        }
+      ],
+      "detail_back_label": [
+        {
+          "text": "Our Activities"
+        }
+      ],
+      "detail_brand": [
+        {
+          "text": "Toprak Tarım"
+        }
+      ],
+      "detail_scroll_label": [
+        {
+          "text": "Scroll down"
+        }
+      ],
+      "detail_general_overview": [
+        {
+          "text": "Overview"
+        }
+      ],
+      "detail_production_approach": [
+        {
+          "text": "Production approach"
+        }
+      ],
+      "detail_fact_usage_label": [
+        {
+          "text": "Uses"
+        }
+      ],
+      "detail_fact_sowing_label": [
+        {
+          "text": "Sowing period"
+        }
+      ],
+      "detail_fact_harvest_label": [
+        {
+          "text": "Harvest period"
+        }
+      ],
+      "detail_fact_character_label": [
+        {
+          "text": "Crop profile"
+        }
+      ],
+      "detail_story_1_eyebrow": [
+        {
+          "text": "Reading the field"
+        }
+      ],
+      "detail_story_1_title": [
+        {
+          "text": "No two seasons begin the same."
+        }
+      ],
+      "detail_story_1_accent": [
+        {
+          "text": "Conditions come first."
+        }
+      ],
+      "detail_story_1_body": [
+        {
+          "text": "Before production begins, we consider the field’s current state, the character of the season and observations from earlier periods. The first decision therefore comes from real field conditions."
+        }
+      ],
+      "detail_story_1_note": [
+        {
+          "text": "A sound production plan begins by reading the field as it is."
+        }
+      ],
+      "detail_story_2_eyebrow": [
+        {
+          "text": "Developing decisions"
+        }
+      ],
+      "detail_story_2_title": [
+        {
+          "text": "The plan keeps evolving."
+        }
+      ],
+      "detail_story_2_accent": [
+        {
+          "text": "Decisions develop as the field changes."
+        }
+      ],
+      "detail_story_2_body": [
+        {
+          "text": "Observations throughout production allow the plan to be reassessed. As weather, growth and field conditions change, practices are updated with the same discipline."
+        }
+      ],
+      "detail_story_2_note": [
+        {
+          "text": "For us, planning is a living process rather than a one-time start."
+        }
+      ],
+      "detail_story_3_eyebrow": [
+        {
+          "text": "Maintaining balance"
+        }
+      ],
+      "detail_story_3_title": [
+        {
+          "text": "The process matters as much as the result."
+        }
+      ],
+      "detail_story_3_accent": [
+        {
+          "text": "We carry consistency through production."
+        }
+      ],
+      "detail_story_3_body": [
+        {
+          "text": "We evaluate crop development beyond the final result, monitoring field-wide balance, production standards and differences that emerge throughout the process."
+        }
+      ],
+      "detail_story_3_note": [
+        {
+          "text": "The aim is to maintain the same care throughout the season."
+        }
+      ],
+      "detail_story_4_eyebrow": [
+        {
+          "text": "Carrying experience forward"
+        }
+      ],
+      "detail_story_4_title": [
+        {
+          "text": "Every season prepares the next."
+        }
+      ],
+      "detail_story_4_accent": [
+        {
+          "text": "We carry field knowledge into the future."
+        }
+      ],
+      "detail_story_4_body": [
+        {
+          "text": "When a production period ends, the process continues. Field experience, observations and results help the next season begin with stronger decisions."
+        }
+      ],
+      "detail_story_4_note": [
+        {
+          "text": "Production experience accumulates, and every season leaves a stronger starting point for the next."
+        }
+      ],
+      "detail_product_1_kicker": [
+        {
+          "text": "Born from the soil"
+        }
+      ],
+      "detail_product_1_eyebrow": [
+        {
+          "text": "Cool-season grain"
+        }
+      ],
+      "detail_product_1_section_label": [
+        {
+          "text": "Barley production"
+        }
+      ],
+      "detail_product_1_section_title": [
+        {
+          "text": "A strong and versatile cool-season grain."
+        }
+      ],
+      "detail_product_1_section_text": [
+        {
+          "text": "Barley is a fundamental field crop thanks to its adaptability, varied uses and important role in the production chain."
+        }
+      ],
+      "detail_product_1_white_title": [
+        {
+          "text": "We read soil conditions and manage every stage of production as one."
+        }
+      ],
+      "detail_product_1_white_text": [
+        {
+          "text": "From sowing to harvest, crop development, soil structure and intended use guide production decisions."
+        }
+      ],
+      "detail_product_1_usage_value": [
+        {
+          "text": "Feed, malt and food"
+        }
+      ],
+      "detail_product_1_usage_description": [
+        {
+          "text": "Widely used in animal nutrition, barley is a key raw material for malt and some varieties are used in food products."
+        }
+      ],
+      "detail_product_1_sowing_value": [
+        {
+          "text": "Autumn / Spring"
+        }
+      ],
+      "detail_product_1_sowing_description": [
+        {
+          "text": "Depending on region and variety, barley may be sown in autumn or spring; winter sowing is common in Central Anatolia."
+        }
+      ],
+      "detail_product_1_harvest_value": [
+        {
+          "text": "June – July"
+        }
+      ],
+      "detail_product_1_harvest_description": [
+        {
+          "text": "Harvest timing varies by region, sowing period and variety, with maturity generally reached in early summer in Central Anatolia."
+        }
+      ],
+      "detail_product_1_character_value": [
+        {
+          "text": "Cool-season grain"
+        }
+      ],
+      "detail_product_1_character_description": [
+        {
+          "text": "An annual grain adaptable to varied environments, with different varieties suited to different uses."
+        }
+      ],
+      "detail_product_1_highlight_1": [
+        {
+          "text": "Adaptability"
+        }
+      ],
+      "detail_product_1_highlight_2": [
+        {
+          "text": "Versatile use"
+        }
+      ],
+      "detail_product_1_highlight_3": [
+        {
+          "text": "Planned sowing"
+        }
+      ],
+      "detail_product_1_highlight_4": [
+        {
+          "text": "Controlled harvest"
+        }
+      ],
+      "detail_product_2_kicker": [
+        {
+          "text": "A source of abundance"
+        }
+      ],
+      "detail_product_2_eyebrow": [
+        {
+          "text": "Essential grain"
+        }
+      ],
+      "detail_product_2_section_label": [
+        {
+          "text": "Wheat production"
+        }
+      ],
+      "detail_product_2_section_title": [
+        {
+          "text": "Balanced production through an accurate reading of the soil."
+        }
+      ],
+      "detail_product_2_section_text": [
+        {
+          "text": "In wheat production, sowing time, variety selection, soil conditions and harvest are complementary parts of one plan."
+        }
+      ],
+      "detail_product_2_white_title": [
+        {
+          "text": "We consider the entire growth period, not only the harvest."
+        }
+      ],
+      "detail_product_2_white_text": [
+        {
+          "text": "We regularly monitor field conditions and reassess crop needs at every stage."
+        }
+      ],
+      "detail_product_2_usage_value": [
+        {
+          "text": "Flour, feed and food"
+        }
+      ],
+      "detail_product_2_usage_description": [
+        {
+          "text": "Used throughout the food chain, especially for flour and baked goods, while some varieties are also used for feed."
+        }
+      ],
+      "detail_product_2_sowing_value": [
+        {
+          "text": "Mainly autumn"
+        }
+      ],
+      "detail_product_2_sowing_description": [
+        {
+          "text": "Winter sowing is widespread in Türkiye, while spring sowing is possible depending on region and climate."
+        }
+      ],
+      "detail_product_2_harvest_value": [
+        {
+          "text": "June – August"
+        }
+      ],
+      "detail_product_2_harvest_description": [
+        {
+          "text": "Harvest varies with climate and elevation and generally takes place during summer in Central Anatolia."
+        }
+      ],
+      "detail_product_2_character_value": [
+        {
+          "text": "Cool-season grain"
+        }
+      ],
+      "detail_product_2_character_description": [
+        {
+          "text": "One of the world’s essential grains, with production characteristics shaped by variety, climate and purpose."
+        }
+      ],
+      "detail_product_2_highlight_1": [
+        {
+          "text": "Variety selection"
+        }
+      ],
+      "detail_product_2_highlight_2": [
+        {
+          "text": "Soil balance"
+        }
+      ],
+      "detail_product_2_highlight_3": [
+        {
+          "text": "Field monitoring"
+        }
+      ],
+      "detail_product_2_highlight_4": [
+        {
+          "text": "Timely harvest"
+        }
+      ],
+      "detail_product_3_kicker": [
+        {
+          "text": "The rhythm of production"
+        }
+      ],
+      "detail_product_3_eyebrow": [
+        {
+          "text": "Warm-season grain"
+        }
+      ],
+      "detail_product_3_section_label": [
+        {
+          "text": "Corn production"
+        }
+      ],
+      "detail_product_3_section_title": [
+        {
+          "text": "We combine high yield potential with accurate timing."
+        }
+      ],
+      "detail_product_3_section_text": [
+        {
+          "text": "Temperature, water management, growth stage and harvest timing directly influence corn performance."
+        }
+      ],
+      "detail_product_3_white_title": [
+        {
+          "text": "A planned approach that follows the crop’s growth rhythm."
+        }
+      ],
+      "detail_product_3_white_text": [
+        {
+          "text": "We evaluate each growth stage with field conditions and manage production in a controlled way."
+        }
+      ],
+      "detail_product_3_usage_value": [
+        {
+          "text": "Feed, food and industry"
+        }
+      ],
+      "detail_product_3_usage_description": [
+        {
+          "text": "Widely used in animal nutrition, starch and oil industries, and many food products."
+        }
+      ],
+      "detail_product_3_sowing_value": [
+        {
+          "text": "Spring"
+        }
+      ],
+      "detail_product_3_sowing_description": [
+        {
+          "text": "Sowing begins when soil temperature reaches the appropriate level, with timing varying by region."
+        }
+      ],
+      "detail_product_3_harvest_value": [
+        {
+          "text": "August – October"
+        }
+      ],
+      "detail_product_3_harvest_description": [
+        {
+          "text": "Harvest timing varies by intended use, sowing date and regional climate."
+        }
+      ],
+      "detail_product_3_character_value": [
+        {
+          "text": "Warm-season grain"
+        }
+      ],
+      "detail_product_3_character_description": [
+        {
+          "text": "A fast-growing crop with high yield potential and sensitivity to temperature and water management."
+        }
+      ],
+      "detail_product_3_highlight_1": [
+        {
+          "text": "Water management"
+        }
+      ],
+      "detail_product_3_highlight_2": [
+        {
+          "text": "Growth monitoring"
+        }
+      ],
+      "detail_product_3_highlight_3": [
+        {
+          "text": "Accurate timing"
+        }
+      ],
+      "detail_product_3_highlight_4": [
+        {
+          "text": "High potential"
+        }
+      ],
+      "detail_product_4_kicker": [
+        {
+          "text": "Reaching for the sun"
+        }
+      ],
+      "detail_product_4_eyebrow": [
+        {
+          "text": "Oilseed crop"
+        }
+      ],
+      "detail_product_4_section_label": [
+        {
+          "text": "Sunflower production"
+        }
+      ],
+      "detail_product_4_section_title": [
+        {
+          "text": "We assess soil, temperature and growth period together."
+        }
+      ],
+      "detail_product_4_section_text": [
+        {
+          "text": "Sunflower production combines sowing time, soil conditions, growth and harvest maturity."
+        }
+      ],
+      "detail_product_4_white_title": [
+        {
+          "text": "We follow each growth stage within its own conditions."
+        }
+      ],
+      "detail_product_4_white_text": [
+        {
+          "text": "Production decisions are considered alongside crop development and changing field conditions."
+        }
+      ],
+      "detail_product_4_usage_value": [
+        {
+          "text": "Oil, feed and food"
+        }
+      ],
+      "detail_product_4_usage_description": [
+        {
+          "text": "A key raw material for vegetable oil; its meal is used for feed and some varieties for snacks."
+        }
+      ],
+      "detail_product_4_sowing_value": [
+        {
+          "text": "Spring"
+        }
+      ],
+      "detail_product_4_sowing_description": [
+        {
+          "text": "Sowing begins as soil warms, with timing varying by region and climate."
+        }
+      ],
+      "detail_product_4_harvest_value": [
+        {
+          "text": "August – September"
+        }
+      ],
+      "detail_product_4_harvest_description": [
+        {
+          "text": "Head and seed maturity are monitored, with harvest varying by region, variety and sowing time."
+        }
+      ],
+      "detail_product_4_character_value": [
+        {
+          "text": "Oilseed crop"
+        }
+      ],
+      "detail_product_4_character_description": [
+        {
+          "text": "An important industrial crop with a strong root system and adaptability to varied soils."
+        }
+      ],
+      "detail_product_4_highlight_1": [
+        {
+          "text": "Strong roots"
+        }
+      ],
+      "detail_product_4_highlight_2": [
+        {
+          "text": "Soil adaptability"
+        }
+      ],
+      "detail_product_4_highlight_3": [
+        {
+          "text": "Maturity monitoring"
+        }
+      ],
+      "detail_product_4_highlight_4": [
+        {
+          "text": "Quality crop"
+        }
+      ],
+      "journey_skip_label": [
+        {
+          "text": "Skip to the end of the journey"
+        }
+      ],
+      "intro_system_label": [
+        {
+          "text": "Production system"
+        }
+      ],
+      "intro_system_count": [
+        {
+          "text": "01 — 04"
+        }
+      ],
+      "activity_step_1_label": [
+        {
+          "text": "Analysis"
+        }
+      ],
+      "activity_step_2_label": [
+        {
+          "text": "Planning"
+        }
+      ],
+      "activity_step_3_label": [
+        {
+          "text": "Control"
+        }
+      ],
+      "activity_step_4_label": [
+        {
+          "text": "Value"
+        }
+      ]
+    }
+  },
+  "media": {
+    "hero": {
+      "localDefault": "/about-bg.png",
+      "externalUrl": null
+    },
+    "activityCard1": {
+      "localDefault": "asset:hero3",
+      "externalUrl": null
+    },
+    "activityCard2": {
+      "localDefault": "asset:hero4",
+      "externalUrl": null
+    },
+    "activityCard3": {
+      "localDefault": "asset:hero3",
+      "externalUrl": null
+    },
+    "activityCard4": {
+      "localDefault": "asset:hero4",
+      "externalUrl": null
+    },
+    "product1": {
+      "localDefault": "/arpa.png",
+      "externalUrl": null
+    },
+    "product2": {
+      "localDefault": "/bugday.png",
+      "externalUrl": null
+    },
+    "product3": {
+      "localDefault": "/misir.png",
+      "externalUrl": null
+    },
+    "product4": {
+      "localDefault": "/aycicegi.png",
+      "externalUrl": null
+    },
+    "detailProduct1": {
+      "localDefault": "/barley-field.png",
+      "externalUrl": null
+    },
+    "detailProduct2": {
+      "localDefault": "/wheat-field.png",
+      "externalUrl": null
+    },
+    "detailProduct3": {
+      "localDefault": "/corn-field.png",
+      "externalUrl": null
+    },
+    "detailProduct4": {
+      "localDefault": "/sunflower-field.png",
+      "externalUrl": null
+    }
+  }
+}

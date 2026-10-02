@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Ürün görseli bekleniyor">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9e5d9"/><stop offset="1" stop-color="#d8d4c7"/></linearGradient></defs>
+  <rect width="1200" height="1500" fill="url(#g)"/>
+  <path d="M600 930V540M600 720c-105-18-174-82-196-191 105 18 174 82 196 191Zm0 104c105-18 174-82 196-191-105 18-174 82-196 191Z" fill="none" stroke="#24734d" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity=".42"/>
+  <text x="600" y="1030" text-anchor="middle" fill="#486151" font-family="Arial, sans-serif" font-size="34" letter-spacing="7" opacity=".7">TOPRAK TARIM</text>
+</svg>

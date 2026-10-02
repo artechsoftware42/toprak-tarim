@@ -1,0 +1,43 @@
+{
+  "name": "toprak-tarim",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:content": "node scripts/test-home-content.cjs && node scripts/test-site-chrome.cjs && node scripts/test-site-routing.cjs"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^2.1.3",
+    "@gsap/react": "^2.1.2",
+    "country-flag-icons": "^1.6.17",
+    "framer-motion": "^12.43.0",
+    "gsap": "^3.15.0",
+    "leaflet": "^1.9.4",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.24.0",
+    "maplibre-gl": "^6.11.1",
+    "mongodb": "^7.6.0",
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-icons": "^5.7.0",
+    "react-leaflet": "^5.0.0",
+    "resend": "^6.30.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/google.maps": "^3.66.3",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

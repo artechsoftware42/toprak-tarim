@@ -1,0 +1,95 @@
+{
+  "siteKey": "headerFooter",
+  "schemaVersion": 1,
+  "brand": {
+    "logoAlt": { "tr": "Toprak Tarım Logo", "en": "Toprak Tarım Logo" },
+    "homeAria": { "tr": "Ana sayfa", "en": "Home" },
+    "tagline": {
+      "tr": "Hububat, yağlı tohumlar ve yem sanayine yönelik güçlü tedarik, depolama ve ticaret altyapısıyla tarımsal üretim zincirinin güvenilir halkası.",
+      "en": "A trusted link in the agricultural production chain with a strong supply, storage and trading infrastructure for grains, oilseeds and the feed industry."
+    },
+    "marquee": {
+      "tr": ["Toprak", "Hasat", "Tedarik"],
+      "en": ["Soil", "Harvest", "Supply"]
+    }
+  },
+  "navigation": [
+    {
+      "key": "home",
+      "href": "/",
+      "label": { "tr": "Anasayfa", "en": "Home" },
+      "children": []
+    },
+    {
+      "key": "corporate",
+      "href": "/hakkimizda",
+      "label": { "tr": "Kurumsal", "en": "Corporate" },
+      "description": {
+        "tr": "Toprak Tarım’ın kurumsal kimliği ve temel yaklaşımı.",
+        "en": "Toprak Tarım’s corporate identity and core approach."
+      },
+      "children": [
+        { "key": "about", "href": "/hakkimizda#biz-kimiz", "label": { "tr": "Hakkımızda", "en": "About us" } },
+        { "key": "vision", "href": "/hakkimizda#vizyon", "label": { "tr": "Vizyon", "en": "Vision" } },
+        { "key": "mission", "href": "/hakkimizda#misyon", "label": { "tr": "Misyon", "en": "Mission" } }
+      ]
+    },
+    {
+      "key": "activities",
+      "href": "/faaliyetler",
+      "label": { "tr": "Faaliyetlerimiz", "en": "Activities" },
+      "description": {
+        "tr": "Toprak Tarım’ın üretim gücünü ve ürünlerini keşfedin.",
+        "en": "Discover Toprak Tarım’s production strength and products."
+      },
+      "children": [
+        { "key": "production", "href": "/faaliyetler#uretim", "label": { "tr": "Üretim", "en": "Production" } },
+        { "key": "products", "href": "/faaliyetler#urunler", "label": { "tr": "Ürünler", "en": "Products" } }
+      ]
+    },
+    {
+      "key": "contact",
+      "href": "/iletisim",
+      "label": { "tr": "İletişim", "en": "Contact" },
+      "children": []
+    }
+  ],
+  "contact": {
+    "email": {
+      "label": { "tr": "E-posta", "en": "Email" },
+      "display": "toprak@topraktarim.com.tr",
+      "href": "mailto:toprak@topraktarim.com.tr"
+    },
+    "phone": {
+      "label": { "tr": "Telefon", "en": "Phone" },
+      "display": "444 42 70",
+      "href": "tel:4444270"
+    },
+    "address": {
+      "label": { "tr": "Adres", "en": "Address" },
+      "display": {
+        "tr": "Fetih Mah. Şeyhülema Yahşi Cad. No:204 Karatay / KONYA",
+        "en": "Fetih District, Şeyhülema Yahşi Avenue, No:204 Karatay / KONYA"
+      },
+      "href": "https://www.google.com/maps/place/37%C2%B052'30.1%22N+32%C2%B032'43.5%22E/@37.875441,32.5453333,1008a,77y,213.13h,76.35t/data=!3m7!1e1!3m5!1s52bC5PNlrJ9vr9XKhwZZ3g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D13.646042429682069%26panoid%3D52bC5PNlrJ9vr9XKhwZZ3g%26yaw%3D213.13295149413338!7i16384!8i8192!4m4!3m3!8m2!3d37.8750381!4d32.5454235?hl=tr&entry=ttu"
+    }
+  },
+  "socials": [
+    { "key": "instagram", "label": "Instagram", "href": "https://instagram.com" },
+    { "key": "linkedin", "label": "LinkedIn", "href": "https://linkedin.com" },
+    { "key": "facebook", "label": "Facebook", "href": "https://facebook.com" }
+  ],
+  "footer": {
+    "legalLabel": { "tr": "Yasal", "en": "Legal" },
+    "legalLinks": [
+      { "key": "kvkk", "href": "/kvkk", "label": { "tr": "KVKK Aydınlatma Metni", "en": "Data Protection Notice" } },
+      { "key": "cookies", "href": "/cookies", "label": { "tr": "Çerez Politikası", "en": "Cookie Policy" } },
+      { "key": "information-society", "href": "/iss", "label": { "tr": "Bilgi Toplumu Hizmetleri", "en": "Information Society Services" } }
+    ],
+    "copyright": {
+      "tr": "© 2026 Toprak Tarım tüm hakları saklıdır",
+      "en": "© 2026 Toprak Tarım. All rights reserved."
+    },
+    "developedBy": { "tr": "Geliştiren", "en": "Developed by" }
+  }
+}

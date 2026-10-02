@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f1ea;
+  --foreground: #171a16;
+}
+
+html {
+  scroll-behavior: auto !important;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+.admin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(36, 115, 77, 0.42) transparent;
+}
+
+.admin-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.admin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-scrollbar::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(36, 115, 77, 0.42);
+  background-clip: padding-box;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+
+  overflow-x: clip;
+
+  overscroll-behavior-y: none;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: "familjen", "familjen Fallback", sans-serif;
+
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+}
+
+button,
+a,
+select,
+label[for],
+input[type="checkbox"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer-marquee {
+  animation: footerMarquee 280s linear infinite;
+  will-change: transform;
+}
+
+@keyframes footerMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-marquee {
+    animation: none;
+    transform: none;
+  }
+}

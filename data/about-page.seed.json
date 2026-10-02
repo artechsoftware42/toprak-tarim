@@ -1,0 +1,750 @@
+{
+  "pageKey": "aboutPage",
+  "displayName": {
+    "tr": "Hakkımızda sayfası",
+    "en": "About page"
+  },
+  "schemaVersion": 1,
+  "content": {
+    "tr": {
+      "hero_aria": [
+        {
+          "text": "Toprak Tarım hakkında"
+        }
+      ],
+      "breadcrumb_aria": [
+        {
+          "text": "Sayfa yolu"
+        }
+      ],
+      "home_label": [
+        {
+          "text": "Anasayfa"
+        }
+      ],
+      "about_label": [
+        {
+          "text": "Hakkımızda"
+        }
+      ],
+      "since_label": [
+        {
+          "text": "2001’den bugüne"
+        }
+      ],
+      "hero_word": [
+        {
+          "text": "TOPRAK"
+        }
+      ],
+      "hero_tagline": [
+        {
+          "text": "Toprakla başlayan bir yolculuk"
+        }
+      ],
+      "hero_section_label": [
+        {
+          "text": "Hakkımızda"
+        }
+      ],
+      "intro_title_1": [
+        {
+          "text": "Toprağı tanıyoruz."
+        }
+      ],
+      "intro_title_2": [
+        {
+          "text": "Birlikte büyüyoruz."
+        }
+      ],
+      "start_year": [
+        {
+          "text": "2001"
+        }
+      ],
+      "start_year_description": [
+        {
+          "text": "Toprakla başlayan yolculuğumuzun ilk yılı."
+        }
+      ],
+      "intro_description": [
+        {
+          "text": "Tarımın gerçek ihtiyaçlarını sahada anlayarak başladık. Toprağı dinledik, üreticiden öğrendik ve değişen koşullarla birlikte geliştik. Bugün yılların deneyimini daha verimli, güvenilir ve sürdürülebilir bir üretim anlayışına dönüştürüyoruz."
+        }
+      ],
+      "intro_tag_1": [
+        {
+          "text": "Sahadan gelen deneyim"
+        }
+      ],
+      "intro_tag_2": [
+        {
+          "text": "Üreticiyle birlikte gelişim"
+        }
+      ],
+      "story_section_label": [
+        {
+          "text": "Hakkımızda"
+        }
+      ],
+      "story_title_1": [
+        {
+          "text": "Tarımı bir"
+        }
+      ],
+      "story_title_accent": [
+        {
+          "text": "döngü"
+        }
+      ],
+      "story_title_3": [
+        {
+          "text": "olarak görüyoruz."
+        }
+      ],
+      "story_description": [
+        {
+          "text": "Toprağın hazırlanmasından üretimin sürdürülebilirliğine kadar her aşamanın birbiriyle bağlantılı olduğuna inanıyoruz. Yaklaşımımız bu bütünlüğün içinde şekilleniyor."
+        }
+      ],
+      "statement_1_label": [
+        {
+          "text": "Başlangıç"
+        }
+      ],
+      "statement_1_text": [
+        {
+          "text": "Toprağı anlamadan üretimi anlamak mümkün değil."
+        }
+      ],
+      "statement_2_label": [
+        {
+          "text": "Gelişim"
+        }
+      ],
+      "statement_2_text": [
+        {
+          "text": "Bilgiyi sahadaki deneyimle büyütüyoruz."
+        }
+      ],
+      "statement_3_label": [
+        {
+          "text": "Gelecek"
+        }
+      ],
+      "statement_3_text": [
+        {
+          "text": "Üretirken geleceğin toprağını da koruyoruz."
+        }
+      ],
+      "general_label": [
+        {
+          "text": "Genel Bilgiler"
+        }
+      ],
+      "general_period": [
+        {
+          "text": "2001 — Bugün"
+        }
+      ],
+      "scroll_label": [
+        {
+          "text": "Kaydır"
+        }
+      ],
+      "history_1_title_1": [
+        {
+          "text": "2001’de toprağa"
+        }
+      ],
+      "history_1_title_2": [
+        {
+          "text": "güvenerek yola çıktık."
+        }
+      ],
+      "history_1_body_1": [
+        {
+          "text": "Üreticinin gerçek ihtiyaçlarını sahada görerek başladık."
+        }
+      ],
+      "history_1_body_2": [
+        {
+          "text": "Toprağın, iklimin ve üretimin birbirinden ayrı düşünülemeyeceğini öğrendik."
+        }
+      ],
+      "history_1_body_3": [
+        {
+          "text": "İlk günden beri güvenilirlik ve süreklilik çalışma anlayışımızın merkezinde yer aldı."
+        }
+      ],
+      "history_2_title_1": [
+        {
+          "text": "Sahada öğrendik,"
+        }
+      ],
+      "history_2_title_2": [
+        {
+          "text": "deneyimle büyüdük."
+        }
+      ],
+      "history_2_body_1": [
+        {
+          "text": "Her sezon bize üretimi yeniden okumayı öğretti."
+        }
+      ],
+      "history_2_body_2": [
+        {
+          "text": "Değişen koşullara yalnızca ürünlerle değil, bilgi ve deneyimle cevap verdik."
+        }
+      ],
+      "history_2_body_3": [
+        {
+          "text": "Üreticiyle kurduğumuz ilişki gelişimimizin en önemli kaynaklarından biri oldu."
+        }
+      ],
+      "history_3_title_1": [
+        {
+          "text": "Bilgiyi üretime,"
+        }
+      ],
+      "history_3_title_2": [
+        {
+          "text": "üretimi değere dönüştürdük."
+        }
+      ],
+      "history_3_body_1": [
+        {
+          "text": "Geleneksel tarım bilgisini güncel üretim yaklaşımlarıyla bir araya getirdik."
+        }
+      ],
+      "history_3_body_2": [
+        {
+          "text": "Sahada karşılığı olan, uygulanabilir ve sürdürülebilir çözümler geliştirmeye odaklandık."
+        }
+      ],
+      "history_3_body_3": [
+        {
+          "text": "Her adımda verim kadar üretimin devamlılığını da önemsedik."
+        }
+      ],
+      "history_4_title_1": [
+        {
+          "text": "Bugün geleceğin tarımı"
+        }
+      ],
+      "history_4_title_2": [
+        {
+          "text": "için çalışıyoruz."
+        }
+      ],
+      "history_4_body_1": [
+        {
+          "text": "Bugünün ihtiyaçlarını karşılarken yarının toprağını da hesaba katıyoruz."
+        }
+      ],
+      "history_4_body_2": [
+        {
+          "text": "Kaynakların doğru kullanıldığı, üreticinin güçlendiği bir tarım anlayışını destekliyoruz."
+        }
+      ],
+      "history_4_body_3": [
+        {
+          "text": "Geçmişten gelen deneyimimizi geleceğin üretim biçimleriyle buluşturmaya devam ediyoruz."
+        }
+      ],
+      "vision_mission_label": [
+        {
+          "text": "Vizyon & Misyon"
+        }
+      ],
+      "vision_index": [
+        {
+          "text": "01 / Vizyon"
+        }
+      ],
+      "vision_title_1": [
+        {
+          "text": "Tarımın"
+        }
+      ],
+      "vision_title_2": [
+        {
+          "text": "yarınında"
+        }
+      ],
+      "vision_title_accent": [
+        {
+          "text": "kalıcı değer."
+        }
+      ],
+      "vision_caption": [
+        {
+          "text": "Vizyonumuz"
+        }
+      ],
+      "vision_description": [
+        {
+          "text": "Tarımın değişen ihtiyaçlarına yenilikçi ve güvenilir çözümlerle cevap veren; üreticiyle birlikte gelişen, sürdürülebilir üretimi destekleyen güçlü bir yapı olmayı hedefliyoruz."
+        }
+      ],
+      "mission_index": [
+        {
+          "text": "02 / Misyon"
+        }
+      ],
+      "mission_title_1": [
+        {
+          "text": "Değeri"
+        }
+      ],
+      "mission_title_2": [
+        {
+          "text": "topraktan"
+        }
+      ],
+      "mission_title_accent": [
+        {
+          "text": "başlatmak."
+        }
+      ],
+      "mission_caption": [
+        {
+          "text": "Misyonumuz"
+        }
+      ],
+      "mission_description": [
+        {
+          "text": "Üreticinin ihtiyaçlarını doğru anlamak, sahada karşılığı olan çözümler geliştirmek ve kaliteyi sürdürülebilirlikle birleştirerek üretimin her aşamasına uzun vadeli değer katmak için çalışıyoruz."
+        }
+      ],
+      "closing_brand": [
+        {
+          "text": "Toprak Tarım"
+        }
+      ],
+      "motto_label": [
+        {
+          "text": "Mottomuz"
+        }
+      ],
+      "slogan_word_1": [
+        {
+          "text": "Bereket"
+        }
+      ],
+      "slogan_word_2": [
+        {
+          "text": "Topraktan"
+        }
+      ],
+      "slogan_word_3": [
+        {
+          "text": "Gelir."
+        }
+      ],
+      "slogan_description": [
+        {
+          "text": "Toprağa duyduğumuz saygı, yaptığımız her işin temelinde. Üreticinin emeğine değer katmak ve yarının tarımını birlikte geliştirmek için çalışıyoruz."
+        }
+      ],
+      "closing_bottom_1": [
+        {
+          "text": "Toprağa saygı. Üretime değer."
+        }
+      ],
+      "closing_bottom_2": [
+        {
+          "text": "Birlikte, geleceğe."
+        }
+      ],
+      "contact_button": [
+        {
+          "text": "İletişime Geçin"
+        }
+      ],
+      "contact_button_hover": [
+        {
+          "text": "Bizimle iletişime geçin"
+        }
+      ],
+      "contact_button_aria": [
+        {
+          "text": "Bizimle iletişime geçin"
+        }
+      ]
+    },
+    "en": {
+      "hero_aria": [
+        {
+          "text": "About Toprak Tarım"
+        }
+      ],
+      "breadcrumb_aria": [
+        {
+          "text": "Breadcrumb"
+        }
+      ],
+      "home_label": [
+        {
+          "text": "Home"
+        }
+      ],
+      "about_label": [
+        {
+          "text": "About us"
+        }
+      ],
+      "since_label": [
+        {
+          "text": "Since 2001"
+        }
+      ],
+      "hero_word": [
+        {
+          "text": "SOIL"
+        }
+      ],
+      "hero_tagline": [
+        {
+          "text": "A journey that began with the soil"
+        }
+      ],
+      "hero_section_label": [
+        {
+          "text": "About us"
+        }
+      ],
+      "intro_title_1": [
+        {
+          "text": "We understand the soil."
+        }
+      ],
+      "intro_title_2": [
+        {
+          "text": "We grow together."
+        }
+      ],
+      "start_year": [
+        {
+          "text": "2001"
+        }
+      ],
+      "start_year_description": [
+        {
+          "text": "The first year of our journey rooted in the soil."
+        }
+      ],
+      "intro_description": [
+        {
+          "text": "We began by understanding the real needs of agriculture in the field. We listened to the soil, learned from producers and evolved with changing conditions. Today, we turn years of experience into a more productive, reliable and sustainable approach to production."
+        }
+      ],
+      "intro_tag_1": [
+        {
+          "text": "Experience from the field"
+        }
+      ],
+      "intro_tag_2": [
+        {
+          "text": "Growing with producers"
+        }
+      ],
+      "story_section_label": [
+        {
+          "text": "About us"
+        }
+      ],
+      "story_title_1": [
+        {
+          "text": "We see agriculture"
+        }
+      ],
+      "story_title_accent": [
+        {
+          "text": "as a cycle"
+        }
+      ],
+      "story_title_3": [
+        {
+          "text": "of connected value."
+        }
+      ],
+      "story_description": [
+        {
+          "text": "We believe every stage, from preparing the soil to sustaining production, is connected. Our approach is shaped by this whole."
+        }
+      ],
+      "statement_1_label": [
+        {
+          "text": "Beginning"
+        }
+      ],
+      "statement_1_text": [
+        {
+          "text": "Production cannot be understood without understanding the soil."
+        }
+      ],
+      "statement_2_label": [
+        {
+          "text": "Growth"
+        }
+      ],
+      "statement_2_text": [
+        {
+          "text": "We grow knowledge through experience in the field."
+        }
+      ],
+      "statement_3_label": [
+        {
+          "text": "Future"
+        }
+      ],
+      "statement_3_text": [
+        {
+          "text": "We protect tomorrow’s soil while producing today."
+        }
+      ],
+      "general_label": [
+        {
+          "text": "Our Journey"
+        }
+      ],
+      "general_period": [
+        {
+          "text": "2001 — Today"
+        }
+      ],
+      "scroll_label": [
+        {
+          "text": "Scroll"
+        }
+      ],
+      "history_1_title_1": [
+        {
+          "text": "In 2001, we set out"
+        }
+      ],
+      "history_1_title_2": [
+        {
+          "text": "with trust in the soil."
+        }
+      ],
+      "history_1_body_1": [
+        {
+          "text": "We began by observing the real needs of producers in the field."
+        }
+      ],
+      "history_1_body_2": [
+        {
+          "text": "We learned that soil, climate and production cannot be considered separately."
+        }
+      ],
+      "history_1_body_3": [
+        {
+          "text": "Reliability and continuity have remained central to the way we work."
+        }
+      ],
+      "history_2_title_1": [
+        {
+          "text": "We learned in the field"
+        }
+      ],
+      "history_2_title_2": [
+        {
+          "text": "and grew through experience."
+        }
+      ],
+      "history_2_body_1": [
+        {
+          "text": "Every season taught us to understand production again."
+        }
+      ],
+      "history_2_body_2": [
+        {
+          "text": "We responded to changing conditions with knowledge and experience as well as products."
+        }
+      ],
+      "history_2_body_3": [
+        {
+          "text": "Our relationship with producers became one of our strongest sources of growth."
+        }
+      ],
+      "history_3_title_1": [
+        {
+          "text": "We turned knowledge into production"
+        }
+      ],
+      "history_3_title_2": [
+        {
+          "text": "and production into value."
+        }
+      ],
+      "history_3_body_1": [
+        {
+          "text": "We brought traditional agricultural knowledge together with current production methods."
+        }
+      ],
+      "history_3_body_2": [
+        {
+          "text": "We focused on practical and sustainable solutions that work in the field."
+        }
+      ],
+      "history_3_body_3": [
+        {
+          "text": "At every step, we valued continuity as much as productivity."
+        }
+      ],
+      "history_4_title_1": [
+        {
+          "text": "Today, we work"
+        }
+      ],
+      "history_4_title_2": [
+        {
+          "text": "for the agriculture of tomorrow."
+        }
+      ],
+      "history_4_body_1": [
+        {
+          "text": "We meet today’s needs while considering the soil of tomorrow."
+        }
+      ],
+      "history_4_body_2": [
+        {
+          "text": "We support an approach that uses resources responsibly and strengthens producers."
+        }
+      ],
+      "history_4_body_3": [
+        {
+          "text": "We continue to unite our experience with the production methods of the future."
+        }
+      ],
+      "vision_mission_label": [
+        {
+          "text": "Vision & Mission"
+        }
+      ],
+      "vision_index": [
+        {
+          "text": "01 / Vision"
+        }
+      ],
+      "vision_title_1": [
+        {
+          "text": "Lasting"
+        }
+      ],
+      "vision_title_2": [
+        {
+          "text": "value in agriculture’s"
+        }
+      ],
+      "vision_title_accent": [
+        {
+          "text": "future."
+        }
+      ],
+      "vision_caption": [
+        {
+          "text": "Our vision"
+        }
+      ],
+      "vision_description": [
+        {
+          "text": "We aim to be a strong organization that responds to agriculture’s changing needs with innovative and reliable solutions, grows with producers and supports sustainable production."
+        }
+      ],
+      "mission_index": [
+        {
+          "text": "02 / Mission"
+        }
+      ],
+      "mission_title_1": [
+        {
+          "text": "Creating"
+        }
+      ],
+      "mission_title_2": [
+        {
+          "text": "value from"
+        }
+      ],
+      "mission_title_accent": [
+        {
+          "text": "the soil."
+        }
+      ],
+      "mission_caption": [
+        {
+          "text": "Our mission"
+        }
+      ],
+      "mission_description": [
+        {
+          "text": "We work to understand producers’ needs, develop practical solutions and add lasting value to every stage of production by combining quality with sustainability."
+        }
+      ],
+      "closing_brand": [
+        {
+          "text": "Toprak Tarım"
+        }
+      ],
+      "motto_label": [
+        {
+          "text": "Our motto"
+        }
+      ],
+      "slogan_word_1": [
+        {
+          "text": "Abundance"
+        }
+      ],
+      "slogan_word_2": [
+        {
+          "text": "Comes From"
+        }
+      ],
+      "slogan_word_3": [
+        {
+          "text": "The Soil."
+        }
+      ],
+      "slogan_description": [
+        {
+          "text": "Respect for the soil is at the heart of everything we do. We work to add value to producers’ efforts and shape the agriculture of tomorrow together."
+        }
+      ],
+      "closing_bottom_1": [
+        {
+          "text": "Respect for soil. Value for production."
+        }
+      ],
+      "closing_bottom_2": [
+        {
+          "text": "Together, towards the future."
+        }
+      ],
+      "contact_button": [
+        {
+          "text": "Get in touch"
+        }
+      ],
+      "contact_button_hover": [
+        {
+          "text": "Contact our team"
+        }
+      ],
+      "contact_button_aria": [
+        {
+          "text": "Contact our team"
+        }
+      ]
+    }
+  },
+  "media": {
+    "hero": {
+      "localDefault": "/hero3.png",
+      "externalUrl": null
+    }
+  }
+}
