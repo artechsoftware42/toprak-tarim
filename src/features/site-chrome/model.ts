@@ -77,5 +77,13 @@ export function validateSiteChrome(value: unknown): SiteChrome | null {
     const link = (value.footer.legalLinks as Record<string, unknown>[])[index];
     if (!exactKeys(link, baseline.footer.legalLinks[index]) || !localized(link.label, 180)) return null;
   }
-  return structuredClone(value) as SiteChrome;
+  return structuredClone({
+    siteKey: value.siteKey,
+    schemaVersion: value.schemaVersion,
+    brand: value.brand,
+    navigation: value.navigation,
+    contact: value.contact,
+    socials: value.socials,
+    footer: value.footer,
+  }) as SiteChrome;
 }

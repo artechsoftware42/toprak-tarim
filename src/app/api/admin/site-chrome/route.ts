@@ -14,9 +14,8 @@ export async function PUT(request: Request) {
   if (!content) return Response.json({ message: "Header ve Footer içeriği doğrulanamadı. Sabit bağlantılar değiştirilmiş olabilir." }, { status: 400 });
   try {
     const client = await getMongoClient();
-    const result = await client.db(process.env.MONGODB_DB || "toprak-tarim").collection("site_content")
-      .replaceOne({ siteKey: "headerFooter" }, content);
-    if (result.matchedCount !== 1) return Response.json({ message: "Ortak içerik veritabanında bulunamadı." }, { status: 404 });
+    await client.db(process.env.MONGODB_DB || "toprak-tarim").collection("site_content")
+      .replaceOne({ siteKey: "headerFooter" }, content, { upsert: true });
     return Response.json({ content, message: "Header ve Footer birlikte güncellendi." });
   } catch {
     console.error("[admin-site-chrome] Database update failed.");
