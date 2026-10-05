@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "22.x || 24.x"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "test:content": "node scripts/test-home-content.cjs && node scripts/test-site-chrome.cjs && node scripts/test-site-routing.cjs"
