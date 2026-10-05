@@ -1641,7 +1641,7 @@ function ProductsSection({ managedProducts, categories }: { managedProducts: Man
   const visibleProducts =
     activeFilter === "all"
       ? products
-      : products.filter(product => (product.managed ? product.managed.copy[locale].name : product.category) === activeFilter);
+      : products.filter(product => product.category === activeFilter);
 
   return (
     <section id={localizedSectionId("products", locale)} className="relative scroll-mt-24 overflow-hidden bg-[#F5F3EC] py-24 sm:py-28 lg:py-36">
