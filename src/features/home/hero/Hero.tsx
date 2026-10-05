@@ -423,6 +423,8 @@ export default function Hero() {
               const isActive =
                 activeSlide ===
                 index;
+              const externalMedia = failedMedia[slide.id] ? null : section.media?.[`slide${slide.id}`]?.externalUrl;
+              const mediaSource = externalMedia || slide.src;
 
               return (
                 <div
@@ -448,12 +450,12 @@ export default function Hero() {
                       muted
                       loop
                       playsInline
-                      preload="auto"
+                      preload={isActive || index === activeSlide + 1 ? "auto" : "metadata"}
                       controls={
                         false
                       }
                       disablePictureInPicture
-                      src={failedMedia[slide.id] ? slide.src : section.media?.[`slide${slide.id}`]?.externalUrl || slide.src}
+                      src={externalMedia ? mediaSource : undefined}
                       onError={() => setFailedMedia(current => ({...current, [slide.id]: true}))}
                       className="
                         absolute
@@ -463,14 +465,15 @@ export default function Hero() {
                         object-cover
                       "
                     >
+                      {!externalMedia && <><source src="/hero-vid3-web-small.webm" media="(max-width: 767px)" type="video/webm" /><source src={slide.src} type="video/webm" /></>}
                     </video>
                   ) : (
                     <Image
-                      src={failedMedia[slide.id] ? slide.src : section.media?.[`slide${slide.id}`]?.externalUrl || slide.src}
+                      src={mediaSource}
                       onError={() => setFailedMedia(current => ({...current, [slide.id]: true}))}
                       alt=""
                       fill
-                      unoptimized
+                      unoptimized={Boolean(externalMedia && !externalMedia.startsWith("/api/media/"))}
                       draggable={
                         false
                       }

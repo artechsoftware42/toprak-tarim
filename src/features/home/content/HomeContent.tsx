@@ -27,5 +27,7 @@ export function ContentImage({ section, slot, altField, ...props }: ImageProps &
   const { section: content, text } = useSectionContent(section);
   const external = content.media?.[slot]?.externalUrl;
   const [failed, setFailed] = useState<string | null>(null);
-  return <Image {...props} alt={altField ? text(altField) : props.alt} src={external && failed !== external ? external : props.src} unoptimized={!!external || props.unoptimized} onError={() => setFailed(external || null)} />;
+  const activeExternal = external && failed !== external ? external : null;
+  const needsUnoptimized = Boolean(activeExternal && !activeExternal.startsWith("/api/media/"));
+  return <Image {...props} alt={altField ? text(altField) : props.alt} src={activeExternal || props.src} unoptimized={needsUnoptimized || props.unoptimized} onError={() => setFailed(external || null)} />;
 }
