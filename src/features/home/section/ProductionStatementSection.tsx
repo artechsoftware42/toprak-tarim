@@ -69,10 +69,10 @@ export default function ProductionStatementSection() {
 
   const iconEnd = iconStart + 0.045;
 
-  const iconFilter = useTransform(
+  const iconColor = useTransform(
     scrollYProgress,
     [iconStart, iconEnd],
-    ["grayscale(1) opacity(0.48)", "grayscale(0) opacity(1)"],
+    [INACTIVE_COLOR, GREEN_COLOR],
   );
 
   /*
@@ -155,16 +155,20 @@ export default function ProductionStatementSection() {
                 <span className="mt-[0.02em] flex flex-wrap items-center justify-center gap-x-[0.14em] text-[clamp(3.25rem,6.3vw,7.5rem)] leading-[0.86]">
                   <span className="inline-flex items-center">
                     <motion.span
-                      style={{ filter: iconFilter }}
-                      className="mr-[0.035em] inline-flex shrink-0 translate-y-[0.045em]"
-                    >
-                      <Image
-                        src={siteIcon}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-[0.62em] w-[0.62em] object-contain"
-                      />
-                    </motion.span>
+                      aria-hidden="true"
+                      style={{
+                        backgroundColor: iconColor,
+                        WebkitMaskImage: `url(${siteIcon.src})`,
+                        maskImage: `url(${siteIcon.src})`,
+                        WebkitMaskPosition: "center",
+                        maskPosition: "center",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskSize: "contain",
+                        maskSize: "contain",
+                      }}
+                      className="mr-[0.035em] inline-flex h-[0.62em] w-[0.62em] shrink-0 translate-y-[0.045em]"
+                    />
 
                     <AnimatedWord
                       text="Topraktan"
