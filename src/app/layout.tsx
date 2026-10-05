@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import type { ReactNode } from "react";
 
-import { SITE_INDEXING_ENABLED, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo";
+import { SEO_PHONE, SITE_INDEXING_ENABLED, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo";
 
 import "./globals.css";
 
@@ -43,6 +43,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     name: SITE_NAME,
     url: SITE_URL,
     logo: absoluteUrl("/logo.png"),
+    telephone: SEO_PHONE,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: SEO_PHONE,
+      contactType: "customer service",
+      areaServed: "TR",
+      availableLanguage: ["Turkish", "English"],
+    },
   };
 
   return (

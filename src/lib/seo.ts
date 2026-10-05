@@ -4,6 +4,7 @@ export type SeoLocale = "tr" | "en";
 
 export const SITE_NAME = "Toprak Tarım";
 export const DEFAULT_SITE_URL = "https://topraktarim.com.tr";
+export const SEO_PHONE = "+90 332 355 80 80";
 
 function normalizeSiteUrl(value: string | undefined) {
   if (!value) return DEFAULT_SITE_URL;
