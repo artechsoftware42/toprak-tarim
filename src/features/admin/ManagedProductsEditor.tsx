@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
-import { ChevronDown, ChevronUp, ImageIcon, LoaderCircle, Plus, Save, Star, Trash2, Upload } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { ChevronDown, ChevronUp, ImageIcon, LoaderCircle, Plus, RotateCcw, Save, Star, Trash2, Upload } from "lucide-react";
 
 import { plainText, type HomeSection, type RichText } from "@/features/home/content/model";
-import type { ManagedProduct, ManagedProductCopy, ProductCategory, ProductLocale } from "@/features/products/model";
+import type { ManagedProduct, ManagedProductCopy, ProductCategory, ProductLocale, ProductStoryItem } from "@/features/products/model";
 
 const builtInProducts = [
   { id: "barley", slug: { tr: "arpa", en: "barley" }, index: 1 },
@@ -15,6 +16,16 @@ const builtInProducts = [
 ] as const;
 
 function runs(value: string): RichText { return [{ text: value }]; }
+
+function storyItemsFromSection(section: HomeSection, locale: ProductLocale) {
+  return [1, 2, 3, 4].map(index => ({
+    eyebrow: plainText(section.content[locale][`detail_story_${index}_eyebrow`]),
+    title: plainText(section.content[locale][`detail_story_${index}_title`]),
+    accent: plainText(section.content[locale][`detail_story_${index}_accent`]),
+    body: plainText(section.content[locale][`detail_story_${index}_body`]),
+    note: plainText(section.content[locale][`detail_story_${index}_note`]),
+  }));
+}
 
 function legacyProductFromSection(section: HomeSection, definition: (typeof builtInProducts)[number]): ManagedProduct {
   const prefix = `detail_product_${definition.index}`;
@@ -29,6 +40,7 @@ function legacyProductFromSection(section: HomeSection, definition: (typeof buil
     harvestValue: plainText(section.content[locale][`${prefix}_harvest_value`]), harvestDescription: plainText(section.content[locale][`${prefix}_harvest_description`]),
     characterValue: plainText(section.content[locale][`${prefix}_character_value`]), characterDescription: plainText(section.content[locale][`${prefix}_character_description`]),
     highlights: [1, 2, 3, 4].map(index => plainText(section.content[locale][`${prefix}_highlight_${index}`])),
+    storyItems: storyItemsFromSection(section, locale),
   });
   return { id: definition.id, categoryId: definition.id, slug: definition.slug, copy: { tr: copyFor("tr"), en: copyFor("en") }, media: { cardUrl: section.media?.[`product${definition.index}`]?.externalUrl ?? null, detailUrl: section.media?.[`detailProduct${definition.index}`]?.externalUrl ?? null }, order: definition.index - 1, createdAt: "", updatedAt: "" };
 }
@@ -45,6 +57,10 @@ function writeLegacyProduct(section: HomeSection, definition: (typeof builtInPro
       [`${prefix}_sowing_value`]: copy.sowingValue, [`${prefix}_sowing_description`]: copy.sowingDescription, [`${prefix}_harvest_value`]: copy.harvestValue,
       [`${prefix}_harvest_description`]: copy.harvestDescription, [`${prefix}_character_value`]: copy.characterValue, [`${prefix}_character_description`]: copy.characterDescription,
       ...Object.fromEntries(copy.highlights.map((value, index) => [`${prefix}_highlight_${index + 1}`, value])),
+      ...Object.fromEntries((copy.storyItems ?? storyItemsFromSection(section, locale)).flatMap((item, index) => {
+        const storyPrefix = `detail_story_${index + 1}`;
+        return [[`${storyPrefix}_eyebrow`, item.eyebrow], [`${storyPrefix}_title`, item.title], [`${storyPrefix}_accent`, item.accent], [`${storyPrefix}_body`, item.body], [`${storyPrefix}_note`, item.note]];
+      })),
     };
     for (const [field, value] of Object.entries(values)) section.content[locale][field] = runs(value);
   }
@@ -54,7 +70,7 @@ function writeLegacyProduct(section: HomeSection, definition: (typeof builtInPro
   }
 }
 
-const textFields: Array<{ key: Exclude<keyof ManagedProductCopy, "highlights">; label: string; multiline?: boolean }> = [
+const textFields: Array<{ key: Exclude<keyof ManagedProductCopy, "highlights" | "storyItems">; label: string; multiline?: boolean }> = [
   { key: "name", label: "Ürün adı" }, { key: "description", label: "Ürün kartı açıklaması", multiline: true },
   { key: "kicker", label: "Detay sayfası kısa üst başlığı" },
   { key: "eyebrow", label: "Detay sayfası üst etiketi" }, { key: "sectionLabel", label: "Ürün hakkında bölüm etiketi" },
@@ -102,8 +118,11 @@ function ProductImageEditor({ entityId, slot, label, value, fallback, legacySlot
 
 export default function ManagedProductsEditor({ initialProducts, initialCategories, initialFeaturedProductIds, initialMode, initialActivitySection }: { initialProducts: ManagedProduct[]; initialCategories: ProductCategory[]; initialFeaturedProductIds: string[]; initialMode: "categories" | "products"; initialActivitySection: HomeSection }) {
   const [products, setProducts] = useState(initialProducts);
+  const [savedProducts, setSavedProducts] = useState(initialProducts);
   const [legacySection, setLegacySection] = useState(() => structuredClone(initialActivitySection));
+  const [savedLegacySection, setSavedLegacySection] = useState(() => structuredClone(initialActivitySection));
   const [categories, setCategories] = useState(initialCategories);
+  const [savedCategories, setSavedCategories] = useState(initialCategories);
   const [featuredProductIds, setFeaturedProductIds] = useState(initialFeaturedProductIds);
   const [savedFeaturedProductIds, setSavedFeaturedProductIds] = useState(initialFeaturedProductIds);
   const mode = initialMode;
@@ -115,11 +134,17 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
   const [saving, setSaving] = useState(false);
   const [creating, setCreating] = useState(false);
   const [notice, setNotice] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [actionTarget, setActionTarget] = useState<HTMLElement | null>(null);
   const builtInDefinition = builtInProducts.find(item => item.id === selectedId);
   const legacyProducts = builtInProducts.map(item => legacyProductFromSection(legacySection, item));
   const allEditableProducts = [...legacyProducts, ...products];
   const product = builtInDefinition ? legacyProductFromSection(legacySection, builtInDefinition) : products.find(item => item.id === selectedId);
   const category = categories.find(item => item.id === selectedCategoryId);
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setActionTarget(document.getElementById("managed-products-actions")), 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   function update(change: (draft: ManagedProduct) => void) {
     if (builtInDefinition && product) {
@@ -128,13 +153,20 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
     } else setProducts(current => current.map(item => { if (item.id !== selectedId) return item; const draft = structuredClone(item); change(draft); return draft; }));
     setNotice(null);
   }
+  function updateStoryItem(index: number, key: keyof ProductStoryItem, value: string) {
+    update(draft => {
+      const items = structuredClone(draft.copy[locale].storyItems ?? storyItemsFromSection(legacySection, locale));
+      items[index][key] = value;
+      draft.copy[locale].storyItems = items;
+    });
+  }
   async function createProduct() {
     setCreating(true); setNotice(null);
     try {
       if (!categories.length) throw new Error("Ürün eklemeden önce bir kategori oluşturun.");
       const response = await fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ categoryId: selectedCategoryId || categories[0].id }) }); const result = await response.json();
       if (!response.ok) throw new Error(result.message);
-      setProducts(current => [...current, result.product]); setSelectedId(result.product.id); setLocale("tr"); setNotice({ type: "success", text: result.message });
+      setProducts(current => [...current, result.product]); setSavedProducts(current => [...current, result.product]); setSelectedId(result.product.id); setLocale("tr"); setNotice({ type: "success", text: result.message });
     } catch (error) { setNotice({ type: "error", text: error instanceof Error ? error.message : "Ürün oluşturulamadı." }); }
     finally { setCreating(false); }
   }
@@ -145,7 +177,7 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
       try {
         const response = await fetch("/api/admin/content/activityPage", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(legacySection) }); const result = await response.json();
         if (!response.ok) throw new Error(result.message);
-        setLegacySection(result.section); setNotice({ type: "success", text: `${product.copy.tr.name} kaydedildi.` });
+        setLegacySection(result.section); setSavedLegacySection(structuredClone(result.section)); setNotice({ type: "success", text: `${product.copy.tr.name} kaydedildi.` });
       } catch (error) { setNotice({ type: "error", text: error instanceof Error ? error.message : "Ürün kaydedilemedi." }); }
       finally { setSaving(false); }
       return;
@@ -156,7 +188,7 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
     try {
       const response = await fetch(`/api/admin/products/${product.id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(next) }); const result = await response.json();
       if (!response.ok) throw new Error(result.message);
-      setProducts(current => current.map(item => item.id === product.id ? result.product : item)); setNotice({ type: "success", text: result.message });
+      setProducts(current => current.map(item => item.id === product.id ? result.product : item)); setSavedProducts(current => current.map(item => item.id === product.id ? result.product : item)); setNotice({ type: "success", text: result.message });
     } catch (error) { setNotice({ type: "error", text: error instanceof Error ? error.message : "Ürün kaydedilemedi." }); }
     finally { setSaving(false); }
   }
@@ -164,7 +196,7 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
     if (!product || builtInDefinition || !window.confirm(`${product.copy.tr.name} ürününü kaldırmak istediğinizden emin misiniz?`)) return;
     const response = await fetch(`/api/admin/products/${product.id}`, { method: "DELETE" }); const result = await response.json();
     if (!response.ok) { setNotice({ type: "error", text: result.message }); return; }
-    const remaining = products.filter(item => item.id !== product.id); setProducts(remaining); setFeaturedProductIds(current => current.filter(id => id !== product.id)); setSelectedId(remaining[0]?.id ?? "barley"); setNotice({ type: "success", text: result.message });
+    const remaining = products.filter(item => item.id !== product.id); setProducts(remaining); setSavedProducts(current => current.filter(item => item.id !== product.id)); setFeaturedProductIds(current => current.filter(id => id !== product.id)); setSavedFeaturedProductIds(current => current.filter(id => id !== product.id)); setSelectedId(remaining[0]?.id ?? "barley"); setNotice({ type: "success", text: result.message });
   }
 
   function updateCategory(change: (draft: ProductCategory) => void) {
@@ -180,7 +212,7 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
     try {
       const response = await fetch("/api/admin/product-categories", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: { tr: newCategoryName.tr.trim(), en: newCategoryName.en.trim() } }) }); const result = await response.json();
       if (!response.ok) throw new Error(result.message);
-      setCategories(current => [...current, result.category]); setSelectedCategoryId(result.category.id); setNewCategoryName({ tr: "", en: "" }); setLocale("tr"); setNotice({ type: "success", text: result.message });
+      setCategories(current => [...current, result.category]); setSavedCategories(current => [...current, result.category]); setSelectedCategoryId(result.category.id); setNewCategoryName({ tr: "", en: "" }); setLocale("tr"); setNotice({ type: "success", text: result.message });
     } catch (error) { setNotice({ type: "error", text: error instanceof Error ? error.message : "Kategori oluşturulamadı." }); }
     finally { setCreating(false); }
   }
@@ -190,7 +222,7 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
     try {
       const response = await fetch(`/api/admin/product-categories/${category.id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(category) }); const result = await response.json();
       if (!response.ok) throw new Error(result.message);
-      setCategories(current => current.map(item => item.id === category.id ? result.category : item)); setNotice({ type: "success", text: result.message });
+      setCategories(current => current.map(item => item.id === category.id ? result.category : item)); setSavedCategories(current => current.map(item => item.id === category.id ? result.category : item)); setNotice({ type: "success", text: result.message });
     } catch (error) { setNotice({ type: "error", text: error instanceof Error ? error.message : "Kategori kaydedilemedi." }); }
     finally { setSaving(false); }
   }
@@ -198,7 +230,7 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
     if (!category || category.builtIn || !window.confirm(`${category.name.tr} kategorisini kaldırmak istediğinizden emin misiniz?`)) return;
     const response = await fetch(`/api/admin/product-categories/${category.id}`, { method: "DELETE" }); const result = await response.json();
     if (!response.ok) { setNotice({ type: "error", text: result.message }); return; }
-    const remaining = categories.filter(item => item.id !== category.id); setCategories(remaining); setSelectedCategoryId(remaining[0]?.id ?? ""); setNotice({ type: "success", text: result.message });
+    const remaining = categories.filter(item => item.id !== category.id); setCategories(remaining); setSavedCategories(current => current.filter(item => item.id !== category.id)); setSelectedCategoryId(remaining[0]?.id ?? ""); setNotice({ type: "success", text: result.message });
   }
   async function saveFeaturedProducts() {
     setSaving(true); setNotice(null);
@@ -237,9 +269,34 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
   const featuredOptions = allEditableProducts.map(item => ({ id: item.id, name: item.copy.tr.name, category: categories.find(categoryItem => categoryItem.id === item.categoryId)?.name.tr ?? "Kategorisiz" }));
   const visibleEditableProducts = productListCategory === "all" ? allEditableProducts : allEditableProducts.filter(item => item.categoryId === productListCategory);
   const featuredDirty = featuredProductIds.join("|") !== savedFeaturedProductIds.join("|");
+  const savedProduct = builtInDefinition ? legacyProductFromSection(savedLegacySection, builtInDefinition) : savedProducts.find(item => item.id === selectedId);
+  const productDirty = Boolean(product && savedProduct) && JSON.stringify(product) !== JSON.stringify(savedProduct);
+  const savedCategory = savedCategories.find(item => item.id === selectedCategoryId);
+  const categoryDirty = Boolean(category && savedCategory) && JSON.stringify(category) !== JSON.stringify(savedCategory);
+  const editorDirty = mode === "categories" ? categoryDirty : productDirty || featuredDirty;
+  const storyItems = product ? (product.copy[locale].storyItems ?? storyItemsFromSection(legacySection, locale)) : [];
 
-  return <section className="overflow-hidden rounded-[24px] border border-black/[0.07] bg-white">
-    <div className="sticky top-[65px] z-20 flex flex-wrap items-center gap-3 border-b border-black/[0.07] bg-white/95 p-5 backdrop-blur-lg sm:p-6">
+  function cancelChanges() {
+    if (mode === "categories" && savedCategory) {
+      setCategories(current => current.map(item => item.id === savedCategory.id ? structuredClone(savedCategory) : item));
+    } else {
+      if (builtInDefinition) setLegacySection(structuredClone(savedLegacySection));
+      else if (savedProduct) setProducts(current => current.map(item => item.id === savedProduct.id ? structuredClone(savedProduct) : item));
+      setFeaturedProductIds([...savedFeaturedProductIds]);
+    }
+    setNotice(null);
+  }
+
+  async function saveAllChanges() {
+    if (mode === "categories") await saveCategory();
+    else {
+      if (productDirty) await save();
+      if (featuredDirty) await saveFeaturedProducts();
+    }
+  }
+
+  return <>{actionTarget && editorDirty && createPortal(<><span className="hidden text-[10px] font-semibold uppercase tracking-[0.12em] text-[#e86f12] xl:inline">Kaydedilmemiş değişiklik</span><button type="button" onClick={cancelChanges} disabled={saving} className="flex h-10 items-center gap-2 rounded-xl border border-black/10 bg-white px-4 text-[12px] font-semibold text-black/55"><RotateCcw size={14} />İptal</button><button type="button" onClick={() => void saveAllChanges()} disabled={saving} className="flex h-10 items-center gap-2 rounded-xl bg-[#b56b2d] px-4 text-[12px] font-semibold text-white disabled:opacity-40"><Save size={14} />{saving ? "Kaydediliyor" : "Kaydet"}</button></>, actionTarget)}<section className="rounded-[24px] border border-black/[0.07] bg-white">
+    <div className="flex flex-wrap items-center gap-3 border-b border-black/[0.07] p-5 sm:p-6">
       <div className="mr-auto">
         <h2 className="text-[15px] font-semibold">{mode === "categories" ? "Ürün kategorileri" : "Ürün ekle ve düzenle"}</h2>
         <p className="mt-1 text-[11px] text-black/40">{mode === "categories" ? "Faaliyetler sayfasındaki ürün filtrelerini yönetin." : "Ürünleri kategorilerine göre yönetin ve ana sayfa favorilerini seçin."}</p>
@@ -259,13 +316,13 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
           <div className="flex items-start gap-3"><div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#e86f12] text-white"><Plus size={16} /></div><div><h3 className="text-[13px] font-semibold">Yeni kategori ekle</h3><p className="mt-1 text-[10px] leading-5 text-black/40">Kategori, faaliyetler sayfasındaki filtrelerde görünür. İki dilde adını yazıp oluşturun.</p></div></div>
           <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_auto]"><label><span className="mb-2 block text-[10px] font-semibold">Türkçe adı</span><input value={newCategoryName.tr} onChange={event => setNewCategoryName(current => ({ ...current, tr: event.target.value }))} placeholder="Örn. Süt" className="h-11 w-full rounded-xl border border-black/10 bg-white px-3 text-[12px] outline-none focus:border-[#e86f12]/50" /></label><label><span className="mb-2 block text-[10px] font-semibold">İngilizce adı</span><input value={newCategoryName.en} onChange={event => setNewCategoryName(current => ({ ...current, en: event.target.value }))} placeholder="Örn. Dairy" className="h-11 w-full rounded-xl border border-black/10 bg-white px-3 text-[12px] outline-none focus:border-[#e86f12]/50" /></label><button type="button" disabled={creating} onClick={() => void createCategory()} className="mt-auto flex h-11 items-center justify-center gap-2 rounded-xl bg-[#e86f12] px-5 text-[11px] font-semibold text-white disabled:opacity-50">{creating ? <LoaderCircle size={14} className="animate-spin" /> : <Plus size={14} />}Kategoriyi oluştur</button></div>
         </div>
-        {category ? <div className="mt-6 rounded-2xl border border-black/[0.07] p-5"><div className="flex flex-wrap items-center gap-3 border-b border-black/[0.07] pb-5"><div className="mr-auto"><h3 className="text-[13px] font-semibold">{category.name.tr}</h3><p className="mt-1 text-[10px] text-black/35">Kategori adını düzenleyin</p></div>{languageButtons}{!category.builtIn && <button type="button" onClick={() => void removeCategory()} className="flex h-10 items-center gap-2 rounded-xl border border-red-200 px-3 text-[10px] font-semibold text-red-600"><Trash2 size={13} />Kategoriyi kaldır</button>}<button type="button" disabled={saving} onClick={() => void saveCategory()} className="flex h-10 items-center gap-2 rounded-xl bg-[#173e2e] px-4 text-[11px] font-semibold text-white"><Save size={14} />Değişiklikleri kaydet</button></div>
+        {category ? <div className="mt-6 rounded-2xl border border-black/[0.07] p-5"><div className="flex flex-wrap items-center gap-3 border-b border-black/[0.07] pb-5"><div className="mr-auto"><h3 className="text-[13px] font-semibold">{category.name.tr}</h3><p className="mt-1 text-[10px] text-black/35">Kategori adını düzenleyin</p></div>{languageButtons}{!category.builtIn && <button type="button" onClick={() => void removeCategory()} className="flex h-10 items-center gap-2 rounded-xl border border-red-200 px-3 text-[10px] font-semibold text-red-600"><Trash2 size={13} />Kategoriyi kaldır</button>}</div>
           <div className="mt-5 max-w-2xl"><label className="block rounded-2xl bg-[#fcfcfa] p-4"><span className="mb-2 block text-[11px] font-semibold">{locale === "tr" ? "Türkçe kategori adı" : "İngilizce kategori adı"}</span><input value={category.name[locale]} onChange={event => updateCategory(draft => { draft.name[locale] = event.target.value; })} className="h-11 w-full rounded-xl border border-black/[0.08] bg-white px-3 text-[13px] outline-none" /><span className="mt-2 block text-[10px] leading-5 text-black/35">Bu ad faaliyetler sayfasının ürün filtrelerinde gösterilir.</span></label></div>
         </div> : null}
       </div>
     </div> : <div>
       <div className="border-b border-black/[0.07] bg-[#f4f8f5] p-5 sm:p-6">
-        <div className="flex flex-wrap items-center gap-3"><div className="mr-auto flex items-start gap-3"><div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#24734d] text-white"><Star size={17} /></div><div><h3 className="text-[14px] font-semibold">Ana Sayfa Favori Ürünleri</h3><p className="mt-1 text-[10px] leading-5 text-black/45">Ana sayfada gösterilecek dört ürünü seçin. Oklarla görünme sırasını değiştirin.</p></div></div><span className={`rounded-full px-3 py-1.5 text-[10px] font-semibold ${featuredProductIds.length === 4 ? "bg-[#24734d] text-white" : "bg-white text-black/45"}`}>{featuredProductIds.length}/4 seçili</span><button type="button" disabled={saving || featuredProductIds.length < 1 || !featuredDirty} onClick={() => void saveFeaturedProducts()} className="flex h-10 items-center gap-2 rounded-xl bg-[#173e2e] px-4 text-[10px] font-semibold text-white disabled:opacity-35"><Save size={13} />Favorileri kaydet</button></div>
+        <div className="flex flex-wrap items-center gap-3"><div className="mr-auto flex items-start gap-3"><div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#24734d] text-white"><Star size={17} /></div><div><h3 className="text-[14px] font-semibold">Ana Sayfa Favori Ürünleri</h3><p className="mt-1 text-[10px] leading-5 text-black/45">Ana sayfada gösterilecek dört ürünü seçin. Oklarla görünme sırasını değiştirin.</p></div></div><span className={`rounded-full px-3 py-1.5 text-[10px] font-semibold ${featuredProductIds.length === 4 ? "bg-[#24734d] text-white" : "bg-white text-black/45"}`}>{featuredProductIds.length}/4 seçili</span></div>
         <div className="mt-5 grid gap-4 xl:grid-cols-[minmax(0,1.15fr)_minmax(320px,.85fr)]">
           <div><p className="mb-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-black/35">Seçilebilecek ürünler</p><div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">{featuredOptions.map(option => { const selectedIndex = featuredProductIds.indexOf(option.id); const selected = selectedIndex >= 0; return <button key={option.id} type="button" onClick={() => toggleFeaturedProduct(option.id)} className={`flex items-center gap-3 rounded-xl border p-3 text-left transition ${selected ? "border-[#24734d] bg-white shadow-sm" : "border-black/[0.07] bg-white/60 hover:border-black/20"}`}><span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[10px] font-bold ${selected ? "bg-[#24734d] text-white" : "bg-black/[0.045] text-black/30"}`}>{selected ? selectedIndex + 1 : "+"}</span><span className="min-w-0"><span className="block truncate text-[11px] font-semibold">{option.name}</span><span className="mt-0.5 block truncate text-[9px] text-black/35">{option.category}</span></span></button>; })}</div></div>
           <div className="rounded-2xl border border-black/[0.07] bg-white p-4"><p className="text-[10px] font-semibold">Ana sayfadaki sıralama</p><div className="mt-3 space-y-2">{featuredProductIds.map((id, index) => { const option = featuredOptions.find(item => item.id === id); if (!option) return null; return <div key={id} className="flex items-center gap-3 rounded-xl bg-[#fafaf7] p-3"><span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#e86f12] text-[10px] font-bold text-white">{index + 1}</span><span className="min-w-0 flex-1"><span className="block truncate text-[11px] font-semibold">{option.name}</span><span className="block truncate text-[9px] text-black/35">{option.category}</span></span><div className="flex gap-1"><button type="button" disabled={index === 0} onClick={() => moveFeaturedProduct(id, -1)} aria-label={`${option.name} ürününü yukarı taşı`} className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/10 disabled:opacity-25"><ChevronUp size={13} /></button><button type="button" disabled={index === featuredProductIds.length - 1} onClick={() => moveFeaturedProduct(id, 1)} aria-label={`${option.name} ürününü aşağı taşı`} className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/10 disabled:opacity-25"><ChevronDown size={13} /></button></div></div>; })}{featuredProductIds.length === 0 && <p className="py-5 text-center text-[10px] text-black/35">Henüz favori ürün seçilmedi.</p>}</div></div>
@@ -274,9 +331,9 @@ export default function ManagedProductsEditor({ initialProducts, initialCategori
       <div className="border-b border-black/[0.07] bg-[#fffaf5] p-5 sm:p-6"><div className="flex flex-wrap items-end gap-3"><div className="mr-auto"><h3 className="text-[13px] font-semibold">Yeni ürün ekle</h3><p className="mt-1 text-[10px] text-black/40">Ürünün listeleneceği kategoriyi seçin; metinler hazır şablonla oluşturulur.</p></div><label className="min-w-[220px]"><span className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.12em] text-black/35">Ürün kategorisi</span><select value={selectedCategoryId} onChange={event => setSelectedCategoryId(event.target.value)} className="h-11 w-full rounded-xl border border-black/10 bg-white px-3 text-[11px] font-semibold outline-none">{categories.map(item => <option key={item.id} value={item.id}>{item.name.tr}</option>)}</select></label><button type="button" disabled={creating || !selectedCategoryId} onClick={() => void createProduct()} className="flex h-11 items-center gap-2 rounded-xl bg-[#e86f12] px-5 text-[11px] font-semibold text-white disabled:opacity-50">{creating ? <LoaderCircle size={14} className="animate-spin" /> : <Plus size={14} />}Seçilen kategoriye ürün ekle</button></div></div>
       <div className="grid min-h-[620px] lg:grid-cols-[260px_minmax(0,1fr)]">
       <aside className="border-b border-black/[0.07] bg-[#fafaf7] p-4 lg:border-b-0 lg:border-r"><p className="px-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-black/30">Ürün listesi</p><label className="mt-3 block"><span className="sr-only">Ürünleri kategoriye göre filtrele</span><select value={productListCategory} onChange={event => setProductListCategory(event.target.value)} className="h-10 w-full rounded-xl border border-black/10 bg-white px-3 text-[10px] font-semibold outline-none"><option value="all">Tüm kategoriler ({allEditableProducts.length})</option>{categories.map(item => <option key={item.id} value={item.id}>{item.name.tr} ({allEditableProducts.filter(productItem => productItem.categoryId === item.id).length})</option>)}</select></label><div className="mt-3 flex gap-2 overflow-x-auto lg:flex-col">{visibleEditableProducts.map(item => <button key={item.id} type="button" onClick={() => { setSelectedId(item.id); setSelectedCategoryId(item.categoryId); }} className={`min-w-[170px] rounded-xl px-3 py-3 text-left lg:min-w-0 ${item.id === selectedId ? "bg-[#173e2e] text-white" : "bg-white text-black/55"}`}><span className="block truncate text-[11px] font-semibold">{item.copy.tr.name}</span><span className={`mt-1 block truncate text-[9px] ${item.id === selectedId ? "text-white/45" : "text-black/30"}`}>{categories.find(cat => cat.id === item.categoryId)?.name.tr ?? "Kategori seçilmedi"}{builtInProducts.some(definition => definition.id === item.id) ? " · Varsayılan" : ""}</span></button>)}</div>{visibleEditableProducts.length === 0 && <p className="px-2 py-8 text-center text-[10px] leading-5 text-black/35">Bu kategoride henüz ürün bulunmuyor.</p>}</aside>
-      {product ? <div className="p-5 sm:p-6"><div className="flex flex-wrap items-center gap-3 border-b border-black/[0.07] pb-5"><div className="mr-auto"><h3 className="text-[14px] font-semibold">{product.copy.tr.name}</h3><p className="mt-1 text-[10px] text-black/35">Ürün bilgileri ve görselleri</p></div>{languageButtons}<label><span className="sr-only">Ürün kategorisi</span><select value={product.categoryId} disabled={Boolean(builtInDefinition)} onChange={event => update(draft => { draft.categoryId = event.target.value; })} className="h-10 rounded-xl border border-black/10 bg-white px-3 text-[11px] font-semibold disabled:bg-black/[0.04] disabled:text-black/40">{categories.map(item => <option key={item.id} value={item.id}>{item.name[locale]}</option>)}</select></label>{!builtInDefinition && <button type="button" onClick={() => void remove()} className="flex h-10 items-center gap-2 rounded-xl border border-red-200 px-3 text-[10px] font-semibold text-red-600"><Trash2 size={13} />Ürünü kaldır</button>}<button type="button" disabled={saving} onClick={() => void save()} className="flex h-10 items-center gap-2 rounded-xl bg-[#173e2e] px-4 text-[11px] font-semibold text-white"><Save size={14} />Ürünü kaydet</button></div>
-        <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1fr)_300px]"><div className="space-y-4">{textFields.map(field => <label key={field.key} className="block rounded-2xl border border-black/[0.065] bg-[#fcfcfa] p-4"><span className="mb-2 block text-[11px] font-semibold">{field.label}</span>{field.multiline ? <textarea rows={3} value={product.copy[locale][field.key]} onChange={event => update(draft => { draft.copy[locale][field.key] = event.target.value; })} className="w-full resize-y rounded-xl border border-black/[0.08] bg-white p-3 text-[13px] leading-6 outline-none" /> : <input value={product.copy[locale][field.key]} onChange={event => update(draft => { draft.copy[locale][field.key] = event.target.value; })} className="h-11 w-full rounded-xl border border-black/[0.08] bg-white px-3 text-[13px] outline-none" />}</label>)}<div className="rounded-2xl border border-black/[0.065] bg-[#fcfcfa] p-4"><p className="text-[11px] font-semibold">Öne çıkan bilgiler</p><div className="mt-3 grid gap-3 sm:grid-cols-2">{product.copy[locale].highlights.map((value, index) => <input key={index} value={value} onChange={event => update(draft => { draft.copy[locale].highlights[index] = event.target.value; })} className="h-11 rounded-xl border border-black/[0.08] bg-white px-3 text-[12px] outline-none" aria-label={`${index + 1}. öne çıkan bilgi`} />)}</div></div></div><aside className="space-y-4"><ProductImageEditor entityId={product.id} slot="cardUrl" label="Ürün kartı görseli" value={product.media.cardUrl} fallback={builtInDefinition ? legacySection.media?.[`product${builtInDefinition.index}`]?.localDefault : undefined} legacySlot={builtInDefinition ? `product${builtInDefinition.index}` : undefined} onChange={value => update(draft => { draft.media.cardUrl = value; })} /><ProductImageEditor entityId={product.id} slot="detailUrl" label="Ürün detay görseli" value={product.media.detailUrl} fallback={builtInDefinition ? legacySection.media?.[`detailProduct${builtInDefinition.index}`]?.localDefault : undefined} legacySlot={builtInDefinition ? `detailProduct${builtInDefinition.index}` : undefined} onChange={value => update(draft => { draft.media.detailUrl = value; })} /></aside></div>
+      {product ? <div className="p-5 sm:p-6"><div className="flex flex-wrap items-center gap-3 border-b border-black/[0.07] pb-5"><div className="mr-auto"><h3 className="text-[14px] font-semibold">{product.copy.tr.name}</h3><p className="mt-1 text-[10px] text-black/35">Ürün bilgileri ve görselleri</p></div>{languageButtons}<label><span className="sr-only">Ürün kategorisi</span><select value={product.categoryId} disabled={Boolean(builtInDefinition)} onChange={event => update(draft => { draft.categoryId = event.target.value; })} className="h-10 rounded-xl border border-black/10 bg-white px-3 text-[11px] font-semibold disabled:bg-black/[0.04] disabled:text-black/40">{categories.map(item => <option key={item.id} value={item.id}>{item.name[locale]}</option>)}</select></label>{!builtInDefinition && <button type="button" onClick={() => void remove()} className="flex h-10 items-center gap-2 rounded-xl border border-red-200 px-3 text-[10px] font-semibold text-red-600"><Trash2 size={13} />Ürünü kaldır</button>}</div>
+        <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1fr)_300px]"><div className="space-y-4">{textFields.map(field => <label key={field.key} className="block rounded-2xl border border-black/[0.065] bg-[#fcfcfa] p-4"><span className="mb-2 block text-[11px] font-semibold">{field.label}</span>{field.multiline ? <textarea rows={3} value={product.copy[locale][field.key]} onChange={event => update(draft => { draft.copy[locale][field.key] = event.target.value; })} className="w-full resize-y rounded-xl border border-black/[0.08] bg-white p-3 text-[13px] leading-6 outline-none" /> : <input value={product.copy[locale][field.key]} onChange={event => update(draft => { draft.copy[locale][field.key] = event.target.value; })} className="h-11 w-full rounded-xl border border-black/[0.08] bg-white px-3 text-[13px] outline-none" />}</label>)}<div className="rounded-2xl border border-black/[0.065] bg-[#fcfcfa] p-4"><p className="text-[11px] font-semibold">Öne çıkan bilgiler</p><div className="mt-3 grid gap-3 sm:grid-cols-2">{product.copy[locale].highlights.map((value, index) => <input key={index} value={value} onChange={event => update(draft => { draft.copy[locale].highlights[index] = event.target.value; })} className="h-11 rounded-xl border border-black/[0.08] bg-white px-3 text-[12px] outline-none" aria-label={`${index + 1}. öne çıkan bilgi`} />)}</div></div><section className="rounded-2xl border border-black/[0.065] bg-[#f5f4ef] p-4 sm:p-5"><div><h4 className="text-[12px] font-semibold">Sahadan Ürüne Kartları</h4><p className="mt-1 text-[10px] leading-5 text-black/40">Ürün detay sayfasındaki dört hareketli kartın metinlerini düzenleyin.</p></div><div className="mt-4 space-y-4">{storyItems.map((item, index) => <article key={index} className="rounded-2xl border border-black/[0.07] bg-white p-4"><div className="mb-4 flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#173e2e] text-[10px] font-bold text-white">{String(index + 1).padStart(2, "0")}</span><strong className="text-[11px]">{index + 1}. kart</strong></div><div className="grid gap-3 sm:grid-cols-2"><label><span className="mb-1.5 block text-[9px] font-semibold text-black/40">Üst etiket</span><input value={item.eyebrow} onChange={event => updateStoryItem(index, "eyebrow", event.target.value)} className="h-10 w-full rounded-xl border border-black/[0.08] px-3 text-[11px] outline-none" /></label><label><span className="mb-1.5 block text-[9px] font-semibold text-black/40">Başlık</span><input value={item.title} onChange={event => updateStoryItem(index, "title", event.target.value)} className="h-10 w-full rounded-xl border border-black/[0.08] px-3 text-[11px] outline-none" /></label><label className="sm:col-span-2"><span className="mb-1.5 block text-[9px] font-semibold text-black/40">Vurgulu başlık</span><input value={item.accent} onChange={event => updateStoryItem(index, "accent", event.target.value)} className="h-10 w-full rounded-xl border border-black/[0.08] px-3 text-[11px] outline-none" /></label><label><span className="mb-1.5 block text-[9px] font-semibold text-black/40">Ana açıklama</span><textarea rows={3} value={item.body} onChange={event => updateStoryItem(index, "body", event.target.value)} className="w-full resize-y rounded-xl border border-black/[0.08] p-3 text-[11px] leading-5 outline-none" /></label><label><span className="mb-1.5 block text-[9px] font-semibold text-black/40">Sağ alt not</span><textarea rows={3} value={item.note} onChange={event => updateStoryItem(index, "note", event.target.value)} className="w-full resize-y rounded-xl border border-black/[0.08] p-3 text-[11px] leading-5 outline-none" /></label></div></article>)}</div></section></div><aside className="space-y-4"><ProductImageEditor entityId={product.id} slot="cardUrl" label="Ürün kartı görseli" value={product.media.cardUrl} fallback={builtInDefinition ? legacySection.media?.[`product${builtInDefinition.index}`]?.localDefault : undefined} legacySlot={builtInDefinition ? `product${builtInDefinition.index}` : undefined} onChange={value => update(draft => { draft.media.cardUrl = value; })} /><ProductImageEditor entityId={product.id} slot="detailUrl" label="Ürün detay görseli" value={product.media.detailUrl} fallback={builtInDefinition ? legacySection.media?.[`detailProduct${builtInDefinition.index}`]?.localDefault : undefined} legacySlot={builtInDefinition ? `detailProduct${builtInDefinition.index}` : undefined} onChange={value => update(draft => { draft.media.detailUrl = value; })} /></aside></div>
       </div> : <div className="flex items-center justify-center p-10 text-center text-sm text-black/35">Yeni ürün ekleyerek başlayın.</div>}
     </div></div>}
-  </section>;
+  </section></>;
 }

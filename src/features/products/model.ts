@@ -1,5 +1,13 @@
 export type ProductLocale = "tr" | "en";
 
+export type ProductStoryItem = {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  body: string;
+  note: string;
+};
+
 export type ManagedProductCopy = {
   name: string;
   description: string;
@@ -19,6 +27,7 @@ export type ManagedProductCopy = {
   characterValue: string;
   characterDescription: string;
   highlights: string[];
+  storyItems?: ProductStoryItem[];
 };
 
 export type ManagedProduct = {
@@ -45,9 +54,32 @@ const safeMedia = (value: unknown) => value === null || (typeof value === "strin
 function validCopy(value: unknown): value is ManagedProductCopy {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const record = value as Record<string, unknown>;
-  if (Object.keys(record).length !== copyKeys.length || copyKeys.some(key => !(key in record))) return false;
+  if (Object.keys(record).some(key => ![...copyKeys, "storyItems"].includes(key as typeof copyKeys[number])) || copyKeys.some(key => !(key in record))) return false;
   if (!Array.isArray(record.highlights) || record.highlights.length !== 4 || record.highlights.some(item => !safeText(item, 180))) return false;
+  if (record.storyItems !== undefined) {
+    if (!Array.isArray(record.storyItems) || record.storyItems.length !== 4) return false;
+    for (const item of record.storyItems) {
+      if (!item || typeof item !== "object" || Array.isArray(item)) return false;
+      const story = item as Record<string, unknown>;
+      if (Object.keys(story).sort().join("|") !== "accent|body|eyebrow|note|title") return false;
+      if (!safeText(story.eyebrow, 120) || !safeText(story.title, 240) || !safeText(story.accent, 240) || !safeText(story.body, 1200) || !safeText(story.note, 500)) return false;
+    }
+  }
   return copyKeys.filter(key => key !== "highlights").every(key => safeText(record[key], key.includes("Text") || key.includes("Description") || key === "description" ? 1200 : 240));
+}
+
+function defaultStoryItems(locale: ProductLocale): ProductStoryItem[] {
+  return locale === "tr" ? [
+    { eyebrow: "Sahayı okumak", title: "Her sezon aynı başlamaz.", accent: "Önce koşulları anlamak gerekir.", body: "Üretime başlamadan önce sahanın mevcut durumunu ve sezonun karakterini birlikte değerlendiriyoruz.", note: "İyi bir üretim planı, sahayı olduğu haliyle okuyarak başlar." },
+    { eyebrow: "Doğru planlama", title: "Her kararın bir zamanı vardır.", accent: "Planlama üretimin temelidir.", body: "Ürünün ihtiyaçlarına uygun adımları doğru zamanda ve doğru yöntemle planlıyoruz.", note: "Doğru plan, sürecin tamamına yön verir." },
+    { eyebrow: "Kontrollü süreç", title: "Üretimi yakından izliyoruz.", accent: "Her aşamayı birlikte yönetiyoruz.", body: "Sahadaki gelişimi düzenli olarak takip ediyor, gerekli kararları güncel koşullara göre alıyoruz.", note: "Süreklilik, dikkatli takip ve zamanında müdahaleyle sağlanır." },
+    { eyebrow: "Güvenilir ürün", title: "Emeği değerli ürüne dönüştürüyoruz.", accent: "Kaliteyi son aşamaya kadar koruyoruz.", body: "Hasattan tedariğe kadar ürünün niteliğini koruyan güvenilir bir süreç yürütüyoruz.", note: "Topraktan başlayan yolculuk, güvenilir ürünle tamamlanır." },
+  ] : [
+    { eyebrow: "Reading the field", title: "Every season begins differently.", accent: "Conditions come first.", body: "Before production begins, we evaluate the field and the character of the season together.", note: "A sound production plan begins by reading the field as it is." },
+    { eyebrow: "Right planning", title: "Every decision has its time.", accent: "Planning is the foundation.", body: "We plan each step at the right time and with the right method for the product's needs.", note: "The right plan guides the entire process." },
+    { eyebrow: "Controlled process", title: "We follow production closely.", accent: "Every stage is managed together.", body: "We monitor progress in the field and make decisions according to current conditions.", note: "Continuity comes from careful monitoring and timely action." },
+    { eyebrow: "Reliable product", title: "We turn effort into value.", accent: "Quality is protected to the end.", body: "From harvest to supply, we run a reliable process that preserves product quality.", note: "The journey that starts in the soil ends with a reliable product." },
+  ];
 }
 
 export function validateManagedProduct(value: unknown): ManagedProduct | null {
@@ -85,7 +117,7 @@ export function createDefaultManagedProduct(id: string, order: number, categoryI
     sowingValue: "Uygun ekim dönemi", sowingDescription: "Ekim dönemini ve koşullarını açıklayın.",
     harvestValue: "Uygun hasat dönemi", harvestDescription: "Hasat sürecini açıklayın.",
     characterValue: "Özenle seçilmiş", characterDescription: "Ürünün öne çıkan niteliğini açıklayın.",
-    highlights: ["Kaliteli ürün", "Güvenilir tedarik", "Kontrollü süreç", "Sürdürülebilir yaklaşım"],
+    highlights: ["Kaliteli ürün", "Güvenilir tedarik", "Kontrollü süreç", "Sürdürülebilir yaklaşım"], storyItems: defaultStoryItems("tr"),
   };
   const en: ManagedProductCopy = {
     name: "New Product", description: "Write a short introduction for the product here.",
@@ -96,7 +128,7 @@ export function createDefaultManagedProduct(id: string, order: number, categoryI
     sowingValue: "Suitable sowing period", sowingDescription: "Describe the sowing period and conditions.",
     harvestValue: "Suitable harvest period", harvestDescription: "Describe the harvest process.",
     characterValue: "Carefully selected", characterDescription: "Describe the product's main characteristic.",
-    highlights: ["Quality product", "Reliable supply", "Controlled process", "Sustainable approach"],
+    highlights: ["Quality product", "Reliable supply", "Controlled process", "Sustainable approach"], storyItems: defaultStoryItems("en"),
   };
   return { id, categoryId, slug: { tr: `yeni-urun-${suffix}`, en: `new-product-${suffix}` }, copy: { tr, en }, media: { cardUrl: null, detailUrl: null }, order, createdAt: now, updatedAt: now };
 }

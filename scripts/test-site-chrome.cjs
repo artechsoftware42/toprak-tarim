@@ -26,6 +26,8 @@ changed = copy(defaultSiteChrome); changed._id = 'browser-serialized-mongodb-id'
 const sanitized = validateSiteChrome(changed);
 assert.ok(sanitized);
 assert.equal(Object.prototype.hasOwnProperty.call(sanitized, '_id'), false);
+changed = copy(defaultSiteChrome); changed.contact.email.display = 'iletisim@example.com'; changed.contact.email.href = 'mailto:iletisim@example.com'; assert.ok(validateSiteChrome(changed));
+changed = copy(defaultSiteChrome); changed.contact.phone.display = '+90 332 123 45 67'; changed.contact.phone.href = 'tel:+903321234567'; assert.ok(validateSiteChrome(changed));
 changed = copy(defaultSiteChrome); changed.navigation[1].href = '/about'; assert.equal(validateSiteChrome(changed), null);
 changed = copy(defaultSiteChrome); changed.footer.legalLinks[0].href = 'javascript:alert(1)'; assert.equal(validateSiteChrome(changed), null);
 changed = copy(defaultSiteChrome); changed.navigation.push(changed.navigation[0]); assert.equal(validateSiteChrome(changed), null);

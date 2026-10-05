@@ -20,6 +20,7 @@ import {
 
 import type { Product } from "@/data/products";
 import { ContentImage, ContentText, useSectionContent } from "@/features/home/content/HomeContent";
+import type { ProductStoryItem } from "@/features/products/model";
 import { localizedHref } from "@/lib/site-routing";
 
 /* =========================================================
@@ -190,10 +191,12 @@ function WhiteStoryCard({
   card,
   index,
   progress,
+  storyItem,
 }: {
   card: WhiteStoryCardData;
   index: number;
   progress: MotionValue<number>;
+  storyItem?: ProductStoryItem;
 }) {
   const { text } = useSectionContent("activityPage");
   const storyIndex = index + 1;
@@ -291,7 +294,7 @@ function WhiteStoryCard({
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
             <span className="text-[8px] font-semibold uppercase tracking-[0.28em] text-[#F4A04A] sm:text-[9px]">
-              {card.index} / {text(`detail_story_${storyIndex}_eyebrow`)}
+              {card.index} / {storyItem?.eyebrow ?? text(`detail_story_${storyIndex}_eyebrow`)}
             </span>
 
             <h3
@@ -307,9 +310,9 @@ function WhiteStoryCard({
                 tracking-[-0.052em]
               "
             >
-              <ContentText section="activityPage" field={`detail_story_${storyIndex}_title`} />
+              {storyItem?.title ?? <ContentText section="activityPage" field={`detail_story_${storyIndex}_title`} />}
               <br className="hidden sm:block" />
-              <span className="text-white/44"> <ContentText section="activityPage" field={`detail_story_${storyIndex}_accent`} /></span>
+              <span className="text-white/44"> {storyItem?.accent ?? <ContentText section="activityPage" field={`detail_story_${storyIndex}_accent`} />}</span>
             </h3>
           </div>
 
@@ -321,13 +324,13 @@ function WhiteStoryCard({
         <div className="grid gap-5 md:grid-cols-12 md:items-end md:gap-8">
           <div className="md:col-span-7">
             <p className="max-w-[730px] text-[11px] leading-[1.55] text-white/60 sm:text-[15px] sm:leading-7 md:text-[16px] md:leading-8">
-              <ContentText section="activityPage" field={`detail_story_${storyIndex}_body`} />
+              {storyItem?.body ?? <ContentText section="activityPage" field={`detail_story_${storyIndex}_body`} />}
             </p>
           </div>
 
           <div className="md:col-span-4 md:col-start-9">
             <p className="max-w-[400px] text-[10px] font-medium leading-[1.55] text-white/40 sm:text-[13px] sm:leading-6 md:ml-auto md:text-right">
-              <ContentText section="activityPage" field={`detail_story_${storyIndex}_note`} />
+              {storyItem?.note ?? <ContentText section="activityPage" field={`detail_story_${storyIndex}_note`} />}
             </p>
 
             {index === whiteStoryCards.length - 1 && (
@@ -470,6 +473,7 @@ function WhiteProductStory({
                 card={card}
                 index={index}
                 progress={scrollYProgress}
+                storyItem={product.managed?.copy[locale].storyItems?.[index]}
               />
             ))}
           </div>

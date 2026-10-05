@@ -29,6 +29,8 @@ const object = (value: unknown): value is Record<string, unknown> => !!value && 
 const exactKeys = (value: Record<string, unknown>, baseline: object) => Object.keys(value).sort().join("|") === Object.keys(baseline).sort().join("|");
 const safeText = (value: unknown, max = 1000): value is string => typeof value === "string" && Boolean(value.trim()) && value.length <= max;
 const localized = (value: unknown, max = 1000): value is LocalizedText => object(value) && exactKeys(value, { tr: "", en: "" }) && safeText(value.tr, max) && safeText(value.en, max);
+export const emailLink = (value: string) => `mailto:${value.trim()}`;
+export const phoneLink = (value: string) => `tel:${value.trim().replace(/[^\d+]/g, "").replace(/(?!^)\+/g, "")}`;
 
 function fixedLinkList(value: unknown, baseline: Array<{ key: string; href: string }>) {
   if (!Array.isArray(value) || value.length !== baseline.length) return false;
@@ -59,11 +61,10 @@ export function validateSiteChrome(value: unknown): SiteChrome | null {
     }
   }
   if (!object(value.contact) || !exactKeys(value.contact, baseline.contact)) return null;
-  for (const key of ["email", "phone"] as const) {
-    const entry = value.contact[key];
-    const expected = baseline.contact[key];
-    if (!object(entry) || !exactKeys(entry, expected) || !localized(entry.label, 80) || !safeText(entry.display, 240) || entry.href !== expected.href) return null;
-  }
+  const email = value.contact.email;
+  if (!object(email) || !exactKeys(email, baseline.contact.email) || !localized(email.label, 80) || !safeText(email.display, 240) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.display) || email.href !== emailLink(email.display)) return null;
+  const phone = value.contact.phone;
+  if (!object(phone) || !exactKeys(phone, baseline.contact.phone) || !localized(phone.label, 80) || !safeText(phone.display, 60) || phoneLink(phone.display).replace("tel:", "").replace("+", "").length < 3 || phone.href !== phoneLink(phone.display)) return null;
   const address = value.contact.address;
   if (!object(address) || !exactKeys(address, baseline.contact.address) || !localized(address.label, 80) || !localized(address.display, 500) || address.href !== baseline.contact.address.href) return null;
   if (!fixedLinkList(value.socials, baseline.socials)) return null;
