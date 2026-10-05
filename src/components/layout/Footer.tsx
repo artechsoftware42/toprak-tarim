@@ -248,10 +248,10 @@ export default function Footer({ content }: { content: SiteChrome }) {
             </p>
 
             <Link
-              href="https://artechsoftware.com"
+              href="https://artechyazilim.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Artech Software"
+              aria-label="Artech Yazılım"
               className="group flex w-fit items-center gap-4"
             >
               <span className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8E8E8E] transition duration-300 group-hover:text-[#D6D6D6]">
@@ -260,7 +260,7 @@ export default function Footer({ content }: { content: SiteChrome }) {
 
               <Image
                 src={artechLogo}
-                alt="Artech Software"
+                alt="Artech Yazılım"
                 className="h-auto w-24 object-contain opacity-80 transition duration-300 group-hover:-translate-y-1 group-hover:opacity-100"
               />
             </Link>
