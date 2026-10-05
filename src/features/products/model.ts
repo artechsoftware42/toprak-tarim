@@ -49,7 +49,7 @@ const copyKeys = [
 
 const safeText = (value: unknown, max: number) => typeof value === "string" && value.trim().length > 0 && value.length <= max;
 const safeSlug = (value: unknown) => typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && value.length <= 80;
-const safeMedia = (value: unknown) => value === null || (typeof value === "string" && (/^\/api\/media\/[0-9a-f]{24}$/.test(value) || /^\/[a-zA-Z0-9/_-]+\.(?:png|jpe?g|webp|gif|avif)$/.test(value) || /^https:\/\//.test(value)) && value.length <= 1000);
+const safeMedia = (value: unknown) => value === null || (typeof value === "string" && (/^\/api\/media\/(?:[0-9a-f]{24}|[0-9a-f]{64}\.(?:jpg|jpeg|png|webp|gif|avif))$/.test(value) || /^\/[a-zA-Z0-9/_-]+\.(?:png|jpe?g|webp|gif|avif)$/.test(value) || /^https:\/\//.test(value)) && value.length <= 1000);
 
 function validCopy(value: unknown): value is ManagedProductCopy {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;

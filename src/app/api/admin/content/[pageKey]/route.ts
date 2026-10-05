@@ -2,7 +2,7 @@ import "server-only";
 
 import { isAdminRequest } from "@/lib/admin-auth";
 import { getMongoClient } from "@/lib/mongodb";
-import { getMediaBucket, mediaObjectId } from "@/lib/media-storage";
+import { deleteMediaByUrl, isInternalMediaUrl } from "@/lib/media-storage";
 import { pageKeys, type PageKey, validateSection } from "@/features/home/content/model";
 
 export async function PUT(request: Request, context: { params: Promise<{ pageKey: string }> }) {
@@ -23,15 +23,16 @@ export async function PUT(request: Request, context: { params: Promise<{ pageKey
     if (result.matchedCount !== 1) return Response.json({ message: "Bölüm veritabanında bulunamadı." }, { status: 404 });
     const previousUrls = Object.values(previous?.media || {}).flatMap(value => typeof value === "object" && value && "externalUrl" in value && typeof value.externalUrl === "string" ? [value.externalUrl] : []);
     const currentUrls = new Set(Object.values(section.media || {}).flatMap(value => value.externalUrl ? [value.externalUrl] : []));
-    const removed = previousUrls.filter(url => /^\/api\/media\/[0-9a-f]{24}$/.test(url) && !currentUrls.has(url));
+    const removed = previousUrls.filter(url => isInternalMediaUrl(url) && !currentUrls.has(url));
     if (removed.length) {
       try {
-        const documents = await collection.find({}, { projection: { media: 1 } }).toArray();
-        const bucket = await getMediaBucket();
+        const documents = [
+          ...await collection.find({}, { projection: { media: 1 } }).toArray(),
+          ...await client.db(process.env.MONGODB_DB || "toprak-tarim").collection("products").find({}, { projection: { media: 1 } }).toArray(),
+        ];
         for (const url of removed) {
           if (documents.some(document => JSON.stringify(document.media || {}).includes(url))) continue;
-          const id = mediaObjectId(url.slice("/api/media/".length));
-          if (id) await bucket.delete(id).catch(() => undefined);
+          await deleteMediaByUrl(url);
         }
       } catch { console.warn("[admin-content] Unused media cleanup could not be completed."); }
     }

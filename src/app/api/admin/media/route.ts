@@ -1,8 +1,5 @@
-import { createHash } from "node:crypto";
-import { once } from "node:events";
-
 import { isAdminRequest } from "@/lib/admin-auth";
-import { getMediaBucket, internalMediaUrl } from "@/lib/media-storage";
+import { storeMedia } from "@/lib/media-storage";
 import { defaults, pageKeys, type PageKey } from "@/features/home/content/model";
 
 export const runtime = "nodejs";
@@ -29,10 +26,6 @@ function sniffMime(bytes: Uint8Array) {
   if (starts(0x1a, 0x45, 0xdf, 0xa3)) return "video/webm";
   if (ascii(4, 8) === "ftyp") return ascii(8, 12) === "qt  " ? "video/quicktime" : "video/mp4";
   return null;
-}
-
-function safeFilename(value: string) {
-  return value.normalize("NFKC").replace(/[^a-zA-Z0-9._-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 120) || "media";
 }
 
 export async function POST(request: Request) {
@@ -64,19 +57,10 @@ export async function POST(request: Request) {
   }
 
   try {
-    const bucket = await getMediaBucket();
-    const sha256 = createHash("sha256").update(buffer).digest("hex");
-    const existing = await bucket.find({ "metadata.sha256": sha256, "metadata.kind": kind }).limit(1).next();
-    if (existing) return Response.json({ url: internalMediaUrl(existing._id), mime, size: existing.length, message: "Medya daha önce yüklenmiş; mevcut dosya kullanıldı." });
-
-    const upload = bucket.openUploadStream(safeFilename(file.name), {
-      metadata: { pageKey: rawKey, slot: rawSlot, kind, mime, sha256, originalName: file.name.slice(0, 240), uploadedAt: new Date() },
-    });
-    upload.end(buffer);
-    await once(upload, "finish");
-    return Response.json({ url: internalMediaUrl(upload.id), mime, size: file.size, message: "Medya yüklendi. Değişikliği yayınlamak için Kaydet'e basın." }, { status: 201 });
-  } catch {
-    console.error("[admin-media] Media upload failed.");
-    return Response.json({ message: "Medya veritabanına yüklenemedi." }, { status: 503 });
+    const stored = await storeMedia(buffer, mime, { pageKey: rawKey, slot: rawSlot, kind, originalName: file.name.slice(0, 240) });
+    return Response.json({ url: stored.url, mime: stored.mime, size: stored.size, message: stored.reused ? "Medya daha önce yüklenmiş; mevcut dosya kullanıldı." : "Medya yüklendi. Değişikliği yayınlamak için Kaydet'e basın." }, { status: stored.reused ? 200 : 201 });
+  } catch (error) {
+    console.error("[admin-media] Media upload failed.", error);
+    return Response.json({ message: process.env.MEDIA_STORAGE_DRIVER === "hostinger-filesystem" ? "Hostinger medya klasörüne yazılamadı. Klasör yolunu ve izinlerini kontrol edin." : "Medya veritabanına yüklenemedi." }, { status: 503 });
   }
 }

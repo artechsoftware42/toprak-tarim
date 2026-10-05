@@ -2799,8 +2799,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -2830,8 +2830,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -2861,8 +2861,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -5070,8 +5070,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -6017,8 +6017,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -6048,8 +6048,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -6079,8 +6079,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -12968,8 +12968,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -26825,8 +26825,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -26856,8 +26856,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -26887,8 +26887,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -26918,8 +26918,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -26949,8 +26949,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -26980,8 +26980,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27011,8 +27011,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27042,8 +27042,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27073,8 +27073,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27104,8 +27104,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27135,8 +27135,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27166,8 +27166,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }
@@ -27197,8 +27197,8 @@
                     },
                     {
                       "type": "string",
-                      "pattern": "^/api/media/[0-9a-f]{24}$",
-                      "maxLength": 35
+                      "pattern": "^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$",
+                      "maxLength": 85
                     }
                   ]
                 }

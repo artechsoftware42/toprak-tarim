@@ -38,6 +38,8 @@ for(const mutate of [
 ]){changed=copy(about);mutate(changed);assert.equal(validateSection(changed,'about'),null);}
 changed=copy(about);changed.media.primary.externalUrl='https://media.example.com/photo.png';assert.ok(validateSection(changed,'about'));
 changed=copy(about);changed.media.primary.externalUrl='/api/media/0123456789abcdef01234567';assert.ok(validateSection(changed,'about'));
+changed=copy(about);changed.media.primary.externalUrl='/api/media/'+'a'.repeat(64)+'.webp';assert.ok(validateSection(changed,'about'));
+changed=copy(about);changed.media.primary.externalUrl='/api/media/'+'a'.repeat(64)+'.exe';assert.equal(validateSection(changed,'about'),null);
 changed=copy(about);changed._id={secret:'not serialized'};assert.equal(validateSection(changed,'about')._id,undefined);
 const production=defaults.find(d=>d.pageKey==='production');
 assert.equal(production.media,undefined);

@@ -58,7 +58,7 @@ export function validateSection(value: unknown, key: PageKey): HomeSection | nul
       if (!object(media) || !sameKeys(media, baseline.media[slot]) || media.localDefault !== baseline.media[slot].localDefault) return null;
       if (media.externalUrl !== null) {
         if (typeof media.externalUrl !== "string" || media.externalUrl.length > 2048) return null;
-        const internalMedia = /^\/api\/media\/[0-9a-f]{24}$/.test(media.externalUrl);
+        const internalMedia = /^\/api\/media\/(?:[0-9a-f]{24}|[0-9a-f]{64}\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$/.test(media.externalUrl);
         if (!internalMedia) {
           try { const url = new URL(media.externalUrl); if (url.protocol !== "https:" || url.username || url.password) return null; } catch { return null; }
         }

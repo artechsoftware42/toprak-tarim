@@ -13,7 +13,7 @@ const schema = {
     pageKey:{const:doc.pageKey},schemaVersion:{const:1},
     displayName:exactObject({tr:{type:'string',minLength:1,maxLength:120},en:{type:'string',minLength:1,maxLength:120}}),
     content:exactObject(Object.fromEntries(['tr','en'].map(locale=>[locale,exactObject(Object.fromEntries(Object.keys(doc.content[locale]).map(key=>[key,{...richText,description:policy[doc.pageKey][key].textEditable?'Editable text and formatting':'Fixed text; formatting may change'}])))]))),
-    ...(doc.media ? {media:exactObject(Object.fromEntries(Object.entries(doc.media).map(([key,value])=>[key,exactObject({localDefault:{const:value.localDefault},externalUrl:{anyOf:[{type:'null'},{type:'string',format:'uri',pattern:'^https://',maxLength:2048},{type:'string',pattern:'^/api/media/[0-9a-f]{24}$',maxLength:35}]}})])))} : {})
+    ...(doc.media ? {media:exactObject(Object.fromEntries(Object.entries(doc.media).map(([key,value])=>[key,exactObject({localDefault:{const:value.localDefault},externalUrl:{anyOf:[{type:'null'},{type:'string',format:'uri',pattern:'^https://',maxLength:2048},{type:'string',pattern:'^/api/media/(?:[0-9a-f]{24}|[0-9a-f]{64}\\.(?:jpg|jpeg|png|webp|gif|avif|mp4|webm|mov))$',maxLength:85}]}})])))} : {})
   }))
 };
 fs.writeFileSync('data/home-sections.schema.json',JSON.stringify(schema,null,2)+'\n');

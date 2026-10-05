@@ -1,8 +1,5 @@
-import { createHash } from "node:crypto";
-import { once } from "node:events";
-
 import { isAdminRequest } from "@/lib/admin-auth";
-import { getMediaBucket, internalMediaUrl } from "@/lib/media-storage";
+import { storeMedia } from "@/lib/media-storage";
 
 export const runtime = "nodejs";
 const IMAGE_LIMIT = 20 * 1024 * 1024;
@@ -34,16 +31,10 @@ export async function POST(request: Request) {
   const mime = sniffImage(buffer.subarray(0, 32));
   if (!mime) return Response.json({ message: "JPG, PNG, WebP, GIF veya AVIF görsel yükleyin." }, { status: 415 });
   try {
-    const bucket = await getMediaBucket();
-    const sha256 = createHash("sha256").update(buffer).digest("hex");
-    const existing = await bucket.find({ "metadata.sha256": sha256, "metadata.kind": "image" }).limit(1).next();
-    if (existing) return Response.json({ url: internalMediaUrl(existing._id), message: "Mevcut görsel kullanıldı." });
-    const upload = bucket.openUploadStream(file.name.slice(0, 120), { metadata: { productId, slot, kind: "image", mime, sha256, uploadedAt: new Date() } });
-    upload.end(buffer);
-    await once(upload, "finish");
-    return Response.json({ url: internalMediaUrl(upload.id), message: "Görsel yüklendi. Ürünü kaydetmeyi unutmayın." }, { status: 201 });
-  } catch {
-    console.error("[admin-products] Product media upload failed.");
-    return Response.json({ message: "Görsel yüklenemedi." }, { status: 503 });
+    const stored = await storeMedia(buffer, mime, { productId, slot, kind: "image", originalName: file.name.slice(0, 120) });
+    return Response.json({ url: stored.url, message: stored.reused ? "Mevcut görsel kullanıldı." : "Görsel yüklendi. Ürünü kaydetmeyi unutmayın." }, { status: stored.reused ? 200 : 201 });
+  } catch (error) {
+    console.error("[admin-products] Product media upload failed.", error);
+    return Response.json({ message: process.env.MEDIA_STORAGE_DRIVER === "hostinger-filesystem" ? "Hostinger medya klasörüne yazılamadı. Klasör yolunu ve izinlerini kontrol edin." : "Görsel yüklenemedi." }, { status: 503 });
   }
 }
