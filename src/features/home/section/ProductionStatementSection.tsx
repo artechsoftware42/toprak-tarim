@@ -10,28 +10,7 @@ import {
 import { useRef } from "react";
 
 import productionBackground from "@/assets/hero3.png";
-const services = [
-  {
-    title: "Hububat Tedariki",
-    description:
-      "Güvenilir üreticilerden kaliteli hububat tedarik ediyoruz.",
-  },
-  {
-    title: "Depolama Hizmetleri",
-    description:
-      "Modern tesislerimizde ürünlerinizi güvenle depoluyoruz.",
-  },
-  {
-    title: "İthal Hammadde",
-    description:
-      "İthal hammaddeleri temin ediyor, zamanında ulaştırıyoruz.",
-  },
-  {
-    title: "Yem Hammaddesi",
-    description:
-      "Hayvancılık için kaliteli yem hammaddeleri sağlıyoruz.",
-  },
-];
+import siteIcon from "@/assets/icon.png";
 
 const INACTIVE_COLOR = "#b8bab6";
 const ANTHRACITE_COLOR = "#18211d";
@@ -90,10 +69,10 @@ export default function ProductionStatementSection() {
 
   const iconEnd = iconStart + 0.045;
 
-  const iconColor = useTransform(
+  const iconFilter = useTransform(
     scrollYProgress,
     [iconStart, iconEnd],
-    [INACTIVE_COLOR, GREEN_COLOR],
+    ["grayscale(1) opacity(0.48)", "grayscale(0) opacity(1)"],
   );
 
   /*
@@ -176,10 +155,15 @@ export default function ProductionStatementSection() {
                 <span className="mt-[0.02em] flex flex-wrap items-center justify-center gap-x-[0.14em] text-[clamp(3.25rem,6.3vw,7.5rem)] leading-[0.86]">
                   <span className="inline-flex items-center">
                     <motion.span
-                      style={{ color: iconColor }}
+                      style={{ filter: iconFilter }}
                       className="mr-[0.035em] inline-flex shrink-0 translate-y-[0.045em]"
                     >
-                      <LeafIcon />
+                      <Image
+                        src={siteIcon}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-[0.62em] w-[0.62em] object-contain"
+                      />
                     </motion.span>
 
                     <AnimatedWord
@@ -245,7 +229,6 @@ export default function ProductionStatementSection() {
     </section>
   );
 }
-
 function AnimatedWord({
   text,
   startIndex,
@@ -303,35 +286,3 @@ function AnimatedLetter({
   );
 }
 
-function LeafIcon() {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      aria-hidden="true"
-      className="h-[0.62em] w-[0.62em]"
-    >
-      <path
-        d="M29.3 48.2C16.7 46.5 9.6 37.4 10.9 24.1c7.9 2 14.2 6.3 18.7 13.1"
-        fill="currentColor"
-      />
-
-      <path
-        d="M31.4 50.8C31.7 34.7 40 22.9 53 17.5c1.9 13.5-4.7 25.6-17.7 31.1"
-        fill="currentColor"
-      />
-
-      <path
-        d="M28.4 41.5c.9-11.7-2.6-21.4-10.5-29.3-3.5 12.2-.1 22.7 10.5 29.3Z"
-        fill="currentColor"
-      />
-
-      <path
-        d="M25 52c5.8-7.8 13.2-14.4 22.1-19.8"
-        stroke="#f4f1e9"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
