@@ -345,6 +345,7 @@ function RichTextEditor({ runs, defaultRuns, textEditable, onChange }: { runs: R
 const assetPreviews: Record<string, string> = { "asset:hero3": hero3.src, "asset:hero4": hero4.src, "asset:icon": icon.src };
 
 function MediaEditor({ pageKey, slot, media, onChange }: { pageKey: PageKey; slot: string; media: MediaReference; onChange: (url: string | null) => void }) {
+  const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const isVideo = /\.(?:mp4|webm|mov)$/i.test(media.localDefault);
   const preview = media.externalUrl || assetPreviews[media.localDefault] || media.localDefault;
@@ -362,7 +363,11 @@ function MediaEditor({ pageKey, slot, media, onChange }: { pageKey: PageKey; slo
     try {
       const response = await fetch("/api/admin/media", { method: "POST", body: form });
       const result = await response.json().catch(() => ({ message: "Sunucu yanıtı okunamadı." }));
-      if (response.status === 401) { window.location.assign("/admin/login"); return; }
+      if (response.status === 401) {
+        router.replace("/admin/login");
+        router.refresh();
+        return;
+      }
       if (!response.ok || typeof result.url !== "string") throw new Error(result.message || "Yükleme başarısız.");
       onChange(result.url);
       setMessage({ type: "success", text: result.message });
