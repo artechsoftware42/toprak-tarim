@@ -792,7 +792,7 @@ function DesktopAbout() {
                       ↳ 01
                     </span>
 
-                    <p className="text-[clamp(0.84rem,0.82vw,0.98rem)] leading-[1.78] tracking-[-0.01em] text-black/55"><ContentText section="about" field="toprak_tarim_2001_yilinda_konya_ovasinda_2" /></p>
+                    <p className="text-[clamp(0.84rem,0.82vw,0.98rem)] leading-[1.78] tracking-[-0.01em] text-black/55"><ContentText section="about" field="toprak_tarim_2001_yilinda_konya_ovasinda" /></p>
                   </div>
                 </div>
               </motion.div>
@@ -903,7 +903,7 @@ function DesktopAbout() {
                     }}
                     className="mt-[9vh]"
                   >
-                    <div className="about-desktop-number text-[clamp(12rem,18vw,23rem)] font-medium leading-[0.55] tracking-[-0.12em] text-[#1F6948]"><ContentText section="about" field="experience_desktop" /></div>
+                    <div className="about-desktop-number text-[clamp(12rem,18vw,23rem)] font-medium leading-[0.55] tracking-[-0.12em] text-[#1F6948]"><ContentText section="about" field="experience_mobile" /></div>
 
                     <div className="mt-[5vh] max-w-[500px]">
                       <SoftDivider />
@@ -1013,7 +1013,7 @@ function DesktopAbout() {
 
                 <span className="text-[8px] uppercase tracking-[0.22em] text-black/30"><ContentText section="about" field="hakkimizda" /></span>
 
-                <p className="mt-7 max-w-[390px] text-[clamp(0.82rem,0.95vw,1rem)] leading-[1.8] text-black/48"><ContentText section="about" field="uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin_2" /></p>
+                <p className="mt-7 max-w-[390px] text-[clamp(0.82rem,0.95vw,1rem)] leading-[1.8] text-black/48"><ContentText section="about" field="uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin" /></p>
 
                 <div className="mt-[6vh]">
                   <AboutButton />
@@ -1043,7 +1043,7 @@ function DesktopAbout() {
                 <div className="col-span-3">
                   <span className="block text-[8px] uppercase tracking-[0.22em] text-black/30"><ContentText section="about" field="merkez" /></span>
 
-                  <span className="mt-1 block text-[13px] font-medium tracking-[-0.02em]"><ContentText section="about" field="konya_turkiye_2" /></span>
+                  <span className="mt-1 block text-[13px] font-medium tracking-[-0.02em]"><ContentText section="about" field="konya_turkiye" /></span>
                 </div>
 
                 <div className="col-span-3 col-start-10 text-right">

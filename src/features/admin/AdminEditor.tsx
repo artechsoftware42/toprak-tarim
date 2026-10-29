@@ -42,8 +42,18 @@ const hiddenAdminFields = new Set([
   "previous", "next", "pause", "play", "slideLabel", "product_aria_suffix",
 ]);
 
-function isVisibleSiteContent(field: string) {
-  return !hiddenAdminFields.has(field) && !field.endsWith("_aria") && !field.endsWith("_alt");
+const hiddenHomeAboutFields = new Set([
+  "toprak_tarim_2001_yilinda_konya_ovasinda_2",
+  "uretim_anlayisimizi_degerlerimizi_ve_toprak_tarimin_2",
+  "konya_turkiye_2",
+  "experience_desktop",
+]);
+
+function isVisibleSiteContent(pageKey: PageKey, field: string) {
+  return !hiddenAdminFields.has(field)
+    && !(pageKey === "about" && hiddenHomeAboutFields.has(field))
+    && !field.endsWith("_aria")
+    && !field.endsWith("_alt");
 }
 
 type AdminAreaKey = "home" | "corporate" | "activities" | "contact";
@@ -143,10 +153,17 @@ const panelSections = adminAreas.flatMap(area => area.sections);
 function panelSectionSnapshot(section: HomeSection, panelSection: AdminPanelSection) {
   const content = Object.fromEntries((["tr", "en"] as Locale[]).map(language => [
     language,
-    Object.fromEntries(Object.entries(section.content[language]).filter(([field]) => isVisibleSiteContent(field) && panelSection.matchesField(field))),
+    Object.fromEntries(Object.entries(section.content[language]).filter(([field]) => isVisibleSiteContent(section.pageKey, field) && panelSection.matchesField(field))),
   ]));
-  const media = Object.fromEntries(Object.entries(section.media ?? {}).filter(([slot]) => !panelSection.mediaSlots || panelSection.mediaSlots.includes(slot)));
+  const media = Object.fromEntries(panelMediaEntries(section, panelSection));
   return { content, media };
+}
+
+function panelMediaEntries(section: HomeSection, panelSection: AdminPanelSection) {
+  const entries = Object.entries(section.media ?? {}).filter(([slot]) => !panelSection.mediaSlots || panelSection.mediaSlots.includes(slot));
+  if (!panelSection.mediaSlots) return entries;
+  const order = new Map(panelSection.mediaSlots.map((slot, index) => [slot, index]));
+  return entries.sort(([left], [right]) => (order.get(left) ?? Number.MAX_SAFE_INTEGER) - (order.get(right) ?? Number.MAX_SAFE_INTEGER));
 }
 
 const labels: Record<string, string> = {
@@ -162,6 +179,7 @@ const labels: Record<string, string> = {
   slide1: "Karşılama videosu · 3. sıra", slide2: "Karşılama fotoğrafı 1 · 1. sıra", slide3: "Karşılama fotoğrafı 2 · 2. sıra",
   hero_aria: "Karşılama alanı erişilebilirlik etiketi", breadcrumb_aria: "Sayfa yolu erişilebilirlik etiketi", home_label: "Ana sayfa bağlantı metni", about_label: "Hakkımızda bağlantı metni", activities_label: "Faaliyetler bağlantı metni",
   primary: "Birinci tanıtım fotoğrafı", secondary: "İkinci tanıtım fotoğrafı", seal: "Kurumsal amblem", background: "Arka plan görseli", hero: "Karşılama görseli",
+  experience_mobile: "Deneyim yılı",
 };
 
 const fieldWords: Record<string, string> = {
@@ -380,6 +398,7 @@ function MediaEditor({ pageKey, slot, media, onChange }: { pageKey: PageKey; slo
 
 export default function AdminEditor({ initialSections, initialManagedProducts, initialCategories, initialFeaturedProductIds }: { initialSections: HomeSection[]; initialManagedProducts: ManagedProduct[]; initialCategories: ProductCategory[]; initialFeaturedProductIds: string[] }) {
   const router = useRouter();
+  const contentListRef = useRef<HTMLDivElement>(null);
   const [saved, setSaved] = useState(() => cloneSections(initialSections));
   const [drafts, setDrafts] = useState(() => cloneSections(initialSections));
   const [activeKey, setActiveKey] = useState<PageKey>("hero");
@@ -409,6 +428,10 @@ export default function AdminEditor({ initialSections, initialManagedProducts, i
     return () => window.removeEventListener("beforeunload", beforeUnload);
   }, [anyDirty]);
 
+  useEffect(() => {
+    contentListRef.current?.scrollTo({ top: 0, behavior: "auto" });
+  }, [activePanelSectionId, locale]);
+
   const sidebarSearch = sidebarQuery.toLocaleLowerCase("tr");
   const visibleAreas = adminAreas.map(area => ({
     ...area,
@@ -416,17 +439,17 @@ export default function AdminEditor({ initialSections, initialManagedProducts, i
   })).filter(area => !sidebarSearch || area.sections.length > 0);
 
   const activeFieldCounts = {
-    tr: Object.keys(section.content.tr).filter(field => isVisibleSiteContent(field) && activePanelSection.matchesField(field)).length,
-    en: Object.keys(section.content.en).filter(field => isVisibleSiteContent(field) && activePanelSection.matchesField(field)).length,
+    tr: Object.keys(section.content.tr).filter(field => isVisibleSiteContent(section.pageKey, field) && activePanelSection.matchesField(field)).length,
+    en: Object.keys(section.content.en).filter(field => isVisibleSiteContent(section.pageKey, field) && activePanelSection.matchesField(field)).length,
   };
 
   const fields = Object.entries(section.content[locale]).filter(([field, runs]) => {
-    if (!isVisibleSiteContent(field) || !activePanelSection.matchesField(field)) return false;
+    if (!isVisibleSiteContent(section.pageKey, field) || !activePanelSection.matchesField(field)) return false;
     const query = contentQuery.toLocaleLowerCase(locale === "tr" ? "tr" : "en");
     return !query || fieldLabel(field).toLocaleLowerCase(locale === "tr" ? "tr" : "en").includes(query) || plainText(runs).toLocaleLowerCase(locale === "tr" ? "tr" : "en").includes(query) || field.toLowerCase().includes(query);
   }).sort(([left], [right]) => activeKey === "hero" ? heroFieldOrder.indexOf(left) - heroFieldOrder.indexOf(right) : 0);
 
-  const mediaEntries = Object.entries(section.media ?? {}).filter(([slot]) => !activePanelSection.mediaSlots || activePanelSection.mediaSlots.includes(slot));
+  const mediaEntries = panelMediaEntries(section, activePanelSection);
 
   function changeSection(update: (section: HomeSection) => void) {
     setDrafts(current => current.map(item => {
@@ -491,7 +514,7 @@ export default function AdminEditor({ initialSections, initialManagedProducts, i
       const copy = structuredClone(item);
       for (const language of ["tr", "en"] as Locale[]) {
         for (const field of Object.keys(copy.content[language])) {
-          if (isVisibleSiteContent(field) && activePanelSection.matchesField(field)) copy.content[language][field] = structuredClone(savedSection.content[language][field]);
+          if (isVisibleSiteContent(copy.pageKey, field) && activePanelSection.matchesField(field)) copy.content[language][field] = structuredClone(savedSection.content[language][field]);
         }
       }
       for (const slot of Object.keys(copy.media ?? {})) {
@@ -588,7 +611,7 @@ export default function AdminEditor({ initialSections, initialManagedProducts, i
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center"><div className="mr-auto flex items-center gap-3"><Type size={17} style={{ color: activeArea.color }} /><div><h2 className="text-[15px] font-semibold">{activePanelSection.label} metinleri</h2><p className="mt-1 text-[11px] text-black/40">{fields.length} alan gösteriliyor · {locale === "tr" ? "Türkçe içerik" : "English content"}</p></div></div><div className="flex rounded-xl bg-black/[0.045] p-1" aria-label="Düzenleme dili">{(["tr", "en"] as Locale[]).map(language => <button key={language} type="button" aria-pressed={locale === language} onClick={() => setLocale(language)} className={`flex h-9 items-center gap-2 rounded-lg px-4 text-[11px] font-semibold transition ${locale === language ? "bg-white text-black shadow-sm" : "text-black/35 hover:text-black"}`}><Languages size={13} />{language === "tr" ? "Türkçe" : "English"}</button>)}</div></div>
                   <label className="mt-4 flex items-center gap-3 rounded-xl border border-black/[0.08] bg-[#fafaf7] px-3.5 focus-within:border-black/20"><Search size={15} className="text-black/30" /><input value={contentQuery} onChange={event => setContentQuery(event.target.value)} placeholder="Alan başlığı veya içerikte ara" className="h-11 min-w-0 flex-1 bg-transparent text-[13px] outline-none placeholder:text-black/30" />{contentQuery && <button type="button" onClick={() => setContentQuery("")} className="rounded-lg p-1.5 text-black/30 transition hover:bg-black/[0.05] hover:text-black" aria-label="İçerik aramasını temizle"><X size={14} /></button>}</label>
                 </div>
-                <div className="admin-scrollbar max-h-[calc(100dvh-250px)] space-y-5 overflow-y-auto p-5 sm:p-6">
+                <div ref={contentListRef} className="admin-scrollbar max-h-[calc(100dvh-250px)] space-y-5 overflow-y-auto p-5 sm:p-6">
                   {fields.map(([field, runs]) => {
                     const textEditable = rules[field]?.textEditable !== false;
                     const defaultRuns = defaults.find(item => item.pageKey === activeKey)!.content[locale][field];
